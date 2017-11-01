@@ -1,0 +1,1954 @@
+{
+  "openapi" : "3.0.0",
+  "info" : {
+    "title" : "Wari teller API",
+    "description" : "This is a new teller API for frontend development",
+    "termsOfService" : "http://wari.com/terms/",
+    "contact" : {
+      "email" : "anton.lobastov@wari.com"
+    },
+    "license" : {
+      "name" : "Apache 2.0",
+      "url" : "http://www.apache.org/licenses/LICENSE-2.0.html"
+    },
+    "version" : "1.0"
+  },
+  "servers" : [ {
+    "url" : "/teller_api/v1",
+    "description" : "Local development server"
+  } ],
+  "tags" : [ {
+    "name" : "parameter",
+    "description" : "parameter"
+  }, {
+    "name" : "report",
+    "description" : "report"
+  }, {
+    "name" : "transaction",
+    "description" : "transaction"
+  }, {
+    "name" : "user",
+    "description" : "user"
+  } ],
+  "paths" : {
+    "/parameter/findMerchantFormByReference/{sessionID}/{reference}" : {
+      "get" : {
+        "tags" : [ "parameter" ],
+        "summary" : "provides a set of fileld of a merchant?s form",
+        "operationId" : "parameterFindMerchantFormByReferenceSessionIDReferenceGet",
+        "parameters" : [ {
+          "name" : "sessionID",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        }, {
+          "name" : "reference",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK, a json object that represented a MerchantForm.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/MerchantForm"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "KO, Bad sessionID"
+          },
+          "401" : {
+            "description" : "KO, Authorization information is missing or invalid."
+          },
+          "404" : {
+            "description" : "KO, empty record found."
+          },
+          "500" : {
+            "description" : "KO, Unknown error."
+          }
+        },
+        "security" : [ {
+          "bearerAuth" : [ ]
+        } ]
+      }
+    },
+    "/parameter/findMerchantInformations/{sessionID}" : {
+      "get" : {
+        "tags" : [ "parameter" ],
+        "summary" : "research a merchant by name or reference and provides merchant informations.",
+        "operationId" : "parameterFindMerchantInformationsSessionIDGet",
+        "parameters" : [ {
+          "name" : "sessionID",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK, an array of MerchantInformation object.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/B2BPartnerInformation"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "KO, Bad sessionID"
+          },
+          "401" : {
+            "description" : "KO, Authorization information is missing or invalid."
+          },
+          "404" : {
+            "description" : "KO, empty record found."
+          },
+          "500" : {
+            "description" : "KO, Unknown error."
+          }
+        },
+        "security" : [ {
+          "bearerAuth" : [ ]
+        } ]
+      }
+    },
+    "/parameter/getAllIDtypes/{sessionID}" : {
+      "get" : {
+        "tags" : [ "parameter" ],
+        "summary" : "provides all the ID types used in Wari platform.",
+        "operationId" : "parameterGetAllIDtypesSessionIDGet",
+        "parameters" : [ {
+          "name" : "sessionID",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK, an array of PieceType object.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/PieceType"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "KO, Bad sessionID"
+          },
+          "401" : {
+            "description" : "KO, Authorization information is missing or invalid."
+          },
+          "404" : {
+            "description" : "KO, empty record found."
+          },
+          "500" : {
+            "description" : "KO, Unknown error."
+          }
+        },
+        "security" : [ {
+          "bearerAuth" : [ ]
+        } ]
+      }
+    },
+    "/parameter/getAllMerchantInCountryByCategory/{sessionID}/{countryCode}/{category}" : {
+      "get" : {
+        "tags" : [ "parameter" ],
+        "summary" : "provides all merchants in a country by category(TV,bill,water etc...).",
+        "operationId" : "parameterGetAllMerchantInCountryByCategorySessionIDCountryCodeCategoryGet",
+        "parameters" : [ {
+          "name" : "sessionID",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        }, {
+          "name" : "countryCode",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "category",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK, an array of B2BPartnerInformation object.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/B2BPartnerInformation"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "KO, Bad sessionID"
+          },
+          "401" : {
+            "description" : "KO, Authorization information is missing or invalid."
+          },
+          "404" : {
+            "description" : "KO, empty record found."
+          },
+          "500" : {
+            "description" : "KO, Unknown error."
+          }
+        },
+        "security" : [ {
+          "bearerAuth" : [ ]
+        } ]
+      }
+    },
+    "/parameter/getAllMobileOperatorsInCountry/{sessionID}/{mobileCountryCode}" : {
+      "get" : {
+        "tags" : [ "parameter" ],
+        "summary" : "provides all mobile operators in a country",
+        "operationId" : "parameterGetAllMobileOperatorsInCountrySessionIDMobileCountryCodeGet",
+        "parameters" : [ {
+          "name" : "sessionID",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        }, {
+          "name" : "mobileCountryCode",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK, an array of MobileOperator",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/MobileOperator"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "KO, Bad sessionID"
+          },
+          "401" : {
+            "description" : "KO, Authorization information is missing or invalid."
+          },
+          "404" : {
+            "description" : "KO, empty record found."
+          },
+          "500" : {
+            "description" : "KO, Unknown error."
+          }
+        },
+        "security" : [ {
+          "bearerAuth" : [ ]
+        } ]
+      }
+    },
+    "/parameter/getAllTransferMotifs/{sessionID}" : {
+      "get" : {
+        "tags" : [ "parameter" ],
+        "summary" : "provides all transfer motifs used in Wari platform.",
+        "operationId" : "parameterGetAllTransferMotifsSessionIDGet",
+        "parameters" : [ {
+          "name" : "sessionID",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK, an array of PieceType object.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Motif"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "KO, Bad sessionID"
+          },
+          "401" : {
+            "description" : "KO, Authorization information is missing or invalid."
+          },
+          "404" : {
+            "description" : "KO, empty record found."
+          },
+          "500" : {
+            "description" : "KO, Unknown error."
+          }
+        },
+        "security" : [ {
+          "bearerAuth" : [ ]
+        } ]
+      }
+    },
+    "/parameter/getAvailableDestinationCountries/{sessionID}" : {
+      "get" : {
+        "tags" : [ "parameter" ],
+        "summary" : "provides all countries where Wari platform can send money.",
+        "operationId" : "parameterGetAvailableDestinationCountriesSessionIDGet",
+        "parameters" : [ {
+          "name" : "sessionID",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK, an array of GeoZone object.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/GeoZone"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "KO, Bad sessionID"
+          },
+          "401" : {
+            "description" : "KO, Authorization information is missing or invalid."
+          },
+          "404" : {
+            "description" : "KO, empty record found."
+          },
+          "500" : {
+            "description" : "KO, Unknown error."
+          }
+        },
+        "security" : [ {
+          "bearerAuth" : [ ]
+        } ]
+      }
+    },
+    "/parameter/getInformations/{sessionID}" : {
+      "get" : {
+        "tags" : [ "parameter" ],
+        "summary" : "get informations(name, mobile number, addresses etc...) of all pos services of the network.",
+        "operationId" : "parameterGetInformationsSessionIDGet",
+        "parameters" : [ {
+          "name" : "sessionID",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK, an array of NetworkInformation object.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/NetworkInformation"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "KO, Bad sessionID"
+          },
+          "401" : {
+            "description" : "KO, Authorization information is missing or invalid."
+          },
+          "404" : {
+            "description" : "KO, empty record found."
+          },
+          "500" : {
+            "description" : "KO, Unknown error."
+          }
+        },
+        "security" : [ {
+          "bearerAuth" : [ ]
+        } ]
+      }
+    },
+    "/parameter/findB2BPartnerInformations/{sessionID}" : {
+      "get" : {
+        "tags" : [ "parameter" ],
+        "summary" : "research B2B partner by name and partner informations",
+        "operationId" : "parameterFindB2BPartnerInformationsSessionIDGet",
+        "parameters" : [ {
+          "name" : "sessionID",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK, an array of B2BPartnerInformation object.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/B2BPartnerInformation"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "KO, Bad sessionID"
+          },
+          "401" : {
+            "description" : "KO, Authorization information is missing or invalid."
+          },
+          "404" : {
+            "description" : "KO, empty record found."
+          },
+          "500" : {
+            "description" : "KO, Unknown error."
+          }
+        },
+        "security" : [ {
+          "bearerAuth" : [ ]
+        } ]
+      }
+    },
+    "/parameter/getAllCountries" : {
+      "get" : {
+        "tags" : [ "parameter" ],
+        "summary" : "provides all countries of the world.",
+        "operationId" : "parameterGetAllCountriesGet",
+        "responses" : {
+          "200" : {
+            "description" : "OK, an array of GeoZone object.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/GeoZone"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "KO, Bad sessionID"
+          },
+          "401" : {
+            "description" : "KO, Authorization information is missing or invalid."
+          },
+          "404" : {
+            "description" : "KO, empty record found."
+          },
+          "500" : {
+            "description" : "KO, Unknown error."
+          }
+        },
+        "security" : [ {
+          "bearerAuth" : [ ]
+        } ]
+      }
+    },
+    "/report/findPendingTransactions/{sessionID}" : {
+      "get" : {
+        "tags" : [ "report" ],
+        "summary" : "provides pending transactions to validate",
+        "operationId" : "reportFindPendingTransactionsSessionIDGet",
+        "parameters" : [ {
+          "name" : "sessionID",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        }, {
+          "name" : "transactionId",
+          "in" : "query",
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        }, {
+          "name" : "status",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK, an array of PendingTransaction object.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/PendingTransaction"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "KO, Bad parameters"
+          },
+          "401" : {
+            "description" : "KO, Authorization information is missing or invalid."
+          },
+          "404" : {
+            "description" : "KO, empty record found."
+          },
+          "500" : {
+            "description" : "KO, Unknown error."
+          }
+        },
+        "security" : [ {
+          "bearerAuth" : [ ]
+        } ]
+      }
+    },
+    "/report/getAirtimeStatus/{sessionID}/{transactionId}" : {
+      "get" : {
+        "tags" : [ "report" ],
+        "summary" : "provides the status of an airtime transactions",
+        "operationId" : "reportGetAirtimeStatusSessionIDTransactionIdGet",
+        "parameters" : [ {
+          "name" : "sessionID",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        }, {
+          "name" : "transactionId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/AirTimeStatus"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "KO, Bad parameters"
+          },
+          "401" : {
+            "description" : "KO, Authorization information is missing or invalid."
+          },
+          "404" : {
+            "description" : "KO, empty record found."
+          },
+          "500" : {
+            "description" : "KO, Unknown error."
+          }
+        },
+        "security" : [ {
+          "bearerAuth" : [ ]
+        } ]
+      }
+    },
+    "/report/getReports/{sessionID}/{reportType}/{reportSubType}/{begin}/{end}" : {
+      "get" : {
+        "tags" : [ "report" ],
+        "summary" : "get all the reports between two date and report type",
+        "operationId" : "reportGetReportsSessionIDReportTypeReportSubTypeBeginEndGet",
+        "parameters" : [ {
+          "name" : "sessionID",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        }, {
+          "name" : "reportType",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "reportSubType",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "begin",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "end",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Report"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "KO, Bad parameters"
+          },
+          "401" : {
+            "description" : "KO, Authorization information is missing or invalid."
+          },
+          "404" : {
+            "description" : "KO, empty record found."
+          },
+          "500" : {
+            "description" : "KO, Unknown error."
+          }
+        },
+        "security" : [ {
+          "bearerAuth" : [ ]
+        } ]
+      }
+    },
+    "/report/getTransactionList/{sessionID}/{begin}/{end}" : {
+      "get" : {
+        "tags" : [ "report" ],
+        "summary" : "get all the reports between two date and report type",
+        "operationId" : "reportGetTransactionListSessionIDBeginEndGet",
+        "parameters" : [ {
+          "name" : "sessionID",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        }, {
+          "name" : "begin",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "end",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK, an array of TransactionListResponse object.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/TransactionListResponse"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "KO, Bad parameters"
+          },
+          "401" : {
+            "description" : "KO, Authorization information is missing or invalid."
+          },
+          "404" : {
+            "description" : "KO, empty record found."
+          },
+          "500" : {
+            "description" : "KO, Unknown error."
+          }
+        },
+        "security" : [ {
+          "bearerAuth" : [ ]
+        } ]
+      }
+    },
+    "/test/test-secure" : {
+      "get" : {
+        "summary" : "Secure test operation",
+        "operationId" : "testSecure",
+        "responses" : {
+          "default" : {
+            "description" : "no description"
+          }
+        },
+        "security" : [ {
+          "bearerAuth" : [ ]
+        } ]
+      }
+    },
+    "/test/test" : {
+      "get" : {
+        "summary" : "Test operation",
+        "operationId" : "test",
+        "responses" : {
+          "default" : {
+            "description" : "no description"
+          }
+        }
+      }
+    },
+    "/transaction/calculateTransfer/{sessionID}/{countryId}/{transferType}/{amountType}/{amount}" : {
+      "get" : {
+        "tags" : [ "transaction" ],
+        "summary" : "permits to teller agent to simulate money transfer to a selected destination country in order to know paid fees and amount received by the beneficiary.",
+        "operationId" : "transactionCalculateTransferSessionIDCountryIdTransferTypeAmountTypeAmountGet",
+        "parameters" : [ {
+          "name" : "sessionID",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        }, {
+          "name" : "countryId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        }, {
+          "name" : "transferType",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "amountType",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "amount",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "number"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK, transaction details( received amount, fees, total to pay etc... )",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/CalculatorResponse"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "KO, Bad sessionID"
+          },
+          "401" : {
+            "description" : "KO, Authorization information is missing or invalid."
+          },
+          "404" : {
+            "description" : "KO, empty record found."
+          },
+          "500" : {
+            "description" : "KO, Unknown error."
+          }
+        },
+        "security" : [ {
+          "bearerAuth" : [ ]
+        } ]
+      }
+    },
+    "/transaction/getTransactionReceipt" : {
+      "post" : {
+        "tags" : [ "transaction" ],
+        "summary" : "to pull a receipt of any kind of transaction",
+        "operationId" : "transactionGetTransactionReceiptPost",
+        "responses" : {
+          "200" : {
+            "description" : "OK, return a TransactionReceipt Object",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/TransactionReceipt"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "KO, Bad request. invalid transaction id"
+          },
+          "401" : {
+            "description" : "KO, Authorization information is missing or invalid."
+          },
+          "404" : {
+            "description" : "KO, A transaction with the specified transaction id was not found."
+          },
+          "500" : {
+            "description" : "KO, Unknown error."
+          }
+        },
+        "security" : [ {
+          "bearerAuth" : [ ]
+        } ]
+      }
+    },
+    "/transaction/findCustomerBill" : {
+      "post" : {
+        "tags" : [ "transaction" ],
+        "summary" : "find a customer's bill subscriber id or bill number etc...",
+        "operationId" : "transactionFindCustomerBillPost",
+        "requestBody" : {
+          "description" : "a valid session id, a JSON object containing bill informations",
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/BillRequestBody"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "OK, return BillResponse containing informations of the bill to pay",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/BillResponse"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "KO, Bad request. invalid bill reference"
+          },
+          "401" : {
+            "description" : "KO, Authorization information is missing or invalid."
+          },
+          "404" : {
+            "description" : "KO, A bill with the specified informations was not found."
+          },
+          "500" : {
+            "description" : "KO, Unknown error."
+          }
+        },
+        "security" : [ {
+          "bearerAuth" : [ ]
+        } ]
+      }
+    },
+    "/transaction/findTransactionBySendCode" : {
+      "post" : {
+        "tags" : [ "transaction" ],
+        "summary" : "find a transaction to pay by send code",
+        "operationId" : "transactionFindTransactionBySendCodePost",
+        "requestBody" : {
+          "description" : "a valid session id, a JSON object containing send code string to search the payable transaction.",
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/SendCodeBody"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "OK, return SearchTransactionResponse object containing informations related to the found transaction",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/SearchTransactionResponse"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "KO, Bad request. invalid send code"
+          },
+          "401" : {
+            "description" : "KO, Authorization information is missing or invalid."
+          },
+          "404" : {
+            "description" : "KO, A transaction with the specified send code was not found."
+          },
+          "500" : {
+            "description" : "KO, Unknown error."
+          }
+        },
+        "security" : [ {
+          "bearerAuth" : [ ]
+        } ]
+      }
+    },
+    "/transaction/processTransaction" : {
+      "post" : {
+        "tags" : [ "transaction" ],
+        "summary" : "process any kind of transaction",
+        "operationId" : "transactionProcessTransactionPost",
+        "requestBody" : {
+          "description" : "a valid session id, a JSON object containing send code string to search the payable transaction.",
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/TransactionRequestBody"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "OK, return transaction id",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/TransactionResponse"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "KO, Bad request. invalid transaction context"
+          },
+          "401" : {
+            "description" : "KO, Authorization information is missing or invalid."
+          },
+          "404" : {
+            "description" : "KO, A transaction with the specified context was not executable."
+          },
+          "500" : {
+            "description" : "KO, Unknown error."
+          }
+        },
+        "security" : [ {
+          "bearerAuth" : [ ]
+        } ]
+      }
+    },
+    "/transaction/validateTransaction" : {
+      "post" : {
+        "tags" : [ "transaction" ],
+        "summary" : "validate any kind of transaction.",
+        "operationId" : "transactionValidateTransactionPost",
+        "responses" : {
+          "200" : {
+            "description" : "OK, return a TransactionReceipt Object",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/TransactionReceipt"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "KO, Bad request. invalid transaction id"
+          },
+          "401" : {
+            "description" : "KO, Authorization information is missing or invalid."
+          },
+          "404" : {
+            "description" : "KO, A transaction with the specified transaction id was not found."
+          },
+          "500" : {
+            "description" : "KO, Unknown error."
+          }
+        },
+        "security" : [ {
+          "bearerAuth" : [ ]
+        } ]
+      }
+    },
+    "/user/details/{sessionID}" : {
+      "get" : {
+        "tags" : [ "user" ],
+        "summary" : "get the profile information of the connected user.",
+        "operationId" : "userGetUserDetailsSessionIDGet",
+        "parameters" : [ {
+          "name" : "sessionID",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Actor"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "KO, Bad sessionID"
+          },
+          "401" : {
+            "description" : "KO, Authorization information is missing or invalid."
+          },
+          "404" : {
+            "description" : "KO, empty record found."
+          },
+          "500" : {
+            "description" : "KO, Unknown error."
+          }
+        },
+        "security" : [ {
+          "bearerAuth" : [ ]
+        } ]
+      },
+      "post" : {
+        "tags" : [ "user" ],
+        "summary" : "update a user profile informations",
+        "operationId" : "userUpdateUserDetailsPost",
+        "parameters" : [ {
+          "name" : "sessionID",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        } ],
+        "requestBody" : {
+          "description" : "user details to update",
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/Actor"
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "200" : {
+            "description" : "OK, user profile informations successfully updated."
+          },
+          "400" : {
+            "description" : "KO, Bad sessionID"
+          },
+          "401" : {
+            "description" : "KO, Authorization information is missing or invalid."
+          },
+          "404" : {
+            "description" : "KO, empty record found."
+          },
+          "500" : {
+            "description" : "KO, Unknown error."
+          }
+        },
+        "security" : [ {
+          "bearerAuth" : [ ]
+        } ]
+      }
+    },
+    "/user/login" : {
+      "post" : {
+        "tags" : [ "user" ],
+        "summary" : "open a user session with his username, password and special password.",
+        "operationId" : "userUserLoginPost",
+        "requestBody" : {
+          "description" : "user credentials",
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/LoginCredentials"
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "200" : {
+            "description" : "OK, user successfuly logged in.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ActorSession"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "KO, Bad sessionID"
+          },
+          "401" : {
+            "description" : "KO, Authorization information is missing or invalid."
+          },
+          "404" : {
+            "description" : "KO, empty record found."
+          },
+          "500" : {
+            "description" : "KO, Unknown error."
+          }
+        }
+      }
+    },
+    "/user/logout" : {
+      "post" : {
+        "tags" : [ "user" ],
+        "summary" : "logout user.",
+        "operationId" : "userUserLogoutPost",
+        "responses" : {
+          "200" : {
+            "description" : "OK, user successfuly logged out."
+          },
+          "400" : {
+            "description" : "KO, Bad sessionID"
+          },
+          "401" : {
+            "description" : "KO, Authorization information is missing or invalid."
+          },
+          "404" : {
+            "description" : "KO, empty record found."
+          },
+          "500" : {
+            "description" : "KO, Unknown error."
+          }
+        },
+        "security" : [ {
+          "bearerAuth" : [ ]
+        } ]
+      }
+    }
+  },
+  "components" : {
+    "schemas" : {
+      "SendCodeBody" : {
+        "type" : "object",
+        "properties" : {
+          "sessionID" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "sendCode" : {
+            "maxLength" : 2147483647,
+            "minLength" : 9,
+            "type" : "string"
+          },
+          "typeReception" : {
+            "type" : "string"
+          }
+        }
+      },
+      "Customer" : {
+        "type" : "object",
+        "properties" : {
+          "firstName" : {
+            "type" : "string"
+          },
+          "lastName" : {
+            "type" : "string"
+          },
+          "phoneNumber" : {
+            "type" : "string"
+          },
+          "address" : {
+            "type" : "string"
+          },
+          "identityCountry" : {
+            "type" : "string"
+          },
+          "identityType" : {
+            "type" : "string"
+          },
+          "identityNumber" : {
+            "type" : "string"
+          },
+          "identityExpirationDate" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "identityEmissionDate" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "wariSecure" : {
+            "type" : "string"
+          },
+          "accountNumber" : {
+            "type" : "string"
+          },
+          "accountType" : {
+            "type" : "string"
+          },
+          "accountProvider" : {
+            "type" : "string"
+          },
+          "cardType" : {
+            "type" : "string"
+          },
+          "voucher" : {
+            "type" : "string"
+          },
+          "voucherPhone" : {
+            "type" : "string"
+          },
+          "voucherProvider" : {
+            "type" : "string"
+          },
+          "wallet" : {
+            "type" : "string"
+          },
+          "walletProvider" : {
+            "type" : "string"
+          }
+        }
+      },
+      "GeoZone" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "name" : {
+            "type" : "string"
+          },
+          "isoCode" : {
+            "type" : "string"
+          },
+          "isoCodeTrois" : {
+            "type" : "string"
+          },
+          "geoZoneType" : {
+            "$ref" : "#/components/schemas/GeoZoneType"
+          },
+          "indicatif" : {
+            "type" : "string"
+          }
+        }
+      },
+      "SearchTransactionResponse" : {
+        "type" : "object",
+        "properties" : {
+          "transactionId" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "sender" : {
+            "$ref" : "#/components/schemas/Customer"
+          },
+          "receiver" : {
+            "$ref" : "#/components/schemas/Customer"
+          },
+          "amountInformation" : {
+            "$ref" : "#/components/schemas/AmountInformation"
+          }
+        }
+      },
+      "MerchantForm" : {
+        "type" : "object",
+        "properties" : {
+          "merchantCode" : {
+            "type" : "string"
+          },
+          "merchantCurrency" : {
+            "type" : "string"
+          },
+          "merchantName" : {
+            "type" : "string"
+          },
+          "merchantCategory" : {
+            "type" : "string"
+          },
+          "merchantAddress" : {
+            "type" : "string"
+          },
+          "merchantType" : {
+            "type" : "string"
+          },
+          "merchantCountry" : {
+            "type" : "object",
+            "additionalProperties" : {
+              "type" : "string"
+            }
+          },
+          "formField" : {
+            "type" : "object",
+            "additionalProperties" : {
+              "type" : "array",
+              "items" : { }
+            }
+          }
+        }
+      },
+      "BillResponse" : {
+        "type" : "object",
+        "properties" : {
+          "billReference" : {
+            "type" : "string"
+          },
+          "billAmount" : {
+            "type" : "number"
+          },
+          "billFees" : {
+            "type" : "number"
+          },
+          "billTimbre" : {
+            "type" : "number"
+          },
+          "billTaxeFixe" : {
+            "type" : "number"
+          },
+          "billClient" : {
+            "type" : "string"
+          },
+          "billInfos" : {
+            "type" : "object",
+            "additionalProperties" : {
+              "type" : "string"
+            }
+          }
+        }
+      },
+      "TransactionRequest" : {
+        "type" : "object",
+        "properties" : {
+          "securityTokenTransaction" : {
+            "type" : "boolean"
+          },
+          "tokenValidationDesc" : {
+            "type" : "string"
+          },
+          "wariPassOTP" : {
+            "type" : "string"
+          },
+          "wariPassToken" : {
+            "type" : "string"
+          },
+          "context" : {
+            "$ref" : "#/components/schemas/ProcessTransactionContext"
+          }
+        }
+      },
+      "ActorSession" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "beginTimestamp" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "endTimestamp" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "jsessionid" : {
+            "type" : "string"
+          },
+          "actor" : {
+            "$ref" : "#/components/schemas/Actor"
+          }
+        }
+      },
+      "B2BPartnerInformation" : {
+        "type" : "object",
+        "properties" : {
+          "code" : {
+            "type" : "string"
+          },
+          "name" : {
+            "type" : "string"
+          }
+        }
+      },
+      "LoginCredentials" : {
+        "type" : "object",
+        "properties" : {
+          "login" : {
+            "type" : "string"
+          },
+          "password" : {
+            "type" : "string"
+          },
+          "specialPassword" : {
+            "type" : "string"
+          }
+        }
+      },
+      "PieceType" : {
+        "type" : "object",
+        "properties" : {
+          "code" : {
+            "type" : "string"
+          },
+          "name" : {
+            "type" : "string"
+          }
+        }
+      },
+      "MobileOperator" : {
+        "type" : "object",
+        "properties" : {
+          "operatorId" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "reference" : {
+            "type" : "string"
+          },
+          "name" : {
+            "type" : "string"
+          },
+          "facialValues" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/MobileOperatorFacialValues"
+            }
+          }
+        }
+      },
+      "BillRequest" : {
+        "type" : "object",
+        "properties" : {
+          "merchantCode" : {
+            "type" : "string"
+          },
+          "billReference" : {
+            "type" : "string"
+          },
+          "billCurrency" : {
+            "type" : "string"
+          },
+          "billModeReglement" : {
+            "type" : "string",
+            "enum" : [ "TOTAL", "PARTIEL", "ANTICIPE", "VOUCHER" ]
+          }
+        }
+      },
+      "TransactionResponse" : {
+        "type" : "object",
+        "properties" : {
+          "transactionId" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "principal" : {
+            "type" : "number"
+          },
+          "commissionTTC" : {
+            "type" : "number"
+          },
+          "timbre" : {
+            "type" : "number"
+          },
+          "taxeOperation" : {
+            "type" : "number"
+          },
+          "total" : {
+            "type" : "number"
+          },
+          "principalConversion" : {
+            "type" : "number"
+          },
+          "wariPassOTPRequired" : {
+            "type" : "boolean"
+          },
+          "numeroTransaction" : {
+            "type" : "string"
+          },
+          "wariPassTokenRequired" : {
+            "type" : "boolean"
+          },
+          "message" : {
+            "type" : "string"
+          }
+        }
+      },
+      "Actor" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "firstName" : {
+            "type" : "string"
+          },
+          "lastName" : {
+            "type" : "string"
+          },
+          "login" : {
+            "type" : "string"
+          },
+          "password" : {
+            "type" : "string"
+          },
+          "specialPassword" : {
+            "type" : "string"
+          },
+          "mobileNumber" : {
+            "type" : "string"
+          },
+          "email" : {
+            "type" : "string"
+          },
+          "matricule" : {
+            "type" : "string"
+          },
+          "adress" : {
+            "type" : "string"
+          },
+          "lastAccountUpdate" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "status" : {
+            "maxLength" : 1,
+            "minLength" : 0,
+            "type" : "string"
+          }
+        }
+      },
+      "BillRequestBody" : {
+        "type" : "object",
+        "properties" : {
+          "sessionID" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "billRequest" : {
+            "$ref" : "#/components/schemas/BillRequest"
+          }
+        }
+      },
+      "AmountInformation" : {
+        "type" : "object",
+        "properties" : {
+          "principal" : {
+            "type" : "number"
+          },
+          "currency" : {
+            "type" : "string"
+          },
+          "fees" : {
+            "type" : "number"
+          },
+          "timbreAmount" : {
+            "type" : "number"
+          },
+          "operationTaxe" : {
+            "type" : "number"
+          },
+          "total" : {
+            "type" : "number"
+          }
+        }
+      },
+      "ProcessTransactionContext" : {
+        "type" : "object",
+        "properties" : {
+          "securityTokenTransaction" : {
+            "type" : "boolean"
+          },
+          "tokenValidationDesc" : {
+            "type" : "string"
+          },
+          "wariPassOTP" : {
+            "type" : "string"
+          },
+          "wariPassToken" : {
+            "type" : "string"
+          }
+        }
+      },
+      "PendingTransaction" : {
+        "type" : "object",
+        "properties" : {
+          "transactionId" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "date" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "supervisor" : {
+            "type" : "string"
+          },
+          "autorisationMode" : {
+            "type" : "string"
+          },
+          "transactionType" : {
+            "type" : "string"
+          },
+          "status" : {
+            "type" : "string"
+          }
+        }
+      },
+      "AirTimeStatus" : {
+        "type" : "object",
+        "properties" : {
+          "message" : {
+            "type" : "string"
+          }
+        }
+      },
+      "MobileOperatorFacialValues" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "amount" : {
+            "type" : "number"
+          }
+        }
+      },
+      "TransactionListResponse" : {
+        "type" : "object",
+        "properties" : {
+          "number" : {
+            "type" : "number"
+          },
+          "date" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "operator" : {
+            "type" : "string"
+          },
+          "status" : {
+            "type" : "string"
+          }
+        }
+      },
+      "Report" : {
+        "type" : "object",
+        "properties" : {
+          "date" : {
+            "type" : "string"
+          },
+          "transactionNumber" : {
+            "type" : "string"
+          },
+          "transactionType" : {
+            "type" : "string"
+          },
+          "tellerOffice" : {
+            "type" : "string"
+          },
+          "callCenter" : {
+            "type" : "string"
+          },
+          "supervisor" : {
+            "type" : "string"
+          },
+          "principal" : {
+            "type" : "string"
+          },
+          "provision" : {
+            "type" : "string"
+          },
+          "commissionBank" : {
+            "type" : "string"
+          },
+          "commissionWari" : {
+            "type" : "string"
+          },
+          "commissionDistributor" : {
+            "type" : "string"
+          },
+          "tvaTobCollected" : {
+            "type" : "string"
+          },
+          "tvaSupported" : {
+            "type" : "string"
+          },
+          "tobSupported" : {
+            "type" : "string"
+          },
+          "taxeOperation" : {
+            "type" : "string"
+          },
+          "taxeFixe" : {
+            "type" : "string"
+          },
+          "commissionASD" : {
+            "type" : "string"
+          },
+          "tvaASD" : {
+            "type" : "string"
+          },
+          "tobASD" : {
+            "type" : "string"
+          }
+        }
+      },
+      "CalculatorResponse" : {
+        "type" : "object",
+        "properties" : {
+          "principal" : {
+            "type" : "string"
+          },
+          "fees" : {
+            "type" : "string"
+          },
+          "total" : {
+            "type" : "string"
+          },
+          "receivedAmount" : {
+            "type" : "string"
+          }
+        }
+      },
+      "TransactionReceipt" : {
+        "type" : "object",
+        "properties" : {
+          "transactionId" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "date" : {
+            "type" : "string"
+          },
+          "teller" : {
+            "type" : "string"
+          },
+          "printingMode" : {
+            "type" : "string"
+          },
+          "operateur" : {
+            "type" : "string"
+          },
+          "type" : {
+            "type" : "string"
+          },
+          "tellerOffice" : {
+            "type" : "string"
+          },
+          "agency" : {
+            "type" : "string"
+          },
+          "distributor" : {
+            "type" : "string"
+          },
+          "bank" : {
+            "type" : "string"
+          },
+          "senderCountry" : {
+            "type" : "string"
+          },
+          "sender" : {
+            "$ref" : "#/components/schemas/Customer"
+          },
+          "receiverCountry" : {
+            "type" : "string"
+          },
+          "receiver" : {
+            "$ref" : "#/components/schemas/Customer"
+          },
+          "transactionSendCode" : {
+            "type" : "string"
+          },
+          "labelPromo" : {
+            "type" : "string"
+          },
+          "clause" : {
+            "type" : "string"
+          },
+          "logoUrl" : {
+            "type" : "string"
+          },
+          "eventMessage" : {
+            "type" : "string"
+          },
+          "reportFooter" : {
+            "type" : "string"
+          },
+          "currency" : {
+            "type" : "string"
+          },
+          "phone" : {
+            "type" : "string"
+          },
+          "address" : {
+            "type" : "string"
+          },
+          "fax" : {
+            "type" : "string"
+          },
+          "principal" : {
+            "type" : "number"
+          },
+          "fees" : {
+            "type" : "number"
+          },
+          "taxes" : {
+            "type" : "number"
+          },
+          "feesWithTaxe" : {
+            "type" : "number"
+          },
+          "timbre" : {
+            "type" : "number"
+          },
+          "total" : {
+            "type" : "number"
+          },
+          "principalConvert" : {
+            "type" : "number"
+          },
+          "labelPrincipalConvert" : {
+            "type" : "string"
+          },
+          "showHorsTaxe" : {
+            "type" : "string"
+          },
+          "mtricule" : {
+            "type" : "string"
+          },
+          "merchant" : {
+            "type" : "string"
+          },
+          "merchantId" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "merchantReference" : {
+            "type" : "string"
+          },
+          "billReference" : {
+            "type" : "string"
+          },
+          "billClient" : {
+            "type" : "string"
+          },
+          "paymentMean" : {
+            "type" : "string"
+          }
+        }
+      },
+      "GeoZoneType" : {
+        "type" : "object",
+        "properties" : {
+          "code" : {
+            "type" : "string"
+          }
+        }
+      },
+      "NetworkInformation" : {
+        "type" : "object",
+        "properties" : {
+          "country" : {
+            "type" : "string"
+          },
+          "level1" : {
+            "type" : "string"
+          },
+          "level2" : {
+            "type" : "string"
+          },
+          "address" : {
+            "type" : "string"
+          },
+          "phoneNumber" : {
+            "type" : "string"
+          },
+          "service" : {
+            "type" : "string"
+          }
+        }
+      },
+      "Motif" : {
+        "type" : "object",
+        "properties" : {
+          "code" : {
+            "type" : "string"
+          },
+          "name" : {
+            "type" : "string"
+          }
+        }
+      },
+      "TransactionRequestBody" : {
+        "type" : "object",
+        "properties" : {
+          "sessionID" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "transactionRequest" : {
+            "$ref" : "#/components/schemas/TransactionRequest"
+          },
+          "objectType" : {
+            "type" : "string"
+          }
+        }
+      }
+    },
+    "securitySchemes" : {
+      "bearerAuth" : {
+        "type" : "http",
+        "name" : "bearerAuth",
+        "scheme" : "bearer",
+        "bearerFormat" : "JWT"
+      }
+    }
+  }
+}
