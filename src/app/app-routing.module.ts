@@ -3,22 +3,18 @@ import {RouterModule, Routes} from '@angular/router';
 import {NotFoundComponent} from './common/not-found/not-found.component';
 
 const routes: Routes = [
-  // {
-  //   path: 'transactions',
-  //   loadChildren: 'app/modules/transactions/transactions.module#TransactionsModule'
-  // },
-  // {
-  //   path: 'reports',
-  //   loadChildren: 'app/modules/reports/reports.module#ReportsModule'
-  // },
+  {
+    path: '',
+    loadChildren: 'app/modules/internal/internal.module#InternalModule',
+    // canLoad: [AuthGuard]
+  },
   // {
   //   path: 'profile',
   //   canActivate: [AuthGuard],
   //   component: ProfileComponent,
   // },
-  {path: '', redirectTo: '/transactions/cache', pathMatch: 'full'},
+  {path: '', redirectTo: '/transactions/cash', pathMatch: 'full'},
   {path: '**', component: NotFoundComponent}
-
 ];
 
 @NgModule({
