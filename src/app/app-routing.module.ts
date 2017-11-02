@@ -1,14 +1,8 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {NotFoundComponent} from './common/not-found/not-found.component';
-import {LoginComponent} from './common/login/login.component';
 
 const routes: Routes = [
-  {
-    path: 'login',
-    component: LoginComponent,
-    // canActivate: [AuthlessGuard],
-  },
   // {
   //   path: 'transactions',
   //   loadChildren: 'app/modules/transactions/transactions.module#TransactionsModule'
@@ -22,6 +16,7 @@ const routes: Routes = [
   //   canActivate: [AuthGuard],
   //   component: ProfileComponent,
   // },
+  {path: '', redirectTo: '/transactions/cache', pathMatch: 'full'},
   {path: '**', component: NotFoundComponent}
 
 ];

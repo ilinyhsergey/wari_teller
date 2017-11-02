@@ -6,6 +6,9 @@ import {AppComponent} from './app.component';
 import {NotFoundComponent} from './common/not-found/not-found.component';
 import {LoginComponent} from './common/login/login.component';
 import {AppRoutingModule} from './app-routing.module';
+import {LoginRoutingModule} from './common/login/login-routing.module';
+import {FormsModule} from '@angular/forms';
+import {AuthService} from './services/auth.service';
 
 @NgModule({
   declarations: [
@@ -14,13 +17,16 @@ import {AppRoutingModule} from './app-routing.module';
     NotFoundComponent
   ],
   imports: [
-    // RouterModule,
     CommonModule,
     BrowserModule,
+    FormsModule,
 
-    AppRoutingModule
+    LoginRoutingModule,
+    AppRoutingModule,
   ],
-  providers: [],
+  providers: [
+    AuthService
+  ],
   bootstrap: [
     AppComponent
   ]
