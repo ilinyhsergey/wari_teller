@@ -1,0 +1,11 @@
+export * from './ParameterApi';
+import { ParameterApi } from './ParameterApi';
+export * from './ReportApi';
+import { ReportApi } from './ReportApi';
+export * from './TestApi';
+import { TestApi } from './TestApi';
+export * from './TransactionApi';
+import { TransactionApi } from './TransactionApi';
+export * from './UserApi';
+import { UserApi } from './UserApi';
+export const APIS = [ParameterApi, ReportApi, TestApi, TransactionApi, UserApi];
