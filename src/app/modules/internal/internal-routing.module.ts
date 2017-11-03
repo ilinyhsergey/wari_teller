@@ -1,10 +1,29 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 
+import {InternalComponent} from './internal.component';
+
 const routes: Routes = [
   {
-    path: 'transactions',
-    loadChildren: 'app/modules/internal/transactions/transactions.module#TransactionsModule'
+    path: '',
+    component: InternalComponent,
+    // canActivate: [AuthGuard],
+    children: [
+      {
+        path: '',
+        // canActivateChild: [AuthGuard],
+        children: [
+          {
+            path: 'transactions',
+            loadChildren: 'app/modules/internal/transactions/transactions.module#TransactionsModule'
+          }
+          // , {
+          //   path: 'reports',
+          //   loadChildren: 'app/modules/internal/reports/reports.module#ReportsModule'
+          // }
+        ]
+      }
+    ]
   }
 ];
 

@@ -4,7 +4,7 @@ import {NotFoundComponent} from './common/not-found/not-found.component';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'internal',
     loadChildren: 'app/modules/internal/internal.module#InternalModule',
     // canLoad: [AuthGuard]
   },
@@ -13,7 +13,7 @@ const routes: Routes = [
   //   canActivate: [AuthGuard],
   //   component: ProfileComponent,
   // },
-  {path: '', redirectTo: '/transactions/cash', pathMatch: 'full'},
+  {path: '', redirectTo: '/internal/transactions/water', pathMatch: 'full'},
   {path: '**', component: NotFoundComponent}
 ];
 

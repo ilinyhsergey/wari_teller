@@ -1,8 +1,7 @@
 import {NgModule} from '@angular/core';
-import {CommonModule} from '@angular/common';
 import {RouterModule, Routes} from '@angular/router';
 import {TransactionsComponent} from './transactions.component';
-import {CashComponent} from './cash/cash.component';
+import {WaterBillComponent} from './water-bill/water-bill.component';
 
 const routes: Routes = [
   {
@@ -14,7 +13,7 @@ const routes: Routes = [
         path: '',
         // canActivateChild: [AuthGuard],
         children: [
-          {path: 'cash', component: CashComponent},
+          {path: 'water', component: WaterBillComponent},
         ]
       }
     ]

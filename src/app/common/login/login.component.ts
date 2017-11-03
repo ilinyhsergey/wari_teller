@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
 
   login() {
     this.authService.login(this.loginCredentials).subscribe((response: boolean) => {
-      this.router.navigate(['/transactions/cash']);
+      this.router.navigate(['/transactions/water']);
     }, (error) => {
       console.log('Error', error);
     });

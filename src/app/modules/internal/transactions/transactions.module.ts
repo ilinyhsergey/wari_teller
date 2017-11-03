@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {TransactionsRoutingModule} from './transactions-routing.module';
 import { TransactionsComponent } from './transactions.component';
-import { CashComponent } from './cash/cash.component';
+import { WaterBillComponent } from './water-bill/water-bill.component';
 
 @NgModule({
   imports: [
@@ -11,7 +11,7 @@ import { CashComponent } from './cash/cash.component';
   ],
   declarations: [
     TransactionsComponent,
-    CashComponent
+    WaterBillComponent
   ]
 })
 export class TransactionsModule { }
