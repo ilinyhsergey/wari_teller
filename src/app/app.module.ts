@@ -10,6 +10,10 @@ import {LoginComponent} from './common/login/login.component';
 import {AppRoutingModule} from './app-routing.module';
 import {LoginRoutingModule} from './common/login/login-routing.module';
 import {AuthService} from './services/auth.service';
+import {BASE_PATH} from './api/variables';
+import {environment} from '../environments/environment';
+
+const SERVER_URL = environment.serverUrl;
 
 @NgModule({
   declarations: [
@@ -27,7 +31,8 @@ import {AuthService} from './services/auth.service';
     AppRoutingModule,
   ],
   providers: [
-    AuthService
+    AuthService,
+    {provide: BASE_PATH, useValue: SERVER_URL},
   ],
   bootstrap: [
     AppComponent

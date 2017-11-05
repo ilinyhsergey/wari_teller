@@ -13,20 +13,16 @@
 import * as models from './models';
 
 export interface MerchantForm {
-    merchantCode?: string;
+    code?: string;
 
-    merchantCurrency?: string;
+    currency?: string;
 
-    merchantName?: string;
+    name?: string;
 
-    merchantCategory?: string;
+    categories?: Array<string>;
 
-    merchantAddress?: string;
+    type?: string;
 
-    merchantType?: string;
-
-    merchantCountry?: { [key: string]: string; };
-
-    formField?: { [key: string]: Array<any>; };
+    countries?: Array<models.GeoZone>;
 
 }

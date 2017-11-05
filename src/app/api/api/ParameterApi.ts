@@ -23,13 +23,12 @@ import 'rxjs/add/operator/map';
 import * as models                                           from '../model/models';
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
-import { ParameterApiInterface }                            from './ParameterApiInterface';
 
 
 @Injectable()
-export class ParameterApi implements ParameterApiInterface {
+export class ParameterApi {
 
-    protected basePath = 'http://localhost:8080/teller_api/v1';
+    protected basePath = 'http://localhost/teller_api/v1';
     public defaultHeaders: Headers = new Headers();
     public configuration: Configuration = new Configuration();
 
@@ -61,11 +60,10 @@ export class ParameterApi implements ParameterApiInterface {
     /**
      * provides a set of fileld of a merchant's form
      * @summary find merchant form
-     * @param sessionID 
      * @param reference 
      */
-    public findMerchantFormByReferenceSessionIDReferenceGet1(sessionID: number, reference: string, extraHttpRequestParams?: any): Observable<models.MerchantForm> {
-        return this.findMerchantFormByReferenceSessionIDReferenceGet1WithHttpInfo(sessionID, reference, extraHttpRequestParams)
+    public findMerchantFormByReferenceGet1(reference: string, extraHttpRequestParams?: any): Observable<models.MerchantForm> {
+        return this.findMerchantFormByReferenceGet1WithHttpInfo(reference, extraHttpRequestParams)
             .map((response: Response) => {
                 if (response.status === 204) {
                     return undefined;
@@ -265,23 +263,17 @@ export class ParameterApi implements ParameterApiInterface {
     /**
      * find merchant form
      * provides a set of fileld of a merchant&#39;s form
-     * @param sessionID 
      * @param reference 
      */
-    public findMerchantFormByReferenceSessionIDReferenceGet1WithHttpInfo(sessionID: number, reference: string, extraHttpRequestParams?: any): Observable<Response> {
-        const path = this.basePath + '/parameter/findMerchantFormByReference/${sessionID}/${reference}'
-                    .replace('${' + 'sessionID' + '}', String(sessionID))
+    public findMerchantFormByReferenceGet1WithHttpInfo(reference: string, extraHttpRequestParams?: any): Observable<Response> {
+        const path = this.basePath + '/parameter/findMerchantFormByReference/${reference}'
                     .replace('${' + 'reference' + '}', String(reference));
 
         let queryParameters = new URLSearchParams();
         let headers = new Headers(this.defaultHeaders.toJSON()); // https://github.com/angular/angular/issues/6845
-        // verify required parameter 'sessionID' is not null or undefined
-        if (sessionID === null || sessionID === undefined) {
-            throw new Error('Required parameter sessionID was null or undefined when calling findMerchantFormByReferenceSessionIDReferenceGet1.');
-        }
         // verify required parameter 'reference' is not null or undefined
         if (reference === null || reference === undefined) {
-            throw new Error('Required parameter reference was null or undefined when calling findMerchantFormByReferenceSessionIDReferenceGet1.');
+            throw new Error('Required parameter reference was null or undefined when calling findMerchantFormByReferenceGet1.');
         }
         // to determine the Content-Type header
         let consumes: string[] = [

@@ -1,12 +1,12 @@
 {
-  "sortParamsByRequiredFlag": "true",
-  "ensureUniqueParams": "true",
-  "allowUnicodeIdentifiers": "false",
+  "sortParamsByRequiredFlag": true,
+  "ensureUniqueParams": true,
+  "allowUnicodeIdentifiers": false,
   "modelPropertyNaming": "camelCase",
-  "supportsES6": "false",
+  "supportsES6": false,
   "npmName": "wari-teller-front",
   "npmVersion": "0.0.1",
-  "snapshot": "false",
-  "withInterfaces": "false",
+  "snapshot": false,
+  "withInterfaces": false,
   "ngVersion": "4.2"
 }

@@ -23,13 +23,12 @@ import 'rxjs/add/operator/map';
 import * as models                                           from '../model/models';
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
-import { TransactionApiInterface }                            from './TransactionApiInterface';
 
 
 @Injectable()
-export class TransactionApi implements TransactionApiInterface {
+export class TransactionApi {
 
-    protected basePath = 'http://localhost:8080/teller_api/v1';
+    protected basePath = 'http://localhost/teller_api/v1';
     public defaultHeaders: Headers = new Headers();
     public configuration: Configuration = new Configuration();
 
