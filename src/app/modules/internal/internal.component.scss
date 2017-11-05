@@ -1,0 +1,42 @@
+@import "../../../styles/styles-variables";
+
+$na-bar-height: 60px;
+.na-top {
+  height: $na-bar-height;
+  background-color: $app-green;
+  color: white;
+}
+
+.na-button {
+  padding: 4px;
+}
+
+.na-top-title {
+
+  font-size: 20px;
+  font-style: italic;
+  font-weight: bold;
+}
+
+$logo-size: 80px;
+.na-top-logo {
+  position: absolute;
+  top: $na-bar-height - $logo-size / 2;
+  right: 50%;
+
+  border: solid 3px white;
+  border-radius: 50%;
+  background-color: $app-green;
+  font-size: 24px;
+  //font-style: italic;
+  font-weight: bold;
+  height: $logo-size;
+  width: $logo-size;
+  line-height: $logo-size * 0.9;
+  text-align: center;
+}
+
+.na-top-icon {
+  width: $na-bar-height - 6;
+  height: $na-bar-height - 6;
+}
