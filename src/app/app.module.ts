@@ -12,6 +12,8 @@ import {LoginRoutingModule} from './common/login/login-routing.module';
 import {AuthService} from './services/auth.service';
 import {BASE_PATH} from './api/variables';
 import {environment} from '../environments/environment';
+import {ApiModule} from './api/api.module';
+import {HttpModule} from '@angular/http';
 
 const SERVER_URL = environment.serverUrl;
 
@@ -25,8 +27,10 @@ const SERVER_URL = environment.serverUrl;
     CommonModule,
     BrowserModule,
     FormsModule,
+    HttpModule,
     NgbModule.forRoot(),
 
+    ApiModule,
     LoginRoutingModule,
     AppRoutingModule,
   ],
