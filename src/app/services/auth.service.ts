@@ -1,10 +1,7 @@
 import {Injectable} from '@angular/core';
-import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 import 'rxjs/add/observable/throw';
 
-import {UserApi} from '../api/generated/api/UserApi';
-import {LoginCredentials} from '../api/generated/model/LoginCredentials';
 import {ActorSession} from '../model/ActorSession';
 import {StorageService} from './storage.service';
 import {Actor} from '../api/generated/model/Actor';
@@ -20,23 +17,14 @@ export class AuthService {
   private currentUser: Actor = null;
   private authToken: string = null;
 
-  constructor(private userApi: UserApi,
-              private storageService: StorageService) {
+  constructor(private storageService: StorageService) {
   }
 
-  login(loginCredentials: LoginCredentials): Observable<boolean> {
+  handleLogin(actorSession: ActorSession) {
+    this.storageService.set(AuthService.keyCurrentSession, this.sessionId = actorSession.id);
+    this.storageService.set(AuthService.keyCurrentUser, this.currentUser = actorSession.actor);
 
-    const observable = this.userApi.userLoginPost1(loginCredentials);
-    observable.subscribe((actorSession: ActorSession) => {
-      this.storageService.set(AuthService.keyCurrentSession, this.sessionId = actorSession.id);
-      this.storageService.set(AuthService.keyCurrentUser, this.currentUser = actorSession.actor);
-
-      console.log(`User  ${this.currentUser.firstName} ${this.currentUser.lastName} successfully logged in`);
-    }, (err) => {
-      console.log('err', err);
-    });
-
-    return observable.map((res) => true);
+    console.log(`User  ${this.currentUser.firstName} ${this.currentUser.lastName} successfully logged in`);
   }
 
   logout() {
@@ -57,5 +45,14 @@ export class AuthService {
     return (this.sessionId && this.authToken)
       ? ('Bearer ' + this.authToken)
       : undefined;
+  }
+
+  setAuthorization(authorization: string) {
+    if (authorization) {
+      const split = authorization.split(' ');
+      if (split.length > 1 && split[0] === 'Bearer') {
+        this.authToken = split[1];
+      }
+    }
   }
 }

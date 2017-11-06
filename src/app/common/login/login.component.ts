@@ -3,6 +3,8 @@ import {Router} from '@angular/router';
 
 import {AuthService} from '../../services/auth.service';
 import {LoginCredentials} from '../../api/generated/model/LoginCredentials';
+import {ActorSession} from '../../model/ActorSession';
+import {UserApi} from '../../api/generated/api/UserApi';
 
 @Component({
   selector: 'app-login',
@@ -14,23 +16,28 @@ export class LoginComponent implements OnInit {
   loginCredentials: LoginCredentials;
 
   constructor(private authService: AuthService,
+              private userApi: UserApi,
               private router: Router) {
   }
 
   ngOnInit() {
     this.loginCredentials = {
-      login: '',
-      password: '',
-      specialPassword: ''
+      login: 'ZizaShopG', // todo
+      password: 'Abdoulaziz',
+      specialPassword: 'Abdoulaziz'
     };
   }
 
   login() {
-    this.authService.login(this.loginCredentials).subscribe((response: boolean) => {
-      this.router.navigate(['/internal/transactions/water']);
-    }, (error) => {
-      console.log('Error', error);
-    });
+    this.userApi.userLoginPost1(this.loginCredentials)
+      .subscribe((actorSession: ActorSession) => {
+
+        this.authService.handleLogin(actorSession);
+        this.router.navigate(['/internal/transactions/water']);
+
+      }, (err) => {
+        console.log('err', err);
+      });
   }
 
   clear() {
