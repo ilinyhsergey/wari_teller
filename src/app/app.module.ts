@@ -14,6 +14,7 @@ import {BASE_PATH} from './api/variables';
 import {environment} from '../environments/environment';
 import {ApiModule} from './api/api.module';
 import {HttpModule} from '@angular/http';
+import {StorageService} from './services/storage.service';
 
 const SERVER_URL = environment.serverUrl;
 
@@ -35,8 +36,9 @@ const SERVER_URL = environment.serverUrl;
     AppRoutingModule,
   ],
   providers: [
+    StorageService,
     AuthService,
-    {provide: BASE_PATH, useValue: SERVER_URL},
+    {provide: BASE_PATH, useValue: SERVER_URL}
   ],
   bootstrap: [
     AppComponent
