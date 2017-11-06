@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {AuthService} from '../../services/auth.service';
 import {Router} from '@angular/router';
+
+import {AuthService} from '../../services/auth.service';
 import {LoginCredentials} from '../../api/model/LoginCredentials';
 
 @Component({
@@ -17,12 +18,16 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.clear();
+    this.loginCredentials = {
+      login: '',
+      password: '',
+      specialPassword: ''
+    };
   }
 
   login() {
     this.authService.login(this.loginCredentials).subscribe((response: boolean) => {
-      this.router.navigate(['/transactions/water']);
+      this.router.navigate(['/internal/transactions/water']);
     }, (error) => {
       console.log('Error', error);
     });

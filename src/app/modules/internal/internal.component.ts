@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
+
+import {AuthService} from '../../services/auth.service';
+import {ParameterApi} from '../../api/api/ParameterApi';
+import {NetworkInformation} from '../../api/model/NetworkInformation';
 
 @Component({
   selector: 'app-internal',
@@ -7,9 +12,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InternalComponent implements OnInit {
 
-  constructor() { }
+  constructor(private authService: AuthService,
+              private router: Router,
+              private parameterApi: ParameterApi) {
+  }
 
   ngOnInit() {
+  }
+
+  test() {
+    const observable = this.parameterApi.getInformationsSessionIDGet1(this.authService.getSessionId());
+    observable.subscribe((networkInformation: NetworkInformation) => {
+      console.log('networkInformation', networkInformation);
+    }, (error) => {
+      console.log('InternalComponent error', error);
+    });
+  }
+
+  logout() {
+    this.authService.logout();
+    this.router.navigate(['/login']);
   }
 
 }
