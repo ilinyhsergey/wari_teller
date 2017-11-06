@@ -23,6 +23,7 @@ import 'rxjs/add/operator/map';
 import * as models                                           from '../model/models';
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
+import { HttpService } from '../../http.service';
 
 
 @Injectable()
@@ -32,7 +33,7 @@ export class ParameterApi {
     public defaultHeaders: Headers = new Headers();
     public configuration: Configuration = new Configuration();
 
-    constructor(protected http: Http, @Optional()@Inject(BASE_PATH) basePath: string, @Optional() configuration: Configuration) {
+    constructor(protected http: HttpService, @Optional()@Inject(BASE_PATH) basePath: string, @Optional() configuration: Configuration) {
         if (basePath) {
             this.basePath = basePath;
         }
@@ -42,12 +43,11 @@ export class ParameterApi {
     }
 
     /**
-     * research B2B partner by name and partner informations
-     * @summary find B2B partner info
-     * @param sessionID 
+     * provides all B2B partners
+     * @summary provides all B2B partners
      */
-    public findB2BPartnerInformationsSessionIDGet1(sessionID: number, extraHttpRequestParams?: any): Observable<Array<models.B2BPartnerInformation>> {
-        return this.findB2BPartnerInformationsSessionIDGet1WithHttpInfo(sessionID, extraHttpRequestParams)
+    public findB2BPartnerInformationsGet1(extraHttpRequestParams?: any): Observable<Array<models.B2BPartnerInformation>> {
+        return this.findB2BPartnerInformationsGet1WithHttpInfo(extraHttpRequestParams)
             .map((response: Response) => {
                 if (response.status === 204) {
                     return undefined;
@@ -59,7 +59,7 @@ export class ParameterApi {
 
     /**
      * provides a set of fileld of a merchant's form
-     * @summary find merchant form
+     * @summary [Implemented] find merchant form
      * @param reference 
      */
     public findMerchantFormByReferenceGet1(reference: string, extraHttpRequestParams?: any): Observable<models.MerchantForm> {
@@ -75,7 +75,7 @@ export class ParameterApi {
 
     /**
      * research a merchant by name or reference and provides merchant informations.
-     * @summary find merchant info
+     * @summary [Implemented] find merchant info
      * @param reference 
      */
     public findMerchantInformationsByReferenceGet1(reference: string, extraHttpRequestParams?: any): Observable<Array<models.B2BPartnerInformation>> {
@@ -155,11 +155,10 @@ export class ParameterApi {
 
     /**
      * provides all transfer motifs used in Wari platform.
-     * @summary provides all transfer motifs used in Wari platform.
-     * @param sessionID 
+     * @summary [Implemented] provides all transfer motifs used in Wari platform.
      */
-    public getAllTransferMotifsSessionIDGet1(sessionID: number, extraHttpRequestParams?: any): Observable<Array<models.Motif>> {
-        return this.getAllTransferMotifsSessionIDGet1WithHttpInfo(sessionID, extraHttpRequestParams)
+    public getAllTransferMotifsGet1(extraHttpRequestParams?: any): Observable<Array<models.Motif>> {
+        return this.getAllTransferMotifsGet1WithHttpInfo(extraHttpRequestParams)
             .map((response: Response) => {
                 if (response.status === 204) {
                     return undefined;
@@ -219,20 +218,14 @@ export class ParameterApi {
 
 
     /**
-     * find B2B partner info
-     * research B2B partner by name and partner informations
-     * @param sessionID 
+     * provides all B2B partners
+     * provides all B2B partners
      */
-    public findB2BPartnerInformationsSessionIDGet1WithHttpInfo(sessionID: number, extraHttpRequestParams?: any): Observable<Response> {
-        const path = this.basePath + '/parameter/findB2BPartnerInformations/${sessionID}'
-                    .replace('${' + 'sessionID' + '}', String(sessionID));
+    public findB2BPartnerInformationsGet1WithHttpInfo(extraHttpRequestParams?: any): Observable<Response> {
+        const path = this.basePath + '/parameter/findB2BPartnerInformations';
 
         let queryParameters = new URLSearchParams();
         let headers = new Headers(this.defaultHeaders.toJSON()); // https://github.com/angular/angular/issues/6845
-        // verify required parameter 'sessionID' is not null or undefined
-        if (sessionID === null || sessionID === undefined) {
-            throw new Error('Required parameter sessionID was null or undefined when calling findB2BPartnerInformationsSessionIDGet1.');
-        }
         // to determine the Content-Type header
         let consumes: string[] = [
         ];
@@ -261,7 +254,7 @@ export class ParameterApi {
     }
 
     /**
-     * find merchant form
+     * [Implemented] find merchant form
      * provides a set of fileld of a merchant&#39;s form
      * @param reference 
      */
@@ -303,7 +296,7 @@ export class ParameterApi {
     }
 
     /**
-     * find merchant info
+     * [Implemented] find merchant info
      * research a merchant by name or reference and provides merchant informations.
      * @param reference 
      */
@@ -503,20 +496,14 @@ export class ParameterApi {
     }
 
     /**
+     * [Implemented] provides all transfer motifs used in Wari platform.
      * provides all transfer motifs used in Wari platform.
-     * provides all transfer motifs used in Wari platform.
-     * @param sessionID 
      */
-    public getAllTransferMotifsSessionIDGet1WithHttpInfo(sessionID: number, extraHttpRequestParams?: any): Observable<Response> {
-        const path = this.basePath + '/parameter/getAllTransferMotifs/${sessionID}'
-                    .replace('${' + 'sessionID' + '}', String(sessionID));
+    public getAllTransferMotifsGet1WithHttpInfo(extraHttpRequestParams?: any): Observable<Response> {
+        const path = this.basePath + '/parameter/getAllTransferMotifs';
 
         let queryParameters = new URLSearchParams();
         let headers = new Headers(this.defaultHeaders.toJSON()); // https://github.com/angular/angular/issues/6845
-        // verify required parameter 'sessionID' is not null or undefined
-        if (sessionID === null || sessionID === undefined) {
-            throw new Error('Required parameter sessionID was null or undefined when calling getAllTransferMotifsSessionIDGet1.');
-        }
         // to determine the Content-Type header
         let consumes: string[] = [
         ];

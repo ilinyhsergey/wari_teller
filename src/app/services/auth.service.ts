@@ -3,11 +3,11 @@ import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 import 'rxjs/add/observable/throw';
 
-import {UserApi} from '../api/api/UserApi';
-import {LoginCredentials} from '../api/model/LoginCredentials';
+import {UserApi} from '../api/generated/api/UserApi';
+import {LoginCredentials} from '../api/generated/model/LoginCredentials';
 import {ActorSession} from '../model/ActorSession';
 import {StorageService} from './storage.service';
-import {Actor} from '../api/model/Actor';
+import {Actor} from '../api/generated/model/Actor';
 
 @Injectable()
 export class AuthService {
@@ -18,6 +18,7 @@ export class AuthService {
 
   private sessionId: number = null;
   private currentUser: Actor = null;
+  private authToken: string = null;
 
   constructor(private userApi: UserApi,
               private storageService: StorageService) {
@@ -45,11 +46,16 @@ export class AuthService {
   }
 
   getSessionId(): number {
-    return this.sessionId;
+    return this.sessionId || (this.sessionId = +this.storageService.get(AuthService.keyCurrentSession));
   }
 
   getCurrentUser(): Actor {
-    return this.currentUser;
+    return this.currentUser || (this.currentUser = this.storageService.get(AuthService.keyCurrentUser));
   }
 
+  getAuthorization(): string {
+    return (this.sessionId && this.authToken)
+      ? ('Bearer ' + this.authToken)
+      : undefined;
+  }
 }

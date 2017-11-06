@@ -10,7 +10,7 @@ import {LoginComponent} from './common/login/login.component';
 import {AppRoutingModule} from './app-routing.module';
 import {LoginRoutingModule} from './common/login/login-routing.module';
 import {AuthService} from './services/auth.service';
-import {BASE_PATH} from './api/variables';
+import {BASE_PATH} from './api/generated/variables';
 import {environment} from '../environments/environment';
 import {ApiModule} from './api/api.module';
 import {HttpModule} from '@angular/http';

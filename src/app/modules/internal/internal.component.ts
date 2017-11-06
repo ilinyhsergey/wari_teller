@@ -2,8 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 
 import {AuthService} from '../../services/auth.service';
-import {ParameterApi} from '../../api/api/ParameterApi';
-import {NetworkInformation} from '../../api/model/NetworkInformation';
+import {ParameterApi} from '../../api/generated/api/ParameterApi';
+import {NetworkInformation} from '../../api/generated/model/NetworkInformation';
 
 @Component({
   selector: 'app-internal',
