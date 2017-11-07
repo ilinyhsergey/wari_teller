@@ -1,10 +1,18 @@
 @import "../../../styles/styles-variables";
 
-$na-bar-height: 60px;
+.internal-component {
+  height: 100vh;
+}
+
+$na-bar-height: 50px;
+$na-top-icon: 32px;
+$logo-size: 80px;
+
 .na-top {
   height: $na-bar-height;
   background-color: $app-green;
   color: white;
+  border-bottom: solid 1px white;
 }
 
 .na-button {
@@ -18,11 +26,11 @@ $na-bar-height: 60px;
   font-weight: bold;
 }
 
-$logo-size: 80px;
 .na-top-logo {
   position: absolute;
   top: $na-bar-height - $logo-size / 2;
-  right: 50%;
+  left: calc(50% - 40px);
+  z-index: 1;
 
   border: solid 3px white;
   border-radius: 50%;
@@ -37,6 +45,19 @@ $logo-size: 80px;
 }
 
 .na-top-icon {
-  width: $na-bar-height - 6;
-  height: $na-bar-height - 6;
+  width: $na-top-icon;
+  height: $na-top-icon;
+}
+
+.na-bottom {
+}
+
+.na-left {
+  background-color: $app-light-green;
+  border: solid 1px white;
+}
+
+.na-right {
+  background-color: $app-pink;
+  border: solid 1px white;
 }
