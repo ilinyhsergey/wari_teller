@@ -11,6 +11,7 @@ export class AuthService {
 
   private static keyCurrentSession = 'sessionId';
   private static keyCurrentUser = 'currentUser';
+  private static keyAuthToken = 'authToken';
   private static keyCurrentRedirectUrl = 'redirectUrl';
 
   private sessionId: number = null;
@@ -18,11 +19,14 @@ export class AuthService {
   private authToken: string = null;
 
   constructor(private storageService: StorageService) {
+    this.getSessionId();
+    this.getCurrentUser();
+    this.getAuthToken();
   }
 
   handleLogin(actorSession: ActorSession) {
-    this.storageService.set(AuthService.keyCurrentSession, this.sessionId = actorSession.id);
-    this.storageService.set(AuthService.keyCurrentUser, this.currentUser = actorSession.actor);
+    this.setSessionId(actorSession.id);
+    this.setCurrentUser(actorSession.actor);
 
     console.log(`User  ${this.currentUser.firstName} ${this.currentUser.lastName} successfully logged in`);
   }
@@ -30,6 +34,7 @@ export class AuthService {
   logout() {
     this.sessionId = null;
     this.currentUser = null;
+    this.authToken = null;
     this.storageService.flush();
   }
 
@@ -37,13 +42,30 @@ export class AuthService {
     return this.sessionId || (this.sessionId = +this.storageService.get(AuthService.keyCurrentSession));
   }
 
+  setSessionId(sessionId: number) {
+    this.storageService.set(AuthService.keyCurrentSession, this.sessionId = sessionId);
+  }
+
   getCurrentUser(): Actor {
     return this.currentUser || (this.currentUser = this.storageService.get(AuthService.keyCurrentUser));
   }
 
+  setCurrentUser(currentUser: Actor) {
+    this.storageService.set(AuthService.keyCurrentUser, this.currentUser = currentUser);
+  }
+
+  getAuthToken(): string {
+    return this.authToken || (this.authToken = this.storageService.get(AuthService.keyAuthToken) as string);
+  }
+
+  setAuthToken(authToken: string) {
+    this.storageService.set(AuthService.keyAuthToken, this.authToken = authToken);
+  }
+
   getAuthorization(): string {
-    return (this.sessionId && this.authToken)
-      ? ('Bearer ' + this.authToken)
+    const authToken = this.getAuthToken();
+    return authToken
+      ? ('Bearer ' + authToken)
       : undefined;
   }
 
@@ -52,6 +74,7 @@ export class AuthService {
       const split = authorization.split(' ');
       if (split.length > 1 && split[0] === 'Bearer') {
         this.authToken = split[1];
+        this.setAuthToken(this.authToken);
         console.log('Set Authorization token:', this.authToken);
       }
     }
