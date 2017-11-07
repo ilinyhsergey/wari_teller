@@ -21,19 +21,11 @@ export class HttpService {
     // todo handle interceptions here
     const options1 = this.addAuthorization(options);
     return this.http.request(url, options1).map((response: Response): Response => {
-
-      console.log('____ response', response); // todo
-
+      const responseAuthorization = response.headers.get('Authorization');
+      if (responseAuthorization) {
+        this.authService.setAuthorization(responseAuthorization);
+      }
       return response;
-      // const responseClone: Response = JSON.parse(JSON.stringify(response)) as Response;
-      //
-      // console.log('____ responseClone', responseClone); // todo
-      // const responseAuthorization = responseClone.headers.get('Authorization');
-      // if (responseAuthorization) {
-      //   this.authService.setAuthorization(responseAuthorization);
-      // }
-      //
-      // return responseClone;
     });
   }
 

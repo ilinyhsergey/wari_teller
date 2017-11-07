@@ -52,6 +52,7 @@ export class AuthService {
       const split = authorization.split(' ');
       if (split.length > 1 && split[0] === 'Bearer') {
         this.authToken = split[1];
+        console.log('Set Authorization token:', this.authToken);
       }
     }
   }
