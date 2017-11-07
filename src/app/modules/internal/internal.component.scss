@@ -6,13 +6,14 @@
 
 $na-bar-height: 50px;
 $na-top-icon: 32px;
-$logo-size: 80px;
+$na-logo-size: 80px;
+$na-left-button-circle-size: 70px;
 
 .na-top {
   height: $na-bar-height;
   background-color: $app-green;
   color: white;
-  border-bottom: solid 1px white;
+  //border-bottom: solid 1px white;
 }
 
 .na-button {
@@ -28,19 +29,19 @@ $logo-size: 80px;
 
 .na-top-logo {
   position: absolute;
-  top: $na-bar-height - $logo-size / 2;
+  top: $na-bar-height - $na-logo-size / 2;
   left: calc(50% - 40px);
   z-index: 1;
 
-  border: solid 3px white;
+  border: solid 2px white;
   border-radius: 50%;
   background-color: $app-green;
   font-size: 24px;
   //font-style: italic;
   font-weight: bold;
-  height: $logo-size;
-  width: $logo-size;
-  line-height: $logo-size * 0.9;
+  height: $na-logo-size;
+  width: $na-logo-size;
+  line-height: $na-logo-size * 0.9;
   text-align: center;
 }
 
@@ -54,10 +55,59 @@ $logo-size: 80px;
 
 .na-left {
   background-color: $app-light-green;
-  border: solid 1px white;
+  //border: solid 1px white;
 }
 
 .na-right {
   background-color: $app-pink;
+  //border-left: solid 1px white;
+}
+
+.na-left-button {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+
+  border: solid 0 white;
+  color: white;
+}
+
+.na-left-button-circle {
   border: solid 1px white;
+  border-radius: 50%;
+
+  height: $na-left-button-circle-size;
+  width: $na-left-button-circle-size;
+}
+
+.na-left-button-1 {
+  background-color: $app-dark-blue;
+  border-right-width: 1px;
+  border-bottom-width: 1px;
+}
+
+.na-left-button-2 {
+  background-color: $app-light-green;
+  border-bottom-width: 1px;
+}
+
+.na-left-button-3 {
+  background-color: $app-pink;
+  border-right-width: 1px;
+  border-bottom-width: 1px;
+}
+
+.na-left-button-4 {
+  background-color: $app-yellow;
+  border-bottom-width: 1px;
+}
+
+.na-left-button-5 {
+  background-color: $app-orange;
+  border-right-width: 1px;
+}
+
+.na-left-button-6 {
+  background-color: $app-blue;
 }
