@@ -17,28 +17,43 @@
 
     <div class="row m-0 align-content-stretch">
       <div class="col col-6 p-0 row m-0">
-        <div class="tr-content tr-content-left">
+        <div class="tr-content tr-content-left flex-grow">
 
-
-          <label for="country">Je suis dans le pays:</label>
-          <div class="input-group">
-            <span class="input-group-addon" id="basic-addon1">@</span>
-            <input id="country" type="text" class="form-control" [(ngModel)]="country" [ngbTypeahead]="search"/>
-            <!--<input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">-->
+          <div class="tr-content-row">
+            <label for="country">Je suis dans le pays:</label>
+            <div class="input-group">
+              <span class="input-group-addon" id="basic-addon1">@</span>
+              <input id="country" type="text" class="form-control" [(ngModel)]="country" [ngbTypeahead]="search"/>
+              <!--<input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">-->
+            </div>
           </div>
 
-          <label for="country2">Pays de la facture a regler:</label>
-          <div class="input-group">
-            <app-select
-              class="w-100"
-              [selectedItem]="country2"
-              [items]="states2"
-              id="country2"></app-select>
+          <div class="tr-content-row">
+            <label for="country2">Pays de la facture a regler:</label>
+            <div class="input-group">
+              <app-select
+                class="w-100"
+                [(selectedItem)]="country2"
+                [items]="states2"
+                id="country2"></app-select>
+            </div>
           </div>
+
+          <div class="tr-content-row">
+            <label for="entreprise">Selectionner une entreprise</label>
+            <div class="input-group">
+              <app-select
+                class="w-100"
+                [(selectedItem)]="entreprise"
+                [items]="entreprises"
+                id="entreprise"></app-select>
+            </div>
+          </div>
+
         </div>
       </div>
       <div class="col col-6 p-0 row m-0">
-        <div class="tr-content tr-content-right">
+        <div class="tr-content tr-content-right  flex-grow">
           11111111111111111111111111111
           11111111111111111111111111111
           11111111111111111111111111111

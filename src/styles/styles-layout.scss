@@ -76,7 +76,7 @@ $tr-circle-size: 70px;
 }
 
 .tr-content {
-  padding: 10px 30px;
+  padding: 0 30px;
 }
 
 .tr-content-left {
@@ -85,5 +85,9 @@ $tr-circle-size: 70px;
 
 .tr-content-right {
 
+}
+
+.tr-content-row {
+  margin: 16px 0;
 }
 

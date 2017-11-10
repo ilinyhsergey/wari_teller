@@ -1,0 +1,22 @@
+<div class="btn-group w-100" ngbDropdown>
+  <button type="button" class="btn btn-primary w-100 text-align-left">{{selectedItem}}</button>
+  <button class="btn btn-primary dropdown-toggle-split" ngbDropdownToggle></button>
+  <div class="dropdown-menu" ngbDropdownMenu>
+    <button
+      class="dropdown-item"
+      *ngFor="let item of items"
+      (click)="onItemClick(item)"
+    >{{item}}</button>
+  </div>
+</div>
+
+<!--
+<div ngbDropdown class="d-inline-block w-100">
+  <button class="btn btn-outline-primary w-100 text-align-left" id="dropdownBasic1" ngbDropdownToggle>
+    {{selectedItem}}
+  </button>
+  <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+    <button class="dropdown-item" *ngFor="let item of items">{{item}}</button>
+  </div>
+</div>
+-->

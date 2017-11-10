@@ -22,9 +22,11 @@ export class WaterBillComponent implements OnInit {
 
   states2 = ['Alabama', 'Alaska', 'American Samoa', 'Arizona'];
 
+  entreprises = ['SDE', 'SDE 1', 'SDE 2'];
 
   country: string;
   country2: string = this.states2[0];
+  entreprise: string = this.entreprises[0];
 
   constructor() {
   }
