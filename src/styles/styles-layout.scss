@@ -1,5 +1,6 @@
 /* Layout navigation bar, side bar, footer etc. */
 @import "../../node_modules/bootstrap/scss/bootstrap";
+@import "styles-variables";
 
 @include media-breakpoint-up(xs) {
 }
@@ -31,3 +32,58 @@
 @include media-breakpoint-between(md, xl) {
 
 }
+
+.app-scrollable {
+  overflow: auto;
+}
+
+/* common transaction style */
+.tr-header {
+  text-align: center;
+  line-height: 50px;
+
+  border-bottom: solid white 1px;
+}
+
+.tr-title {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 26px;
+}
+
+.tr-subtitle {
+
+}
+
+$tr-circle-size: 70px;
+.tr-circle-text {
+  background-color: $app-green;
+  border-radius: 50%;
+  height: $tr-circle-size;
+  width: $tr-circle-size;
+  line-height: $tr-circle-size * 0.9;
+  text-align: center;
+  font-weight: bold;
+  font-size: 42px;
+}
+
+.tr-body {
+
+}
+
+.tr-body-header {
+  height: 100px;
+}
+
+.tr-content {
+  padding: 10px 30px;
+}
+
+.tr-content-left {
+  border-right: solid 1px white;
+}
+
+.tr-content-right {
+
+}
+

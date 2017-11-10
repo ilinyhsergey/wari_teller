@@ -1,12 +1,20 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {FormsModule} from '@angular/forms';
+
 import {TransactionsRoutingModule} from './transactions-routing.module';
-import { TransactionsComponent } from './transactions.component';
-import { WaterBillComponent } from './water-bill/water-bill.component';
+import {TransactionsComponent} from './transactions.component';
+import {WaterBillComponent} from './water-bill/water-bill.component';
+import {AppComponentsModule} from '../../app-components/app-components.module';
 
 @NgModule({
   imports: [
     CommonModule,
+    FormsModule,
+    NgbModule,
+
+    AppComponentsModule,
     TransactionsRoutingModule
   ],
   declarations: [
@@ -14,4 +22,5 @@ import { WaterBillComponent } from './water-bill/water-bill.component';
     WaterBillComponent
   ]
 })
-export class TransactionsModule { }
+export class TransactionsModule {
+}

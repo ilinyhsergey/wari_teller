@@ -8,3 +8,40 @@
   padding: 3px
 }
 */
+
+.flex-grow {
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+}
+
+.text-align-left {
+  text-align: left;
+}
+
+.text-align-right {
+  text-align: right;
+}
+
+.text-align-center {
+  text-align: center;
+}
+
+.text-align-start {
+  text-align: start;
+}
+
+.text-align-end {
+  text-align: end;
+}
+
+.text-align-justify {
+  text-align: justify;
+}
+
+.text-align-match-parent {
+  text-align: match-parent;
+}
+
+.text-align-inherit {
+  text-align: inherit;
+}

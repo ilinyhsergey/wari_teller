@@ -1,3 +1,62 @@
-<p>
-  water-bill works!
-</p>
+<div class="water-bill d-flex flex-column">
+
+  <div class="tr-header tr-title">
+    Payment facture eau
+  </div>
+
+  <div class="tr-body app-scrollable flex-grow">
+
+    <div class="row m-0 align-items-center tr-body-header">
+      <div class="col col-6 p-0 row m-0 justify-content-center">
+        <div class="tr-circle-text">1</div>
+      </div>
+      <div class="col col-6 p-0 row m-0 justify-content-center">
+        <div class="tr-circle-text">2</div>
+      </div>
+    </div>
+
+    <div class="row m-0 align-content-stretch">
+      <div class="col col-6 p-0 row m-0">
+        <div class="tr-content tr-content-left">
+
+
+          <label for="country">Je suis dans le pays:</label>
+          <div class="input-group">
+            <span class="input-group-addon" id="basic-addon1">@</span>
+            <input id="country" type="text" class="form-control" [(ngModel)]="country" [ngbTypeahead]="search"/>
+            <!--<input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">-->
+          </div>
+
+          <label for="country2">Pays de la facture a regler:</label>
+          <div class="input-group">
+            <app-select
+              class="w-100"
+              [selectedItem]="country2"
+              [items]="states2"
+              id="country2"></app-select>
+          </div>
+        </div>
+      </div>
+      <div class="col col-6 p-0 row m-0">
+        <div class="tr-content tr-content-right">
+          11111111111111111111111111111
+          11111111111111111111111111111
+          11111111111111111111111111111
+          11111111111111111111111111111
+          11111111111111111111111111111
+          11111111111111111111111111111
+          11111111111111111111111111111
+          11111111111111111111111111111
+          11111111111111111111111111111
+          11111111111111111111111111111
+          11111111111111111111111111111
+          11111111111111111111111111111
+          11111111111111111111111111111
+          11111111111111111111111111111
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
