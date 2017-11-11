@@ -91,3 +91,23 @@ $tr-circle-size: 70px;
   margin: 16px 0;
 }
 
+.tr-tbl {
+  //font-size: 14px;
+  //line-height: 26px;
+}
+.tr-tbl-row {
+  margin: 1px 0;
+}
+.tr-tbl-col {
+  padding: 0 8px;
+  font-size: 14px;
+  line-height: 26px;
+}
+.tr-tbl-col:first-child {
+  padding-left: 0;
+}
+
+.tr-pay-button {
+  border: solid 1px green;
+  height: 100px;
+}
