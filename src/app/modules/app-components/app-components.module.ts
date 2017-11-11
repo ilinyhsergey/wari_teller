@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { SelectComponent } from './select/select.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { PaymentModeComponent } from './payment-mode/payment-mode.component';
+import { SideNavComponent } from './side-nav/side-nav.component';
 
 @NgModule({
   imports: [
@@ -12,11 +13,13 @@ import { PaymentModeComponent } from './payment-mode/payment-mode.component';
   ],
   exports: [
     SelectComponent,
-    PaymentModeComponent
+    PaymentModeComponent,
+    SideNavComponent
   ],
   declarations: [
     SelectComponent,
-    PaymentModeComponent
+    PaymentModeComponent,
+    SideNavComponent
   ]
 })
 export class AppComponentsModule { }

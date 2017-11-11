@@ -7,7 +7,7 @@
 $na-bar-height: 50px;
 $na-top-icon: 32px;
 $na-logo-size: 80px;
-$na-left-button-circle-size: 70px;
+$na-left-button-circle-size: 120px;
 
 .na-top {
   height: $na-bar-height;
@@ -76,38 +76,64 @@ $na-left-button-circle-size: 70px;
 .na-left-button-circle {
   border: solid 1px white;
   border-radius: 50%;
+  background-size: cover;
+  margin: 0 auto;
 
   height: $na-left-button-circle-size;
   width: $na-left-button-circle-size;
+}
+
+.na-left-button-description {
+  text-align: center;
 }
 
 .na-left-button-1 {
   background-color: $app-dark-blue;
   border-right-width: 1px;
   border-bottom-width: 1px;
+  .na-left-button-circle {
+    background-image: url('../../../assets/images/tmp/sidenav/phone.png');
+  }
 }
 
 .na-left-button-2 {
   background-color: $app-light-green;
   border-bottom-width: 1px;
+  .na-left-button-circle {
+    background-image: url('../../../assets/images/tmp/sidenav/transfer.png');
+  }
 }
 
 .na-left-button-3 {
   background-color: $app-pink;
   border-right-width: 1px;
   border-bottom-width: 1px;
+  .na-left-button-circle {
+    background-image: url('../../../assets/images/tmp/sidenav/bill.png');
+  }
+
 }
 
 .na-left-button-4 {
   background-color: $app-yellow;
   border-bottom-width: 1px;
+  .na-left-button-circle {
+    background-image: url('../../../assets/images/tmp/sidenav/mywari.png');
+  }
 }
 
 .na-left-button-5 {
   background-color: $app-orange;
   border-right-width: 1px;
+  .na-left-button-circle {
+    background-image: url('../../../assets/images/tmp/sidenav/insurance.png');
+  }
+
 }
 
 .na-left-button-6 {
   background-color: $app-blue;
+  .na-left-button-circle {
+    background-image: url('../../../assets/images/tmp/sidenav/counter.png');
+  }
 }
