@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { SelectComponent } from './select/select.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { PaymentModeComponent } from './payment-mode/payment-mode.component';
 
 @NgModule({
   imports: [
@@ -10,10 +11,12 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     NgbModule
   ],
   exports: [
-    SelectComponent
+    SelectComponent,
+    PaymentModeComponent
   ],
   declarations: [
-    SelectComponent
+    SelectComponent,
+    PaymentModeComponent
   ]
 })
 export class AppComponentsModule { }

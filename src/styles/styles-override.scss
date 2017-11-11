@@ -1,0 +1,42 @@
+/* You can use override internal classes of angular components */
+
+app-payment-mode {
+
+  .nav-tabs {
+    border-bottom: none;
+    color: #fff;
+  }
+
+  .nav-tabs .nav-item {
+    margin-bottom: 0;
+  }
+
+  .nav-tabs .nav-link {
+    padding: 0;
+    border-color: transparent;
+    color: rgba(255, 255, 255, 0.5);
+    opacity: 0.5;
+  }
+
+  .nav-tabs .nav-link:focus,
+  .nav-tabs .nav-link:hover {
+    border-color: transparent;
+    opacity: 1;
+  }
+
+  .nav-tabs .nav-link.disabled {
+    background-color: transparent;
+    border-color: transparent;
+    color: rgba(255, 255, 255, 0.5);
+    opacity: 0.5;
+  }
+
+  .nav-tabs .nav-link.active,
+  .nav-tabs .nav-item.show .nav-link {
+    background-color: transparent;
+    border-color: transparent;
+    color: #fff;
+    opacity: 1;
+  }
+
+}

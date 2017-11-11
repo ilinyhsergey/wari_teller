@@ -23,7 +23,7 @@
             <label for="country">Je suis dans le pays:</label>
             <div class="input-group">
               <span class="input-group-addon" id="basic-addon1">@</span>
-              <input id="country" type="text" class="form-control" [(ngModel)]="country" [ngbTypeahead]="search"/>
+              <input id="country" type="text" class="form-control" [(ngModel)]="country" [ngbTypeahead]="search" placeholder="Start typing ..."/>
               <!--<input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">-->
             </div>
           </div>
@@ -83,24 +83,7 @@
           </div>
 
           <div>Mode de paiement</div>
-          <div class="row m-0">
-            <div class="col col-4 p-0 tr-pay-button"></div>
-            <div class="col col-4 p-0 tr-pay-button"></div>
-            <div class="col col-4 p-0 tr-pay-button"></div>
-          </div>
-
-          <div>Mode de paiement</div>
-          <div class="row">
-            <div class="col col-5">Wari secure</div>
-            <input class="col col-5 form-control" type="text" value="1234567">
-          </div>
-          <div class="row">
-            <div class="col col-5">Montant a payer</div>
-            <input class="col col-5 form-control" type="text" value="125,00">
-            <div class="col col-2">
-              <button type="button" class="btn btn-primary">OK</button>
-            </div>
-          </div>
+          <app-payment-mode></app-payment-mode>
 
         </div>
       </div>
