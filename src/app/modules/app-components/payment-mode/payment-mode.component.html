@@ -5,13 +5,17 @@
     </ng-template>
     <ng-template ngbTabContent>
 
-      <div class="row">
-        <div class="input-group col col-10">
-          <span class="input-group-addon">+221</span>
-          <input type="text" class="form-control" placeholder="Phone number ..."/>
-        </div>
-        <div class="col col-2">
-          <button type="button" class="btn btn-primary">OK</button>
+      <div class="f-container">
+        <div class="f-row">
+          <div class="f-col col-10">
+            <div class="input-group">
+              <span class="input-group-addon">+221</span>
+              <input type="text" class="form-control" placeholder="Phone number ..."/>
+            </div>
+          </div>
+          <div class="f-col col-2">
+            <button type="button" class="btn btn-primary">OK</button>
+          </div>
         </div>
       </div>
 
@@ -23,22 +27,26 @@
     </ng-template>
     <ng-template ngbTabContent>
 
-      <div class="row m-0">
-        <div class="col col-5 p-0">Type paiement:</div>
-        <div class="col col-3 p-0">
-          <input id="checkbox1" type="checkbox">
-          <label for="checkbox1">especes</label>
+      <div class="f-container">
+        <div class="f-row">
+          <div class="f-col col-5">Type paiement:</div>
+          <div class="f-col col-3">
+            <input id="checkbox1" type="checkbox">
+            <label for="checkbox1">especes</label>
+          </div>
+          <div class="f-col col-4">
+            <input id="checkbox2" type="checkbox">
+            <label for="checkbox2">e-wallet</label>
+          </div>
         </div>
-        <div class="col col-4 p-0">
-          <input id="checkbox2" type="checkbox">
-          <label for="checkbox2">e-wallet</label>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col col-5">Montant a payer</div>
-        <input class="col col-5 form-control" type="text" value="125,00">
-        <div class="col col-2">
-          <button type="button" class="btn btn-primary">OK</button>
+        <div class="f-row">
+          <div class="f-col col-5">Montant a payer</div>
+          <div class="f-col col-5">
+            <input class="form-control" type="text" value="125,00">
+          </div>
+          <div class="f-col col-2">
+            <button type="button" class="btn btn-primary">OK</button>
+          </div>
         </div>
       </div>
 
@@ -50,15 +58,21 @@
     </ng-template>
     <ng-template ngbTabContent>
 
-      <div class="row">
-        <div class="col col-5">Wari secure</div>
-        <input class="col col-5 form-control" type="text" value="1234567">
-      </div>
-      <div class="row">
-        <div class="col col-5">Montant a payer</div>
-        <input class="col col-5 form-control" type="text" value="125,00">
-        <div class="col col-2">
-          <button type="button" class="btn btn-primary">OK</button>
+      <div class="f-container">
+        <div class="f-row">
+          <div class="f-col col-5">Wari secure</div>
+          <div class="f-col col-5">
+            <input class="form-control" type="text" value="1234567">
+          </div>
+        </div>
+        <div class="f-row">
+          <div class="f-col col-5">Montant a payer</div>
+          <div class="f-col col-5">
+            <input class="form-control" type="text" value="125,00">
+          </div>
+          <div class="f-col col-2">
+            <button type="button" class="btn btn-primary">OK</button>
+          </div>
         </div>
       </div>
 
