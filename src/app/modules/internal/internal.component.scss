@@ -17,7 +17,11 @@ $na-left-button-circle-size: 120px;
 }
 
 .na-button {
-  padding: 4px;
+  margin: 0 14px;
+}
+
+.na-username {
+  font-size: 12px;
 }
 
 .na-top-title {
@@ -50,6 +54,15 @@ $na-left-button-circle-size: 120px;
   height: $na-top-icon;
 }
 
+.na-button-icon-close {
+  width: 18px;
+  height: 18px;
+}
+
+.na-button-description-close {
+  font-size: 9px;
+}
+
 .na-bottom {
 }
 
@@ -77,7 +90,6 @@ $na-left-button-circle-size: 120px;
   border: solid 1px white;
   border-radius: 50%;
   background-size: cover;
-  margin: 0 auto;
 
   height: $na-left-button-circle-size;
   width: $na-left-button-circle-size;
@@ -87,53 +99,72 @@ $na-left-button-circle-size: 120px;
   text-align: center;
 }
 
+@media (max-height: 484px) {
+  .na-left-button-description {
+    //display: none;
+  }
+}
+
+@media (max-height: 412px) {
+  .na-left-button-circle {
+    display: none;
+  }
+  .na-left-button-description {
+    display: block;
+  }
+}
+
 .na-left-button-1 {
   background-color: $app-dark-blue;
   border-right-width: 1px;
   border-bottom-width: 1px;
-  .na-left-button-circle {
-    background-image: url('../../../assets/images/tmp/sidenav/phone.png');
-  }
+}
+
+.na-left-button-circle-1 {
+  background-image: url('../../../assets/images/tmp/sidenav/phone.png');
 }
 
 .na-left-button-2 {
   background-color: $app-light-green;
   border-bottom-width: 1px;
-  .na-left-button-circle {
-    background-image: url('../../../assets/images/tmp/sidenav/transfer.png');
-  }
+}
+
+.na-left-button-circle-2 {
+  background-image: url('../../../assets/images/tmp/sidenav/transfer.png');
 }
 
 .na-left-button-3 {
   background-color: $app-pink;
   border-right-width: 1px;
   border-bottom-width: 1px;
-  .na-left-button-circle {
-    background-image: url('../../../assets/images/tmp/sidenav/bill.png');
-  }
+}
 
+.na-left-button-circle-3 {
+  background-image: url('../../../assets/images/tmp/sidenav/bill.png');
 }
 
 .na-left-button-4 {
   background-color: $app-yellow;
   border-bottom-width: 1px;
-  .na-left-button-circle {
-    background-image: url('../../../assets/images/tmp/sidenav/mywari.png');
-  }
+}
+
+.na-left-button-circle-4 {
+  background-image: url('../../../assets/images/tmp/sidenav/mywari.png');
 }
 
 .na-left-button-5 {
   background-color: $app-orange;
   border-right-width: 1px;
-  .na-left-button-circle {
-    background-image: url('../../../assets/images/tmp/sidenav/insurance.png');
-  }
+}
 
+.na-left-button-circle-5 {
+  background-image: url('../../../assets/images/tmp/sidenav/insurance.png');
 }
 
 .na-left-button-6 {
   background-color: $app-blue;
-  .na-left-button-circle {
-    background-image: url('../../../assets/images/tmp/sidenav/counter.png');
-  }
+}
+
+.na-left-button-circle-6 {
+  background-image: url('../../../assets/images/tmp/sidenav/counter.png');
 }

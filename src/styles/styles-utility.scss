@@ -1,5 +1,15 @@
 /* You can use atomic styles here */
 
+/* horizontal middle */
+.m-0-auto {
+  margin: 0 auto;
+}
+
+/* vertical middle */
+.m-auto-0 {
+  margin: auto 0;
+}
+
 .flex-grow {
   -ms-flex-positive: 1;
   flex-grow: 1;
