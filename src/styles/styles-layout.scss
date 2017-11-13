@@ -101,9 +101,6 @@ $fg-v-padding: 2px;
   padding-top: $fg-v-padding;
   padding-bottom: $fg-v-padding;
 
-  -ms-flex-align: baseline;
-  align-items: baseline;
-
   height: 40px;
 }
 
@@ -112,6 +109,11 @@ $fg-v-padding: 2px;
   padding-right: $fg-h-padding;
   padding-left: $fg-h-padding;
 }
+
+.f-text {
+  line-height: 38px;
+}
+
 
 .tr-tbl {
   //font-size: 14px;

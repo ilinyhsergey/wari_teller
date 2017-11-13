@@ -89,4 +89,24 @@ body {
     box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
   }
 
+  .form-control::-webkit-input-placeholder {
+    color: #fff;
+    opacity: 0.5;
+  }
+
+  .form-control:-ms-input-placeholder {
+    color: #fff;
+    opacity: 0.5;
+  }
+
+  .form-control::-ms-input-placeholder {
+    color: #fff;
+    opacity: 0.5;
+  }
+
+  .form-control::placeholder {
+    color: #fff;
+    opacity: 0.5;
+  }
+
 }
