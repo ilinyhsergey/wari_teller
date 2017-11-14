@@ -38,6 +38,10 @@ export class AuthService {
     this.storageService.flush();
   }
 
+  isUserLoggedIn(): boolean {
+    return !!this.sessionId && !!this.authToken;
+  }
+
   getSessionId(): number {
     return this.sessionId || (this.sessionId = +this.storageService.get(AuthService.keyCurrentSession));
   }

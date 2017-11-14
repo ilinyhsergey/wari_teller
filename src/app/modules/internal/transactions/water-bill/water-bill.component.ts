@@ -3,13 +3,14 @@ import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
+import {CanComponentDeactivate} from '../../../../model/CanComponentDeactivate';
 
 @Component({
   selector: 'app-water-bill',
   templateUrl: './water-bill.component.html',
   styleUrls: ['./water-bill.component.scss']
 })
-export class WaterBillComponent implements OnInit {
+export class WaterBillComponent implements OnInit, CanComponentDeactivate {
 
   states = ['Alabama', 'Alaska', 'American Samoa', 'Arizona', 'Arkansas', 'California', 'Colorado',
     'Connecticut', 'Delaware', 'District Of Columbia', 'Federated States Of Micronesia', 'Florida', 'Georgia',
@@ -33,6 +34,11 @@ export class WaterBillComponent implements OnInit {
 
   ngOnInit() {
   }
+
+  canDeactivate(): Observable<boolean> | Promise<boolean> | boolean {
+    return true; // todo check unsaved changes
+  }
+
 
   search = (text$: Observable<string>) =>
     text$

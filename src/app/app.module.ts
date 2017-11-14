@@ -15,6 +15,8 @@ import {environment} from '../environments/environment';
 import {ApiModule} from './api/api.module';
 import {HttpModule} from '@angular/http';
 import {StorageService} from './services/storage.service';
+import {AuthGuard} from './services/auth-guard.service';
+import {UnsavedChangesGuard} from './services/unsaved-changes-guard.service';
 
 const SERVER_URL = environment.serverUrl;
 
@@ -38,6 +40,8 @@ const SERVER_URL = environment.serverUrl;
   providers: [
     StorageService,
     AuthService,
+    AuthGuard,
+    UnsavedChangesGuard,
     {provide: BASE_PATH, useValue: SERVER_URL}
   ],
   bootstrap: [

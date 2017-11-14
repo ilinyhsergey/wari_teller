@@ -2,16 +2,17 @@ import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 
 import {InternalComponent} from './internal/internal.component';
+import {AuthGuard} from '../../services/auth-guard.service';
 
 const routes: Routes = [
   {
     path: '',
     component: InternalComponent,
-    // canActivate: [AuthGuard],
+    canActivate: [AuthGuard],
     children: [
       {
         path: '',
-        // canActivateChild: [AuthGuard],
+        canActivateChild: [AuthGuard],
         children: [
           {
             path: 'transactions',
