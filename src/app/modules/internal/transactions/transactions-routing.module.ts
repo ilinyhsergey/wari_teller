@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {TransactionsComponent} from './transactions.component';
+import {TransactionsComponent} from './transactions/transactions.component';
 import {WaterBillComponent} from './water-bill/water-bill.component';
 
 const routes: Routes = [
