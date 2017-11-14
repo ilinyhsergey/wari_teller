@@ -6,6 +6,7 @@ import {FormsModule} from '@angular/forms';
 import {TransactionsRoutingModule} from './transactions-routing.module';
 import {WaterBillComponent} from './water-bill/water-bill.component';
 import {AppComponentsModule} from '../../app-components/app-components.module';
+import {TransactionsComponent} from './transactions.component';
 
 @NgModule({
   imports: [
@@ -17,6 +18,7 @@ import {AppComponentsModule} from '../../app-components/app-components.module';
     TransactionsRoutingModule
   ],
   declarations: [
+    TransactionsComponent,
     WaterBillComponent
   ]
 })

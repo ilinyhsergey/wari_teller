@@ -7,10 +7,10 @@ import {NetworkInformation} from '../../../api/generated/model/NetworkInformatio
 
 @Component({
   selector: 'app-internal',
-  templateUrl: './internal.component.html',
-  styleUrls: ['./internal.component.scss']
+  templateUrl: './transactions.component.html',
+  styleUrls: ['./transactions.component.scss']
 })
-export class InternalComponent implements OnInit {
+export class TransactionsComponent implements OnInit {
 
   constructor(private authService: AuthService,
               private router: Router,
@@ -25,7 +25,7 @@ export class InternalComponent implements OnInit {
     observable.subscribe((networkInformation: NetworkInformation) => {
       console.log('networkInformation', networkInformation);
     }, (error) => {
-      console.log('InternalComponent error', error);
+      console.log('TransactionsComponent error', error);
     });
   }
 
@@ -35,7 +35,7 @@ export class InternalComponent implements OnInit {
   }
 
   goToHome() {
-    this.router.navigate(['/internal/home']);
+    this.router.navigate(['/home']);
   }
 
 }

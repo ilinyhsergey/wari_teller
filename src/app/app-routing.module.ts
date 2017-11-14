@@ -4,16 +4,10 @@ import {NotFoundComponent} from './common/not-found/not-found.component';
 
 const routes: Routes = [
   {
-    path: 'internal',
-    loadChildren: 'app/modules/internal/internal.module#InternalModule',
-    // canLoad: [AuthGuard]
+    path: 'transactions',
+    loadChildren: 'app/modules/internal/transactions/transactions.module#TransactionsModule'
   },
-  // {
-  //   path: 'profile',
-  //   canActivate: [AuthGuard],
-  //   component: ProfileComponent,
-  // },
-  {path: '', redirectTo: '/internal/transactions/water', pathMatch: 'full'},
+  {path: '', redirectTo: '/transactions/water', pathMatch: 'full'},
   {path: '**', component: NotFoundComponent}
 ];
 
