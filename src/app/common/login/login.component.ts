@@ -5,6 +5,7 @@ import {AuthService} from '../../services/auth.service';
 import {LoginCredentials} from '../../api/generated/model/LoginCredentials';
 import {ActorSession} from '../../model/ActorSession';
 import {UserApi} from '../../api/generated/api/UserApi';
+import {RedirectService} from '../../services/redirect.service';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +18,8 @@ export class LoginComponent implements OnInit {
 
   constructor(private authService: AuthService,
               private userApi: UserApi,
-              private router: Router) {
+              private router: Router,
+              private redirectService: RedirectService) {
   }
 
   ngOnInit() {
@@ -33,7 +35,8 @@ export class LoginComponent implements OnInit {
       .subscribe((actorSession: ActorSession) => {
 
         this.authService.handleLogin(actorSession);
-        this.router.navigate(['/internal/transactions/water']);
+        const redirectUrl =  this.redirectService.getAndClearRedirectUrl() || '/internal/transactions/water';
+        this.router.navigate([redirectUrl]);
 
       }, (err) => {
         console.log('err', err);

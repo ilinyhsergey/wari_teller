@@ -3,6 +3,7 @@ import {CommonModule} from '@angular/common';
 
 import {InternalRoutingModule} from './internal-routing.module';
 import {InternalComponent} from './internal/internal.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   imports: [
@@ -10,7 +11,8 @@ import {InternalComponent} from './internal/internal.component';
     InternalRoutingModule
   ],
   declarations: [
-    InternalComponent
+    InternalComponent,
+    HomeComponent
   ]
 })
 export class InternalModule {

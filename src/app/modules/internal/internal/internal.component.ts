@@ -34,4 +34,8 @@ export class InternalComponent implements OnInit {
     this.router.navigate(['/login']);
   }
 
+  goToHome() {
+    this.router.navigate(['/internal/home']);
+  }
+
 }

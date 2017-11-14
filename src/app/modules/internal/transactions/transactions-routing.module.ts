@@ -12,9 +12,12 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        canDeactivate: [UnsavedChangesGuard],
         children: [
-          {path: 'water', component: WaterBillComponent},
+          {
+            path: 'water',
+            component: WaterBillComponent,
+            canDeactivate: [UnsavedChangesGuard]
+          },
         ]
       }
     ]

@@ -6,12 +6,14 @@ import {
 import {Observable} from 'rxjs/Observable';
 
 import {AuthService} from './auth.service';
+import {RedirectService} from './redirect.service';
 
 @Injectable()
-export class AuthGuard implements CanActivate, CanActivateChild, CanLoad {
+export class AuthGuard implements CanActivate, CanActivateChild {
 
   constructor(private authService: AuthService,
-              private router: Router) {
+              private router: Router,
+              private redirectService: RedirectService) {
   }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
@@ -22,13 +24,12 @@ export class AuthGuard implements CanActivate, CanActivateChild, CanLoad {
     return this.isUserLoggedIn(state.url);
   }
 
-  canLoad(route: Route): Observable<boolean> | Promise<boolean> | boolean {
-    return this.isUserLoggedIn();
-  }
-
   isUserLoggedIn(url?: string): boolean {
     const isLoggedIn = this.authService.isUserLoggedIn();
     if (!isLoggedIn) {
+      if (url) {
+        this.redirectService.setRedirectUrl(url);
+      }
       this.router.navigate(['/login']);
     }
     return isLoggedIn;

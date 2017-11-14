@@ -18,6 +18,7 @@ import {StorageService} from './services/storage.service';
 import {AuthGuard} from './services/auth-guard.service';
 import {UnsavedChangesGuard} from './services/unsaved-changes-guard.service';
 import {AuthlessGuard} from './services/authless-guard.service';
+import {RedirectService} from './services/redirect.service';
 
 const SERVER_URL = environment.serverUrl;
 
@@ -41,6 +42,7 @@ const SERVER_URL = environment.serverUrl;
   providers: [
     StorageService,
     AuthService,
+    RedirectService,
     AuthGuard,
     UnsavedChangesGuard,
     AuthlessGuard,
