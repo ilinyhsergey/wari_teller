@@ -17,6 +17,7 @@ import {HttpModule} from '@angular/http';
 import {StorageService} from './services/storage.service';
 import {AuthGuard} from './services/auth-guard.service';
 import {UnsavedChangesGuard} from './services/unsaved-changes-guard.service';
+import {AuthlessGuard} from './services/authless-guard.service';
 
 const SERVER_URL = environment.serverUrl;
 
@@ -42,6 +43,7 @@ const SERVER_URL = environment.serverUrl;
     AuthService,
     AuthGuard,
     UnsavedChangesGuard,
+    AuthlessGuard,
     {provide: BASE_PATH, useValue: SERVER_URL}
   ],
   bootstrap: [
