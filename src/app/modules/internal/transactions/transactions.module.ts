@@ -4,7 +4,6 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {FormsModule} from '@angular/forms';
 
 import {TransactionsRoutingModule} from './transactions-routing.module';
-import {TransactionsComponent} from './transactions/transactions.component';
 import {WaterBillComponent} from './water-bill/water-bill.component';
 import {AppComponentsModule} from '../../app-components/app-components.module';
 
@@ -18,7 +17,6 @@ import {AppComponentsModule} from '../../app-components/app-components.module';
     TransactionsRoutingModule
   ],
   declarations: [
-    TransactionsComponent,
     WaterBillComponent
   ]
 })
