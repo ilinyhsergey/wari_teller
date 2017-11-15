@@ -2,8 +2,8 @@ import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 
 import {WaterBillComponent} from './water-bill/water-bill.component';
-import {UnsavedChangesGuard} from '../../../services/unsaved-changes-guard.service';
-import {AuthGuard} from '../../../services/auth-guard.service';
+import {UnsavedChangesGuard} from '../../../services/guards/unsaved-changes-guard.service';
+import {AuthGuard} from '../../../services/guards/auth-guard.service';
 import {TransactionsComponent} from './transactions.component';
 
 const routes: Routes = [

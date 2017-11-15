@@ -5,8 +5,8 @@ import {
 } from '@angular/router';
 import {Observable} from 'rxjs/Observable';
 
-import {AuthService} from './auth.service';
-import {RedirectService} from './redirect.service';
+import {AuthService} from '../auth.service';
+import {RedirectService} from '../redirect.service';
 
 @Injectable()
 export class AuthGuard implements CanActivate, CanActivateChild {
