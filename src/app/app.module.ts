@@ -20,6 +20,7 @@ import {UnsavedChangesGuard} from './services/guards/unsaved-changes-guard.servi
 import {AuthlessGuard} from './services/guards/authless-guard.service';
 import {RedirectService} from './services/redirect.service';
 import {UtilsService} from './services/utils.service';
+import {ParametersCacheService} from './services/parameters-cache.service';
 
 const SERVER_URL = environment.serverUrl;
 
@@ -44,6 +45,7 @@ const SERVER_URL = environment.serverUrl;
     StorageService,
     AuthService,
     RedirectService,
+    ParametersCacheService,
     UtilsService,
     AuthGuard,
     UnsavedChangesGuard,
