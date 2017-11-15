@@ -3,7 +3,11 @@ import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
+import * as _ from 'lodash';
+
 import {CanComponentDeactivate} from '../../../../model/CanComponentDeactivate';
+import {ActivatedRoute} from '@angular/router';
+import {Collection} from '../../../../app.declaration';
 
 @Component({
   selector: 'app-water-bill',
@@ -21,18 +25,38 @@ export class WaterBillComponent implements OnInit, CanComponentDeactivate {
     'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virgin Islands', 'Virginia',
     'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'];
 
-  states2 = ['Alabama', 'Alaska', 'American Samoa', 'Arizona'];
-
-  entreprises = ['SDE', 'SDE 1', 'SDE 2'];
-
   country: string;
-  country2: string = this.states2[0];
-  entreprise: string = this.entreprises[0];
 
-  constructor() {
+
+  partnerInfo: Collection<string[]>;
+
+  partnerCodes: string[] = [];
+  partnerCode: string;
+
+  partnerNames: string[];
+  partnerName: string;
+
+  constructor(private route: ActivatedRoute) {
   }
 
   ngOnInit() {
+    this.route.data.subscribe(data => {
+      const partnerInfo: Collection<string[]> = data.partnerInfo;
+      this.partnerInfo = partnerInfo;
+
+      this.partnerCodes = _.keys(partnerInfo);
+      console.log('____ this.partnerCodes', this.partnerCodes); // todo
+    });
+
+  }
+
+  onPartnerCodeSelected(partnerCode: string) {
+    this.partnerCode = partnerCode;
+    this.partnerNames = this.partnerInfo[partnerCode];
+  }
+
+  onPartnerNameSelected(partnerName: string) {
+    this.partnerName = partnerName;
   }
 
   canDeactivate(): Observable<boolean> | Promise<boolean> | boolean {
