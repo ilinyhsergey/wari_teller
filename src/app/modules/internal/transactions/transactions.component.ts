@@ -33,19 +33,10 @@ export class TransactionsComponent implements OnInit {
 
     const obArr: Observable<any>[] = [];
     obArr.push(this.parameterApi.getInformationsSessionIDGet1(this.authService.getSessionId()));
-
     obArr.push(this.parameterApi.findB2BPartnerInformationsGet1());
-    // obArr.push(this.parameterApi.findMerchantFormByReferenceGet1(''));
-    // obArr.push(this.parameterApi.findMerchantInformationsByReferenceGet1(''));
     obArr.push(this.parameterApi.getAllCountriesGet1());
-    obArr.push(this.parameterApi.getAllIDtypesSessionIDGet1(this.authService.getSessionId()));
-    // obArr.push(this.parameterApi.getAllMerchantInCountryByCategoryCountryCodeCategoryGet1(1, ''));
-    // obArr.push(this.parameterApi.getAllMobileOperatorsInCountryMobileCountryCodeGet1(221, ''));
     obArr.push(this.parameterApi.getAllTransferMotifsGet1());
-    obArr.push(this.parameterApi.getAvailableDestinationCountriesSessionIDGet1(this.authService.getSessionId()));
-    // obArr.push(this.parameterApi.getCountryGet1(1));
     obArr.push(this.parameterApi.getInformationsSessionIDGet1(this.authService.getSessionId()));
-
 
     console.log('____ obArr', obArr); // todo
 

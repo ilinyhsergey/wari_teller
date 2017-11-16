@@ -36,6 +36,10 @@ if os.path.exists(tempDir):
   shutil.rmtree(tempDir)
 os.makedirs(tempDir)
 
+dstDir = '..\\src\\app\\api\\generated'
+print('Cleaning up destination directory')
+shutil.rmtree(dstDir)
+
 print('Runing Swagger Codegen')
 os.system('java -jar swagger-codegen-cli-2.2.3.jar generate' +
           ' -i http://stage.i.wari.com/teller_api/v1/swagger.json' +
@@ -63,7 +67,7 @@ renameTokenInFile(personFile,
                   'InjectionToken')
 
 print('Copying files back to source')
-copytree(tempDir, '..\\src\\app\\api\\generated', None, None, '*.ts')
+copytree(tempDir, dstDir, None, None, '*.ts')
 
 print('Cleaning up')
 shutil.rmtree(tempDir)
