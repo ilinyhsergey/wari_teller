@@ -66,7 +66,7 @@ export class ReportApi {
      * @param sessionID 
      * @param transactionId 
      */
-    public getAirtimeStatusSessionIDTransactionIdGet1(sessionID: number, transactionId: number, extraHttpRequestParams?: any): Observable<models.AirTimeStatus> {
+    public getAirtimeStatusSessionIDTransactionIdGet1(sessionID: number, transactionId: number, extraHttpRequestParams?: any): Observable<string> {
         return this.getAirtimeStatusSessionIDTransactionIdGet1WithHttpInfo(sessionID, transactionId, extraHttpRequestParams)
             .map((response: Response) => {
                 if (response.status === 204) {

@@ -105,22 +105,6 @@ export class ParameterApi {
     }
 
     /**
-     * provides all the ID types used in Wari platform.
-     * @summary provides all the ID types used in Wari platform.
-     * @param sessionID 
-     */
-    public getAllIDtypesSessionIDGet1(sessionID: number, extraHttpRequestParams?: any): Observable<Array<models.PieceType>> {
-        return this.getAllIDtypesSessionIDGet1WithHttpInfo(sessionID, extraHttpRequestParams)
-            .map((response: Response) => {
-                if (response.status === 204) {
-                    return undefined;
-                } else {
-                    return response.json() || {};
-                }
-            });
-    }
-
-    /**
      * provides all merchants in a country by category(TV,bill,water etc...).
      * @summary [Implemented] provides all merchants in a country by category(TV,bill,water etc...).
      * @param countryCode 
@@ -154,6 +138,21 @@ export class ParameterApi {
     }
 
     /**
+     * provides all the Piece types used in Wari platform.
+     * @summary provides all the Piece types used in Wari platform.
+     */
+    public getAllPieceTypesGet1(extraHttpRequestParams?: any): Observable<Array<models.PieceType>> {
+        return this.getAllPieceTypesGet1WithHttpInfo(extraHttpRequestParams)
+            .map((response: Response) => {
+                if (response.status === 204) {
+                    return undefined;
+                } else {
+                    return response.json() || {};
+                }
+            });
+    }
+
+    /**
      * provides all transfer motifs used in Wari platform.
      * @summary [Implemented] provides all transfer motifs used in Wari platform.
      */
@@ -169,12 +168,12 @@ export class ParameterApi {
     }
 
     /**
-     * provides all countries where Wari platform can send money.
-     * @summary provides all countries where Wari platform can send money.
-     * @param sessionID 
+     * provides all countries where Wari platform can send money by sender country.
+     * @summary provides all countries where Wari platform can send money by sender country.
+     * @param geoZoneId 
      */
-    public getAvailableDestinationCountriesSessionIDGet1(sessionID: number, extraHttpRequestParams?: any): Observable<Array<models.GeoZone>> {
-        return this.getAvailableDestinationCountriesSessionIDGet1WithHttpInfo(sessionID, extraHttpRequestParams)
+    public getAvailableDestinationCountriesGeoZoneIdGet1(geoZoneId: number, extraHttpRequestParams?: any): Observable<Array<models.GeoZone>> {
+        return this.getAvailableDestinationCountriesGeoZoneIdGet1WithHttpInfo(geoZoneId, extraHttpRequestParams)
             .map((response: Response) => {
                 if (response.status === 204) {
                     return undefined;
@@ -374,48 +373,6 @@ export class ParameterApi {
     }
 
     /**
-     * provides all the ID types used in Wari platform.
-     * provides all the ID types used in Wari platform.
-     * @param sessionID 
-     */
-    public getAllIDtypesSessionIDGet1WithHttpInfo(sessionID: number, extraHttpRequestParams?: any): Observable<Response> {
-        const path = this.basePath + '/parameter/getAllIDtypes/${sessionID}'
-                    .replace('${' + 'sessionID' + '}', String(sessionID));
-
-        let queryParameters = new URLSearchParams();
-        let headers = new Headers(this.defaultHeaders.toJSON()); // https://github.com/angular/angular/issues/6845
-        // verify required parameter 'sessionID' is not null or undefined
-        if (sessionID === null || sessionID === undefined) {
-            throw new Error('Required parameter sessionID was null or undefined when calling getAllIDtypesSessionIDGet1.');
-        }
-        // to determine the Content-Type header
-        let consumes: string[] = [
-        ];
-
-        // to determine the Accept header
-        let produces: string[] = [
-        ];
-
-        // authentication (bearer) required
-        if (this.configuration.apiKey) {
-            headers.set('Authorization', this.configuration.apiKey);
-        }
-
-        let requestOptions: RequestOptionsArgs = new RequestOptions({
-            method: RequestMethod.Get,
-            headers: headers,
-            search: queryParameters,
-            withCredentials:this.configuration.withCredentials
-        });
-        // https://github.com/swagger-api/swagger-codegen/issues/4037
-        if (extraHttpRequestParams) {
-            requestOptions = (<any>Object).assign(requestOptions, extraHttpRequestParams);
-        }
-
-        return this.http.request(path, requestOptions);
-    }
-
-    /**
      * [Implemented] provides all merchants in a country by category(TV,bill,water etc...).
      * provides all merchants in a country by category(TV,bill,water etc...).
      * @param countryCode 
@@ -496,6 +453,42 @@ export class ParameterApi {
     }
 
     /**
+     * provides all the Piece types used in Wari platform.
+     * provides all the Piece types used in Wari platform.
+     */
+    public getAllPieceTypesGet1WithHttpInfo(extraHttpRequestParams?: any): Observable<Response> {
+        const path = this.basePath + '/parameter/getAllPieceTypes';
+
+        let queryParameters = new URLSearchParams();
+        let headers = new Headers(this.defaultHeaders.toJSON()); // https://github.com/angular/angular/issues/6845
+        // to determine the Content-Type header
+        let consumes: string[] = [
+        ];
+
+        // to determine the Accept header
+        let produces: string[] = [
+        ];
+
+        // authentication (bearer) required
+        if (this.configuration.apiKey) {
+            headers.set('Authorization', this.configuration.apiKey);
+        }
+
+        let requestOptions: RequestOptionsArgs = new RequestOptions({
+            method: RequestMethod.Get,
+            headers: headers,
+            search: queryParameters,
+            withCredentials:this.configuration.withCredentials
+        });
+        // https://github.com/swagger-api/swagger-codegen/issues/4037
+        if (extraHttpRequestParams) {
+            requestOptions = (<any>Object).assign(requestOptions, extraHttpRequestParams);
+        }
+
+        return this.http.request(path, requestOptions);
+    }
+
+    /**
      * [Implemented] provides all transfer motifs used in Wari platform.
      * provides all transfer motifs used in Wari platform.
      */
@@ -532,19 +525,19 @@ export class ParameterApi {
     }
 
     /**
-     * provides all countries where Wari platform can send money.
-     * provides all countries where Wari platform can send money.
-     * @param sessionID 
+     * provides all countries where Wari platform can send money by sender country.
+     * provides all countries where Wari platform can send money by sender country.
+     * @param geoZoneId 
      */
-    public getAvailableDestinationCountriesSessionIDGet1WithHttpInfo(sessionID: number, extraHttpRequestParams?: any): Observable<Response> {
-        const path = this.basePath + '/parameter/getAvailableDestinationCountries/${sessionID}'
-                    .replace('${' + 'sessionID' + '}', String(sessionID));
+    public getAvailableDestinationCountriesGeoZoneIdGet1WithHttpInfo(geoZoneId: number, extraHttpRequestParams?: any): Observable<Response> {
+        const path = this.basePath + '/parameter/getAvailableDestinationCountries/${geoZoneId}'
+                    .replace('${' + 'geoZoneId' + '}', String(geoZoneId));
 
         let queryParameters = new URLSearchParams();
         let headers = new Headers(this.defaultHeaders.toJSON()); // https://github.com/angular/angular/issues/6845
-        // verify required parameter 'sessionID' is not null or undefined
-        if (sessionID === null || sessionID === undefined) {
-            throw new Error('Required parameter sessionID was null or undefined when calling getAvailableDestinationCountriesSessionIDGet1.');
+        // verify required parameter 'geoZoneId' is not null or undefined
+        if (geoZoneId === null || geoZoneId === undefined) {
+            throw new Error('Required parameter geoZoneId was null or undefined when calling getAvailableDestinationCountriesGeoZoneIdGet1.');
         }
         // to determine the Content-Type header
         let consumes: string[] = [
