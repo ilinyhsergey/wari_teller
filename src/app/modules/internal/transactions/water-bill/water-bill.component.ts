@@ -8,6 +8,10 @@ import * as _ from 'lodash';
 import {CanComponentDeactivate} from '../../../../model/CanComponentDeactivate';
 import {ActivatedRoute} from '@angular/router';
 import {Collection} from '../../../../app.declaration';
+import {BillResponse} from '../../../../api/generated/model/BillResponse';
+import {TransactionRequestBody} from '../../../../api/generated/model/TransactionRequestBody';
+import {AuthService} from '../../../../services/auth.service';
+import {TransactionRequest} from '../../../../api/generated/model/TransactionRequest';
 
 @Component({
   selector: 'app-water-bill',
@@ -15,18 +19,6 @@ import {Collection} from '../../../../app.declaration';
   styleUrls: ['./water-bill.component.scss']
 })
 export class WaterBillComponent implements OnInit, CanComponentDeactivate {
-
-  states = ['Alabama', 'Alaska', 'American Samoa', 'Arizona', 'Arkansas', 'California', 'Colorado',
-    'Connecticut', 'Delaware', 'District Of Columbia', 'Federated States Of Micronesia', 'Florida', 'Georgia',
-    'Guam', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine',
-    'Marshall Islands', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri', 'Montana',
-    'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dakota',
-    'Northern Mariana Islands', 'Ohio', 'Oklahoma', 'Oregon', 'Palau', 'Pennsylvania', 'Puerto Rico', 'Rhode Island',
-    'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virgin Islands', 'Virginia',
-    'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'];
-
-  country: string;
-
 
   partnerInfo: Collection<string[]>;
 
@@ -36,7 +28,12 @@ export class WaterBillComponent implements OnInit, CanComponentDeactivate {
   partnerNames: string[];
   partnerName: string;
 
-  constructor(private route: ActivatedRoute) {
+  bill: BillResponse;
+  transactionRequestBody: TransactionRequestBody;
+  transactionRequest: TransactionRequest;
+
+  constructor(private route: ActivatedRoute,
+              private authService: AuthService) {
   }
 
   ngOnInit() {
@@ -47,6 +44,20 @@ export class WaterBillComponent implements OnInit, CanComponentDeactivate {
       this.partnerCodes = _.keys(partnerInfo);
       console.log('____ this.partnerCodes', this.partnerCodes); // todo
     });
+
+
+    this.bill = {
+      billReference: '',
+      billAmount: 0,
+      billFees: 0,
+      billTimbre: 0,
+      billTaxeFixe: 0,
+      billClient: '',
+      billInfos: {
+        // phone: '',
+        // address: ''
+      }
+    };
 
   }
 
@@ -63,12 +74,13 @@ export class WaterBillComponent implements OnInit, CanComponentDeactivate {
     return true; // todo check unsaved changes
   }
 
+  send() {
+    console.log('TODO: send transaction'); // todo
+    this.transactionRequestBody = {
+      sessionID: this.authService.getSessionId(),
+      transactionRequest: {}, // todo not all types generated
+      objectType: 'BillPaymentContext'
+    };
 
-  search = (text$: Observable<string>) =>
-    text$
-      .debounceTime(200)
-      .distinctUntilChanged()
-      .map(term => term.length < 2 ? []
-        : this.states.filter(v => v.toLowerCase().indexOf(term.toLowerCase()) > -1).slice(0, 10));
-
+  }
 }

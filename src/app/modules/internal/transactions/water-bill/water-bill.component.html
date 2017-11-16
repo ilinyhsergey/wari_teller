@@ -27,8 +27,7 @@
               <div class="f-col">
                 <div class="input-group">
                   <span class="input-group-addon">@</span>
-                  <input type="text" class="form-control" [(ngModel)]="country" [ngbTypeahead]="search"
-                         placeholder="Start typing ..."/>
+                  <input type="text" class="form-control" placeholder="Start typing ..."/>
                 </div>
               </div>
             </div>
@@ -66,31 +65,36 @@
           <div class="tr-table">
             <div class="row tr-tbl-row">
               <div class="col col-3 tr-tbl-col">Reference</div>
-              <input class="col col-9 tr-tbl-col" type="text" value="SENELEC">
+              <input class="col col-9 tr-tbl-col" type="text"
+                     [(ngModel)]="bill.billReference">
             </div>
             <div class="row tr-tbl-row">
               <div class="col col-3 tr-tbl-col">Montant</div>
-              <input class="col col-3 tr-tbl-col" type="text" value="15000">
+              <input class="col col-3 tr-tbl-col" type="text"
+                     [(ngModel)]="bill.billAmount">
               <div class="col col-2 tr-tbl-col">XOF</div>
-              <input class="col col-2 tr-tbl-col" type="text" value="21.58">
+              <input class="col col-2 tr-tbl-col" type="text">
               <div class="col col-2 tr-tbl-col">EUR</div>
             </div>
             <div class="row tr-tbl-row">
               <div class="col col-3 tr-tbl-col">Nom</div>
-              <input class="col col-9 tr-tbl-col" type="text" value="SERRES">
+              <input class="col col-9 tr-tbl-col" type="text"
+                     [(ngModel)]="bill.billClient">
             </div>
             <div class="row tr-tbl-row">
               <div class="col col-3 tr-tbl-col">Cellulaire</div>
-              <input class="col col-9 tr-tbl-col" type="text" value="33660742204">
+              <input class="col col-9 tr-tbl-col" type="text"
+                     [(ngModel)]="bill.billInfos['phone']">
             </div>
             <div class="row tr-tbl-row">
               <div class="col col-3 tr-tbl-col">Adresse</div>
-              <input class="col col-9 tr-tbl-col" type="text" value="41, rue Joel Richer 13007">
+              <input class="col col-9 tr-tbl-col" type="text"
+                     [(ngModel)]="bill.billInfos['address']">
             </div>
           </div>
 
           <div>Mode de paiement</div>
-          <app-payment-mode></app-payment-mode>
+          <app-payment-mode (complete)="send()"></app-payment-mode>
 
         </div>
       </div>

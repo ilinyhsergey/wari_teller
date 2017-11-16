@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-payment-mode',
@@ -7,10 +7,16 @@ import {Component, OnInit} from '@angular/core';
 })
 export class PaymentModeComponent implements OnInit {
 
+  @Output()
+  complete: EventEmitter<any> = new EventEmitter<any>();
+
   constructor() {
   }
 
   ngOnInit() {
   }
 
+  onOkButton() {
+    this.complete.emit(true);
+  }
 }
