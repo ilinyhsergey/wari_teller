@@ -9,9 +9,10 @@ import {CanComponentDeactivate} from '../../../../model/CanComponentDeactivate';
 import {ActivatedRoute} from '@angular/router';
 import {Collection} from '../../../../app.declaration';
 import {BillResponse} from '../../../../api/generated/model/BillResponse';
-import {TransactionRequestBody} from '../../../../api/generated/model/TransactionRequestBody';
 import {AuthService} from '../../../../services/auth.service';
-import {TransactionRequest} from '../../../../api/generated/model/TransactionRequest';
+import {TransactionApi} from '../../../../api/generated/api/TransactionApi';
+import {BillRequestBody} from '../../../../api/generated/model/BillRequestBody';
+import {BillRequest} from '../../../../api/generated/model/BillRequest';
 
 @Component({
   selector: 'app-water-bill',
@@ -28,12 +29,17 @@ export class WaterBillComponent implements OnInit, CanComponentDeactivate {
   partnerNames: string[];
   partnerName: string;
 
-  bill: BillResponse;
-  transactionRequestBody: TransactionRequestBody;
-  transactionRequest: TransactionRequest;
+  billReference: string;
+
+  amount1: string;
+  amount2: string;
+  phone: string;
+  address: string;
+
 
   constructor(private route: ActivatedRoute,
-              private authService: AuthService) {
+              private authService: AuthService,
+              private transactionApi: TransactionApi) {
   }
 
   ngOnInit() {
@@ -44,20 +50,6 @@ export class WaterBillComponent implements OnInit, CanComponentDeactivate {
       this.partnerCodes = _.keys(partnerInfo);
       console.log('____ this.partnerCodes', this.partnerCodes); // todo
     });
-
-
-    this.bill = {
-      billReference: '',
-      billAmount: 0,
-      billFees: 0,
-      billTimbre: 0,
-      billTaxeFixe: 0,
-      billClient: '',
-      billInfos: {
-        // phone: '',
-        // address: ''
-      }
-    };
 
   }
 
@@ -75,12 +67,26 @@ export class WaterBillComponent implements OnInit, CanComponentDeactivate {
   }
 
   send() {
-    console.log('TODO: send transaction'); // todo
-    this.transactionRequestBody = {
-      sessionID: this.authService.getSessionId(),
-      transactionRequest: {}, // todo not all types generated
-      objectType: 'BillPaymentContext'
-    };
+    const billRequestBody: BillRequestBody = this.createRequestBody();
 
+    const observable: Observable<BillResponse[]> = this.transactionApi.findCustomerBillPost1(billRequestBody);
+    observable.subscribe((billResponses: BillResponse[]) => {
+      console.log('billResponses', billResponses); // todo
+    }, (error) => {
+      console.log('error', error); // todo
+    });
+
+  }
+
+  private createRequestBody(): BillRequestBody {
+    return {
+      sessionID: this.authService.getSessionId(),
+      billRequest: {
+        merchantCode: this.partnerName,
+        billReference: this.billReference,
+        billCurrency: this.amount1,
+        billModeReglement: BillRequest.BillModeReglementEnum.TOTAL
+      }
+    };
   }
 }
