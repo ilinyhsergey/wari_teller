@@ -3,6 +3,7 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {FormsModule} from '@angular/forms';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {HttpModule} from '@angular/http';
 
 import {AppComponent} from './app.component';
 import {NotFoundComponent} from './common/not-found/not-found.component';
@@ -13,7 +14,6 @@ import {AuthService} from './services/auth.service';
 import {BASE_PATH} from './api/generated/variables';
 import {environment} from '../environments/environment';
 import {ApiModule} from './api/api.module';
-import {HttpModule} from '@angular/http';
 import {StorageService} from './services/storage.service';
 import {AuthGuard} from './services/auth-guard.service';
 import {UnsavedChangesGuard} from './services/unsaved-changes-guard.service';

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="619cf17c7203a25429252f4107ea863b2369c88c" datatype="html">
+        <source>Everybody wins!</source>
+        <target>Tout le monde gagne!</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\modules\internal\transactions\transactions.component.ts</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+        <note priority="1" from="description">Title on head of dashboard</note>
+        <note priority="1" from="meaning">title</note>
+      </trans-unit>
+      <trans-unit id="9c0bb87fe09b1f49ab260e1ea90a07499c380c4c" datatype="html">
+        <source>Hello</source>
+        <target>Bonjour</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\modules\internal\transactions\transactions.component.ts</context>
+          <context context-type="linenumber">43</context>
+        </context-group>
+        <note priority="1" from="description">User greeting on dashboard</note>
+        <note priority="1" from="meaning">user greeting</note>
+      </trans-unit>
+      <trans-unit id="f8044c18a96ed5c84bbc4ae06acbbde311c9df28" datatype="html">
+        <source>Exit</source>
+        <target>Deconnexion</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\modules\internal\transactions\transactions.component.ts</context>
+          <context context-type="linenumber">55</context>
+        </context-group>
+        <note priority="1" from="description">Logout from app</note>
+        <note priority="1" from="meaning">exit</note>
+      </trans-unit>
+      <trans-unit id="7276e76d720eef9217e971ba37abcb341738ebba" datatype="html">
+        <source>Phone credit</source>
+        <target>Credit telephonique</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\modules\internal\transactions\transactions.component.ts</context>
+          <context context-type="linenumber">70</context>
+        </context-group>
+        <note priority="1" from="description">Side nav panel description</note>
+        <note priority="1" from="meaning">phone credit</note>
+      </trans-unit>
+      <trans-unit id="2736a9844f96ab11ea24ee010c48389803787a9b" datatype="html">
+        <source>Transfer</source>
+        <target>Transfert</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\modules\internal\transactions\transactions.component.ts</context>
+          <context context-type="linenumber">76</context>
+        </context-group>
+        <note priority="1" from="description">Side nav panel description</note>
+        <note priority="1" from="meaning">transfer</note>
+      </trans-unit>
+      <trans-unit id="588ca710ccc482aeb0822b41912b2b718f6e41ea" datatype="html">
+        <source>Bill</source>
+        <target>Facture</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\modules\internal\transactions\transactions.component.ts</context>
+          <context context-type="linenumber">85</context>
+        </context-group>
+        <note priority="1" from="description">Side nav panel description</note>
+        <note priority="1" from="meaning">bill</note>
+      </trans-unit>
+      <trans-unit id="9fda2f980ff0965003301385bcb15252e0bb6409" datatype="html">
+        <source>My Wari</source>
+        <target>My Wari</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\modules\internal\transactions\transactions.component.ts</context>
+          <context context-type="linenumber">91</context>
+        </context-group>
+        <note priority="1" from="description">Side nav panel description</note>
+        <note priority="1" from="meaning">my wari</note>
+      </trans-unit>
+      <trans-unit id="78ab18f92c7739e5d622465226a212e1ac7d0fdd" datatype="html">
+        <source>Insurance</source>
+        <target>Assurance</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\modules\internal\transactions\transactions.component.ts</context>
+          <context context-type="linenumber">100</context>
+        </context-group>
+        <note priority="1" from="description">Side nav panel description</note>
+        <note priority="1" from="meaning">insurance</note>
+      </trans-unit>
+      <trans-unit id="c19f1b4112a72c1c55cdddb22f1d372b1cb0da27" datatype="html">
+        <source>Counter</source>
+        <target>Guichet</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\modules\internal\transactions\transactions.component.ts</context>
+          <context context-type="linenumber">106</context>
+        </context-group>
+        <note priority="1" from="description">Side nav panel description</note>
+        <note priority="1" from="meaning">counter</note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
