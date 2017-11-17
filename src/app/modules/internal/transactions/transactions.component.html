@@ -7,7 +7,7 @@
     </div>
 
     <div class="col col-4 p-0">
-      <div class="na-top-title" i18n="title|Title on head of dashboard">Everybody wins!</div>
+      <div class="na-top-title" i18n="title|Title on head of dashboard@@appTitleId">Everybody wins!</div>
     </div>
 
     <div class="col col-6 p-0 row m-0 align-items-center justify-content-end">
@@ -40,7 +40,7 @@
       </div>
 
       <div class="na-button na-username">
-        <ng-template i18n="user greeting|User greeting on dashboard">Hello</ng-template> BAO KHADY
+        <ng-template i18n="user greeting|User greeting on dashboard">Hello</ng-template> {{currentUserName}}
       </div>
 
       <div class="na-button" (click)="logout()">

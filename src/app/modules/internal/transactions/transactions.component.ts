@@ -4,6 +4,7 @@ import {Router} from '@angular/router';
 import {AuthService} from '../../../services/auth.service';
 import {ParameterApi} from '../../../api/generated/api/ParameterApi';
 import {NetworkInformation} from '../../../api/generated/model/NetworkInformation';
+import {Actor} from '../../../api/generated/model/Actor';
 
 @Component({
   selector: 'app-internal',
@@ -12,12 +13,16 @@ import {NetworkInformation} from '../../../api/generated/model/NetworkInformatio
 })
 export class TransactionsComponent implements OnInit {
 
+  currentUserName: string;
+
   constructor(private authService: AuthService,
               private router: Router,
               private parameterApi: ParameterApi) {
   }
 
   ngOnInit() {
+    const user: Actor = this.authService.getCurrentUser();
+    this.currentUserName = (user.firstName + ' ' + user.lastName);
   }
 
   test() {
