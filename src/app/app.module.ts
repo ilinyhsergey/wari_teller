@@ -49,7 +49,7 @@ const SERVER_URL = environment.serverUrl;
     UnsavedChangesGuard,
     AuthlessGuard,
     {provide: BASE_PATH, useValue: SERVER_URL}
-    // ,{provide: LOCALE_ID, useValue: 'fr'} // todo uncomment for JIT localization
+    // ,{provide: LOCALE_ID, useValue: 'fr'} // uncomment for JIT localization
   ],
   bootstrap: [
     AppComponent

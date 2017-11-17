@@ -14,7 +14,7 @@ declare const require;
 const translations = require(`raw-loader!./locale/messages.fr.xlf`);
 const compilerOptions = {
   providers: [
-    // todo uncomment for JIT localization
+    // uncomment for JIT localization
     // {provide: TRANSLATIONS, useValue: translations},
     // {provide: TRANSLATIONS_FORMAT, useValue: 'xlf'}
   ]
