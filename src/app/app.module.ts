@@ -1,5 +1,5 @@
 import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
+import {LOCALE_ID, NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {FormsModule} from '@angular/forms';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
@@ -49,6 +49,7 @@ const SERVER_URL = environment.serverUrl;
     UnsavedChangesGuard,
     AuthlessGuard,
     {provide: BASE_PATH, useValue: SERVER_URL}
+    // ,{provide: LOCALE_ID, useValue: 'fr'} // todo uncomment for JIT localization
   ],
   bootstrap: [
     AppComponent
