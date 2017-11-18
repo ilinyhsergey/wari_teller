@@ -51,7 +51,7 @@ export class AuthService {
   }
 
   getCurrentUser(): Actor {
-    return this.currentUser || (this.currentUser = this.storageService.get(AuthService.keyCurrentUser));
+    return this.currentUser || (this.currentUser = this.storageService.get(AuthService.keyCurrentUser) as Actor);
   }
 
   setCurrentUser(currentUser: Actor) {

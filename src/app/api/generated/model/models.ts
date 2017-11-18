@@ -1,5 +1,4 @@
 export * from './Actor';
-export * from './AirTimeStatus';
 export * from './AmountInformation';
 export * from './B2BPartnerInformation';
 export * from './BillRequest';
