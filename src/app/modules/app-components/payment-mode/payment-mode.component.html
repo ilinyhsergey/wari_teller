@@ -10,11 +10,11 @@
           <div class="f-col col-10">
             <div class="input-group">
               <span class="input-group-addon">+221</span>
-              <input type="text" class="form-control" placeholder="Phone number ..."/>
+              <input type="text" class="form-control" placeholder="Phone number ..." i18n-placeholder/>
             </div>
           </div>
           <div class="f-col col-2">
-            <button type="button" class="btn btn-primary">OK</button>
+            <button type="button" class="btn btn-primary" (click)="onOkButton()" i18n="ok">OK</button>
           </div>
         </div>
       </div>
@@ -29,23 +29,23 @@
 
       <div class="f-container">
         <div class="f-row">
-          <div class="f-col col-5 f-text">Type paiement:</div>
+          <div class="f-col col-5 f-text" i18n>Payment type:</div>
           <div class="f-col col-3 f-text">
             <input id="checkbox1" type="checkbox">
-            <label for="checkbox1">especes</label>
+            <label for="checkbox1" i18n>species</label>
           </div>
           <div class="f-col col-4 f-text">
             <input id="checkbox2" type="checkbox">
-            <label for="checkbox2">e-wallet</label>
+            <label for="checkbox2" i18n>e-wallet</label>
           </div>
         </div>
         <div class="f-row">
-          <div class="f-col col-5 f-text">Montant a payer</div>
+          <div class="f-col col-5 f-text" i18n="amount to be paid">Amount to be paid</div>
           <div class="f-col col-5">
             <input class="form-control" type="text" value="125,00">
           </div>
           <div class="f-col col-2">
-            <button type="button" class="btn btn-primary">OK</button>
+            <button type="button" class="btn btn-primary" (click)="onOkButton()" i18n="ok">OK</button>
           </div>
         </div>
       </div>
@@ -60,18 +60,18 @@
 
       <div class="f-container">
         <div class="f-row">
-          <div class="f-col col-5 f-text">Wari secure</div>
+          <div class="f-col col-5 f-text" i18n>Wari secure</div>
           <div class="f-col col-5">
             <input class="form-control" type="text" value="1234567">
           </div>
         </div>
         <div class="f-row">
-          <div class="f-col col-5 f-text">Montant a payer</div>
+          <div class="f-col col-5 f-text" i18n="amount to be paid">Amount to be paid</div>
           <div class="f-col col-5">
             <input class="form-control" type="text" value="125,00">
           </div>
           <div class="f-col col-2">
-            <button type="button" class="btn btn-primary">OK</button>
+            <button type="button" class="btn btn-primary" (click)="onOkButton()" i18n="ok">OK</button>
           </div>
         </div>
       </div>

@@ -7,7 +7,7 @@
     </div>
 
     <div class="col col-4 p-0">
-      <div class="na-top-title">Tout le monde y gagne !</div>
+      <div class="na-top-title" i18n="title|Title on head of dashboard@@appTitleId">Everybody wins!</div>
     </div>
 
     <div class="col col-6 p-0 row m-0 align-items-center justify-content-end">
@@ -39,7 +39,9 @@
         </svg>
       </div>
 
-      <div class="na-button na-username">Bonjour BAO KHADY</div>
+      <div class="na-button na-username">
+        <ng-template i18n="user greeting|User greeting on dashboard">Hello</ng-template> {{currentUserName}}
+      </div>
 
       <div class="na-button" (click)="logout()">
         <div class="na-button-icon-close m-0-auto">
@@ -50,7 +52,7 @@
                   d="M7 25 L25 7 M25 25 L7 7"></path>
           </svg>
         </div>
-        <div class="na-button-description-close">Deconnexion</div>
+        <div class="na-button-description-close" i18n="exit|Logout from app">Exit</div>
       </div>
 
     </div>
@@ -65,13 +67,13 @@
         <div class="col col-6 p-0 na-left-button na-left-button-1">
           <div class="m-auto-0 w-100">
             <div class="m-0-auto na-left-button-circle na-left-button-circle-1"></div>
-            <div class="na-left-button-description">Credit telephonique</div>
+            <div class="na-left-button-description" i18n="phone credit|Side nav panel description">Phone credit</div>
           </div>
         </div>
         <div class="col col-6 p-0 na-left-button na-left-button-2">
           <div class="m-auto-0 w-100">
             <div class="m-0-auto na-left-button-circle na-left-button-circle-2"></div>
-            <div class="na-left-button-description">Transfert</div>
+            <div class="na-left-button-description" i18n="transfer|Side nav panel description">Transfer</div>
           </div>
         </div>
       </div>
@@ -80,13 +82,13 @@
         <div class="col col-6 p-0 na-left-button na-left-button-3">
           <div class="m-auto-0 w-100">
             <div class="m-0-auto na-left-button-circle na-left-button-circle-3"></div>
-            <div class="na-left-button-description">Facture</div>
+            <div class="na-left-button-description" i18n="bill|Side nav panel description">Bill</div>
           </div>
         </div>
         <div class="col col-6 p-0 na-left-button na-left-button-4">
           <div class="m-auto-0 w-100">
             <div class="m-0-auto na-left-button-circle na-left-button-circle-4"></div>
-            <div class="na-left-button-description">My Wari</div>
+            <div class="na-left-button-description" i18n="my wari|Side nav panel description">My Wari</div>
           </div>
         </div>
       </div>
@@ -95,13 +97,13 @@
         <div class="col col-6 p-0 na-left-button na-left-button-5">
           <div class="m-auto-0 w-100">
             <div class="m-0-auto na-left-button-circle na-left-button-circle-5"></div>
-            <div class="na-left-button-description">Assurance</div>
+            <div class="na-left-button-description" i18n="insurance|Side nav panel description">Insurance</div>
           </div>
         </div>
         <div class="col col-6 p-0 na-left-button na-left-button-6">
           <div class="m-auto-0 w-100">
             <div class="m-0-auto na-left-button-circle na-left-button-circle-6"></div>
-            <div class="na-left-button-description">Cuichet</div>
+            <div class="na-left-button-description" i18n="counter|Side nav panel description">Counter</div>
           </div>
         </div>
       </div>

@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
       .subscribe((actorSession: ActorSession) => {
 
         this.authService.handleLogin(actorSession);
-        const redirectUrl =  this.redirectService.getAndClearRedirectUrl() || '/internal/transactions/water';
+        const redirectUrl =  this.redirectService.getAndClearRedirectUrl() || '/transactions/water';
         this.router.navigate([redirectUrl]);
 
       }, (err) => {

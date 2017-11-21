@@ -1,7 +1,18 @@
 import {Component, OnInit} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
-import {map, debounceTime, distinctUntilChanged} from 'rxjs/operators';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/debounceTime';
+import 'rxjs/add/operator/distinctUntilChanged';
+import * as _ from 'lodash';
+
 import {CanComponentDeactivate} from '../../../../model/CanComponentDeactivate';
+import {ActivatedRoute} from '@angular/router';
+import {Collection} from '../../../../app.declaration';
+import {BillResponse} from '../../../../api/generated/model/BillResponse';
+import {AuthService} from '../../../../services/auth.service';
+import {TransactionApi} from '../../../../api/generated/api/TransactionApi';
+import {BillRequestBody} from '../../../../api/generated/model/BillRequestBody';
+import {BillRequest} from '../../../../api/generated/model/BillRequest';
 
 @Component({
   selector: 'app-water-bill',
@@ -10,41 +21,72 @@ import {CanComponentDeactivate} from '../../../../model/CanComponentDeactivate';
 })
 export class WaterBillComponent implements OnInit, CanComponentDeactivate {
 
-  states = ['Alabama', 'Alaska', 'American Samoa', 'Arizona', 'Arkansas', 'California', 'Colorado',
-    'Connecticut', 'Delaware', 'District Of Columbia', 'Federated States Of Micronesia', 'Florida', 'Georgia',
-    'Guam', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine',
-    'Marshall Islands', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri', 'Montana',
-    'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dakota',
-    'Northern Mariana Islands', 'Ohio', 'Oklahoma', 'Oregon', 'Palau', 'Pennsylvania', 'Puerto Rico', 'Rhode Island',
-    'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virgin Islands', 'Virginia',
-    'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'];
+  partnerInfo: Collection<string[]>;
 
-  states2 = ['Alabama', 'Alaska', 'American Samoa', 'Arizona'];
+  partnerCodes: string[] = [];
+  partnerCode: string;
 
-  entreprises = ['SDE', 'SDE 1', 'SDE 2'];
+  partnerNames: string[];
+  partnerName: string;
 
-  country: string;
-  country2: string = this.states2[0];
-  entreprise: string = this.entreprises[0];
+  billReference: string;
 
-  constructor() {
+  amount1: string;
+  amount2: string;
+  phone: string;
+  address: string;
+
+
+  constructor(private route: ActivatedRoute,
+              private authService: AuthService,
+              private transactionApi: TransactionApi) {
   }
 
   ngOnInit() {
+    this.route.data.subscribe(data => {
+      const partnerInfo: Collection<string[]> = data.partnerInfo;
+      this.partnerInfo = partnerInfo;
+
+      this.partnerCodes = _.keys(partnerInfo);
+      console.log('____ this.partnerCodes', this.partnerCodes); // todo
+    });
+
+  }
+
+  onPartnerCodeSelected(partnerCode: string) {
+    this.partnerCode = partnerCode;
+    this.partnerNames = this.partnerInfo[partnerCode];
+  }
+
+  onPartnerNameSelected(partnerName: string) {
+    this.partnerName = partnerName;
   }
 
   canDeactivate(): Observable<boolean> | Promise<boolean> | boolean {
     return true; // todo check unsaved changes
   }
 
+  send() {
+    const billRequestBody: BillRequestBody = this.createRequestBody();
 
-  search = (text$: Observable<string>) => {
-    return text$.pipe(
-      debounceTime(200),
-      distinctUntilChanged(),
-      map(term => term.length < 2 ? []
-        : this.states.filter(v => v.toLowerCase().indexOf(term.toLowerCase()) > -1).slice(0, 10))
-    );
+    const observable: Observable<BillResponse[]> = this.transactionApi.findCustomerBillPost1(billRequestBody);
+    observable.subscribe((billResponses: BillResponse[]) => {
+      console.log('billResponses', billResponses); // todo
+    }, (error) => {
+      console.log('error', error); // todo
+    });
+
   }
 
+  private createRequestBody(): BillRequestBody {
+    return {
+      sessionID: this.authService.getSessionId(),
+      billRequest: {
+        merchantCode: this.partnerName,
+        billReference: this.billReference,
+        billCurrency: this.amount1,
+        billModeReglement: BillRequest.BillModeReglementEnum.TOTAL
+      }
+    };
+  }
 }

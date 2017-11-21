@@ -1,8 +1,6 @@
 <div class="water-bill d-flex flex-column">
 
-  <div class="tr-header tr-title">
-    Payment facture eau
-  </div>
+  <div class="tr-header tr-title" i18n>Payment bill water</div>
 
   <div class="app-scrollable flex-grow">
 
@@ -10,7 +8,7 @@
       <div class="col col-6 p-0 row m-0 justify-content-center">
         <div class="tr-circle-text">1</div>
       </div>
-      <div class="col col-6 p-0 row m-0 justify-content-center">
+      <div class="col col-6 p-0 row m-0 justify-content-center" *ngIf="partnerName">
         <div class="tr-circle-text">2</div>
       </div>
     </div>
@@ -21,77 +19,77 @@
 
           <div class="f-container">
             <div class="f-row">
-              <div class="f-col f-text">Je suis dans le pays:</div>
+              <div class="f-col f-text" i18n>I am in the country:</div>
             </div>
             <div class="f-row">
               <div class="f-col">
                 <div class="input-group">
                   <span class="input-group-addon">@</span>
-                  <input type="text" class="form-control" [(ngModel)]="country" [ngbTypeahead]="search"
-                         placeholder="Start typing ..."/>
+                  <input type="text" class="form-control" placeholder="Start typing ..." i18n-placeholder="common typeahead placeholder"/>
                 </div>
               </div>
             </div>
 
             <div class="f-row">
-              <div class="f-col f-text">Pays de la facture a regler:</div>
+              <div class="f-col f-text" i18n>Country of the bill to settle:</div>
             </div>
             <div class="f-row">
               <div class="f-col">
                 <app-select
                   class="w-100"
-                  [(selectedItem)]="country2"
-                  [items]="states2"></app-select>
+                  [(selectedItem)]="partnerCode"
+                  [items]="partnerCodes"></app-select>
               </div>
             </div>
 
             <div class="f-row">
-              <div class="f-col f-text">Selectionner une entreprise</div>
+              <div class="f-col f-text" i18n>Select a company</div>
             </div>
             <div class="f-row">
               <div class="f-col">
                 <app-select
                   class="w-100"
-                  [(selectedItem)]="entreprise"
-                  [items]="entreprises"></app-select>
+                  [(selectedItem)]="partnerName"
+                  [items]="partnerNames"></app-select>
               </div>
             </div>
+
           </div>
 
         </div>
       </div>
-      <div class="col col-6 p-0 row m-0">
+      <div class="col col-6 p-0 row m-0" *ngIf="partnerName">
         <div class="tr-content tr-content-right  flex-grow">
 
-          <div>Remplir les champs demandes</div>
+          <div i18n>Fill in the request fields</div>
           <div class="tr-table">
             <div class="row tr-tbl-row">
-              <div class="col col-3 tr-tbl-col">Reference</div>
-              <input class="col col-9 tr-tbl-col" type="text" value="SENELEC">
+              <div class="col col-3 tr-tbl-col" i18n>Reference</div>
+              <input class="col col-9 tr-tbl-col" type="text" [(ngModel)]="billReference">
             </div>
             <div class="row tr-tbl-row">
-              <div class="col col-3 tr-tbl-col">Montant</div>
-              <input class="col col-3 tr-tbl-col" type="text" value="15000">
+              <div class="col col-3 tr-tbl-col" i18n>Amount</div>
+              <input class="col col-3 tr-tbl-col" type="text" [(ngModel)]="amount1">
               <div class="col col-2 tr-tbl-col">XOF</div>
-              <input class="col col-2 tr-tbl-col" type="text" value="21.58">
+              <input class="col col-2 tr-tbl-col" type="text">
               <div class="col col-2 tr-tbl-col">EUR</div>
             </div>
             <div class="row tr-tbl-row">
-              <div class="col col-3 tr-tbl-col">Nom</div>
-              <input class="col col-9 tr-tbl-col" type="text" value="SERRES">
+              <div class="col col-3 tr-tbl-col" i18n>Name</div>
+              <input class="col col-9 tr-tbl-col" type="text" [(ngModel)]="amount2">
             </div>
             <div class="row tr-tbl-row">
-              <div class="col col-3 tr-tbl-col">Cellulaire</div>
-              <input class="col col-9 tr-tbl-col" type="text" value="33660742204">
+              <div class="col col-3 tr-tbl-col" i18n>Cellular</div>
+              <input class="col col-9 tr-tbl-col" type="text" [(ngModel)]="phone">
             </div>
             <div class="row tr-tbl-row">
-              <div class="col col-3 tr-tbl-col">Adresse</div>
-              <input class="col col-9 tr-tbl-col" type="text" value="41, rue Joel Richer 13007">
+              <div class="col col-3 tr-tbl-col" i18n>Address</div>
+              <input class="col col-9 tr-tbl-col" type="text" [(ngModel)]="address">
             </div>
           </div>
 
-          <div>Mode de paiement</div>
-          <app-payment-mode></app-payment-mode>
+          <div i18n>Payment method</div>
+          <app-payment-mode (complete)="send()"></app-payment-mode>
 
         </div>
       </div>

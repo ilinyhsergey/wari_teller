@@ -4,6 +4,8 @@
 @import "styles-variables";
 
 /* Browser reset styles */
+$color-half-white: rgba(255, 255, 255, 0.5);
+
 body {
   font-family: FallingSky, 'Helvetica Neue', 'Arial', sans-serif;
 
@@ -51,13 +53,13 @@ body {
 
   .btn-secondary:focus,
   .btn-secondary.focus {
-    box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 0 0.2rem $color-half-white;
   }
 
   .btn-secondary.disabled,
   .btn-secondary:disabled {
     background-color: transparent;
-    border-color: rgba(255, 255, 255, 0.5);
+    border-color: $color-half-white;
   }
 
   .btn-secondary:not([disabled]):not(.disabled):active,
@@ -65,7 +67,7 @@ body {
   .show > .btn-secondary.dropdown-toggle {
     background-color: transparent;
     border-color: #fff;
-    box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 0 0.2rem $color-half-white;
   }
 
 
@@ -86,7 +88,7 @@ body {
     color: #fff;
     background-color: transparent;
     border-color: #fff;
-    box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 0 0.2rem $color-half-white;
   }
 
   .form-control::-webkit-input-placeholder {
@@ -107,6 +109,32 @@ body {
   .form-control::placeholder {
     color: #fff;
     opacity: 0.5;
+  }
+
+  .custom-select {
+    color: #fff;
+    background: transparent url("data:image/svg+xml;charset=utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 20' fill='none'><path stroke='white' stroke-width='3px' stroke-linejoin='round' d='M0 0 L20 20 40 0'/></svg>") no-repeat right 0.75rem center;
+    background-size: 30px 45px;
+    border: 1px solid #fff;
+
+    option {
+      color: #212529 !important;
+    }
+  }
+
+  .custom-select:focus {
+    border-color: #fff;
+    box-shadow: 0 0 0 0.2rem $color-half-white;
+  }
+
+  .custom-select:focus::-ms-value {
+    color: #fff;
+  }
+
+  .custom-select:disabled {
+    color: $color-half-white;
+    background-color: transparent;
+    border-color: $color-half-white;
   }
 
 }

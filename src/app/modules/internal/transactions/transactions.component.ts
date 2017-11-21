@@ -4,6 +4,7 @@ import {Router} from '@angular/router';
 import {AuthService} from '../../../services/auth.service';
 import {ParameterApi} from '../../../api/generated/api/ParameterApi';
 import {NetworkInformation} from '../../../api/generated/model/NetworkInformation';
+import {Actor} from '../../../api/generated/model/Actor';
 import {TestApi} from '../../../api/generated/api/TestApi';
 
 @Component({
@@ -13,6 +14,8 @@ import {TestApi} from '../../../api/generated/api/TestApi';
 })
 export class TransactionsComponent implements OnInit {
 
+  currentUserName: string;
+
   constructor(private authService: AuthService,
               private router: Router,
               private parameterApi: ParameterApi,
@@ -20,12 +23,14 @@ export class TransactionsComponent implements OnInit {
   }
 
   ngOnInit() {
+    const user: Actor = this.authService.getCurrentUser();
+    this.currentUserName = (user.firstName + ' ' + user.lastName);
   }
 
   test() {
     const observable = this.parameterApi.getInformationsSessionIDGet1(this.authService.getSessionId());
-    observable.subscribe((networkInformation: NetworkInformation[]) => {
-      console.log('networkInformation', networkInformation);
+    observable.subscribe((networkInformations: NetworkInformation[]) => {
+      console.log('networkInformations', networkInformations);
     }, (error) => {
       console.log('TransactionsComponent error', error);
     });

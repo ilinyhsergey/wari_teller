@@ -62,8 +62,13 @@ renameTokenInFile(personFile,
                   'OpaqueToken',
                   'InjectionToken')
 
+dstDir = '..\\src\\app\\api\\generated'
+print('Cleaning up destination directory')
+if (os.path.exists(dstDir)):
+  shutil.rmtree(dstDir)
+
 print('Copying files back to source')
-copytree(tempDir, '..\\src\\app\\api\\generated', None, None, '*.ts')
+copytree(tempDir, dstDir, None, None, '*.ts')
 
 print('Cleaning up')
 shutil.rmtree(tempDir)

@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {ActivatedRouteSnapshot, CanDeactivate, RouterStateSnapshot} from '@angular/router';
 import {Observable} from 'rxjs/Observable';
-import {CanComponentDeactivate} from '../model/CanComponentDeactivate';
+import {CanComponentDeactivate} from '../../model/CanComponentDeactivate';
 
 @Injectable()
 export class UnsavedChangesGuard implements CanDeactivate<CanComponentDeactivate> {
