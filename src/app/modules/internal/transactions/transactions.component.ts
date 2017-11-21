@@ -27,8 +27,8 @@ export class TransactionsComponent implements OnInit {
 
   test() {
     const observable = this.parameterApi.getInformationsSessionIDGet1(this.authService.getSessionId());
-    observable.subscribe((networkInformation: NetworkInformation) => {
-      console.log('networkInformation', networkInformation);
+    observable.subscribe((networkInformations: NetworkInformation[]) => {
+      console.log('networkInformations', networkInformations);
     }, (error) => {
       console.log('TransactionsComponent error', error);
     });
