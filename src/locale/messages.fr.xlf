@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="b58bba8d02f50e75b024b61e614c29f2466b5009" datatype="html">
+        <source>Phone number ...</source>
+        <target>Numéro de téléphone ...</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\modules\app-components\payment-mode\payment-mode.component.ts</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7e6c975ebea8b5f8b120905ca7acf9f8edf59d8e" datatype="html">
+        <source>OK</source>
+        <target>OK</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\modules\app-components\payment-mode\payment-mode.component.ts</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\modules\app-components\payment-mode\payment-mode.component.ts</context>
+          <context context-type="linenumber">48</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\modules\app-components\payment-mode\payment-mode.component.ts</context>
+          <context context-type="linenumber">74</context>
+        </context-group>
+        <note priority="1" from="description">ok</note>
+      </trans-unit>
+      <trans-unit id="d3d9ae0cd3c4ab9f90f59bd2efa1e1a9fda35dc0" datatype="html">
+        <source>Payment type:</source>
+        <target>Type de paiement</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\modules\app-components\payment-mode\payment-mode.component.ts</context>
+          <context context-type="linenumber">32</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="73c487a26a0a7d606737c442e8e30a5e62d0c422" datatype="html">
+        <source>species</source>
+        <target>espèce</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\modules\app-components\payment-mode\payment-mode.component.ts</context>
+          <context context-type="linenumber">35</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ee74f7ffc7a0bef416c9267eacbb94679b8bc2ca" datatype="html">
+        <source>e-wallet</source>
+        <target>e-wallet</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\modules\app-components\payment-mode\payment-mode.component.ts</context>
+          <context context-type="linenumber">39</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="26835785975d15d2585d1a29c546305bfe272c29" datatype="html">
+        <source>Amount to be paid</source>
+        <target>Montant à payer</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\modules\app-components\payment-mode\payment-mode.component.ts</context>
+          <context context-type="linenumber">43</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\modules\app-components\payment-mode\payment-mode.component.ts</context>
+          <context context-type="linenumber">69</context>
+        </context-group>
+        <note priority="1" from="description">amount to be paid</note>
+      </trans-unit>
+      <trans-unit id="af130e978a7f2bdf7c5c44cffea57d898b1cb31e" datatype="html">
+        <source>Wari secure</source>
+        <target>Wari secure</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\modules\app-components\payment-mode\payment-mode.component.ts</context>
+          <context context-type="linenumber">63</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="559129457192927874af13ad4ff9f00222561ac6" datatype="html">
+        <source>Payment bill water</source>
+        <target>Payment facture eau</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\modules\internal\transactions\water-bill\water-bill.component.ts</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="b4419345222d513c370e79b3964ada4afb814b46" datatype="html">
+        <source>I am in the country:</source>
+        <target>Je suis dans le pays:</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\modules\internal\transactions\water-bill\water-bill.component.ts</context>
+          <context context-type="linenumber">24</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7592cb8a09e0fdfd5c9c00628b5ef4af1eedcd32" datatype="html">
+        <source>Start typing ...</source>
+        <target>Commencer à écrire ...</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\modules\internal\transactions\water-bill\water-bill.component.ts</context>
+          <context context-type="linenumber">31</context>
+        </context-group>
+        <note priority="1" from="description">common typeahead placeholder</note>
+      </trans-unit>
+      <trans-unit id="4931a5c6dfc3be907e8ab256647c2ffcf4e93e44" datatype="html">
+        <source>Country of the bill to settle:</source>
+        <target>Pays de la facture a regler:</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\modules\internal\transactions\water-bill\water-bill.component.ts</context>
+          <context context-type="linenumber">37</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="e666af79d2f2f37eba1df782ab26674b73fa7d1a" datatype="html">
+        <source>Select a company</source>
+        <target>Selectionner une entreprise</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\modules\internal\transactions\water-bill\water-bill.component.ts</context>
+          <context context-type="linenumber">49</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="9bbd6b6f923260d088774c26c6510f91ceb2eb71" datatype="html">
+        <source>Fill in the request fields</source>
+        <target>Remplir les champs demandes</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\modules\internal\transactions\water-bill\water-bill.component.ts</context>
+          <context context-type="linenumber">66</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7529307ff5a8475ecd0755abb1b8a91ae24c1d52" datatype="html">
+        <source>Reference</source>
+        <target>Reference</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\modules\internal\transactions\water-bill\water-bill.component.ts</context>
+          <context context-type="linenumber">69</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dfc2fb58e2a04ed944a4bd80f0a2087775134068" datatype="html">
+        <source>Amount</source>
+        <target>Montant</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\modules\internal\transactions\water-bill\water-bill.component.ts</context>
+          <context context-type="linenumber">73</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="cff1428d10d59d14e45edec3c735a27b5482db59" datatype="html">
+        <source>Name</source>
+        <target>Nom</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\modules\internal\transactions\water-bill\water-bill.component.ts</context>
+          <context context-type="linenumber">80</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="fa8ca7777e778809b2265a1c5189badcef2a8434" datatype="html">
+        <source>Cellular</source>
+        <target>Cellulaire</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\modules\internal\transactions\water-bill\water-bill.component.ts</context>
+          <context context-type="linenumber">84</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="729754dd19eb9ce0670b0aeb5a6ae60574c2c563" datatype="html">
+        <source>Address</source>
+        <target>Adresse</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\modules\internal\transactions\water-bill\water-bill.component.ts</context>
+          <context context-type="linenumber">88</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="f618cebebc08b6a12af1f9034bddf157ac3ef5e4" datatype="html">
+        <source>Payment method</source>
+        <target>Mode de paiement</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\modules\internal\transactions\water-bill\water-bill.component.ts</context>
+          <context context-type="linenumber">93</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="appTitleId" datatype="html">
+        <source>Everybody wins!</source>
+        <target>Tout le monde gagne!</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\modules\internal\transactions\transactions.component.ts</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+        <note priority="1" from="description">Title on head of dashboard</note>
+        <note priority="1" from="meaning">title</note>
+      </trans-unit>
+      <trans-unit id="9c0bb87fe09b1f49ab260e1ea90a07499c380c4c" datatype="html">
+        <source>Hello</source>
+        <target>Bonjour</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\modules\internal\transactions\transactions.component.ts</context>
+          <context context-type="linenumber">43</context>
+        </context-group>
+        <note priority="1" from="description">User greeting on dashboard</note>
+        <note priority="1" from="meaning">user greeting</note>
+      </trans-unit>
+      <trans-unit id="f8044c18a96ed5c84bbc4ae06acbbde311c9df28" datatype="html">
+        <source>Exit</source>
+        <target>Deconnexion</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\modules\internal\transactions\transactions.component.ts</context>
+          <context context-type="linenumber">55</context>
+        </context-group>
+        <note priority="1" from="description">Logout from app</note>
+        <note priority="1" from="meaning">exit</note>
+      </trans-unit>
+      <trans-unit id="7276e76d720eef9217e971ba37abcb341738ebba" datatype="html">
+        <source>Phone credit</source>
+        <target>Credit telephonique</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\modules\internal\transactions\transactions.component.ts</context>
+          <context context-type="linenumber">70</context>
+        </context-group>
+        <note priority="1" from="description">Side nav panel description</note>
+        <note priority="1" from="meaning">phone credit</note>
+      </trans-unit>
+      <trans-unit id="2736a9844f96ab11ea24ee010c48389803787a9b" datatype="html">
+        <source>Transfer</source>
+        <target>Transfert</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\modules\internal\transactions\transactions.component.ts</context>
+          <context context-type="linenumber">76</context>
+        </context-group>
+        <note priority="1" from="description">Side nav panel description</note>
+        <note priority="1" from="meaning">transfer</note>
+      </trans-unit>
+      <trans-unit id="588ca710ccc482aeb0822b41912b2b718f6e41ea" datatype="html">
+        <source>Bill</source>
+        <target>Facture</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\modules\internal\transactions\transactions.component.ts</context>
+          <context context-type="linenumber">85</context>
+        </context-group>
+        <note priority="1" from="description">Side nav panel description</note>
+        <note priority="1" from="meaning">bill</note>
+      </trans-unit>
+      <trans-unit id="9fda2f980ff0965003301385bcb15252e0bb6409" datatype="html">
+        <source>My Wari</source>
+        <target>My Wari</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\modules\internal\transactions\transactions.component.ts</context>
+          <context context-type="linenumber">91</context>
+        </context-group>
+        <note priority="1" from="description">Side nav panel description</note>
+        <note priority="1" from="meaning">my wari</note>
+      </trans-unit>
+      <trans-unit id="78ab18f92c7739e5d622465226a212e1ac7d0fdd" datatype="html">
+        <source>Insurance</source>
+        <target>Assurance</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\modules\internal\transactions\transactions.component.ts</context>
+          <context context-type="linenumber">100</context>
+        </context-group>
+        <note priority="1" from="description">Side nav panel description</note>
+        <note priority="1" from="meaning">insurance</note>
+      </trans-unit>
+      <trans-unit id="c19f1b4112a72c1c55cdddb22f1d372b1cb0da27" datatype="html">
+        <source>Counter</source>
+        <target>Guichet</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\modules\internal\transactions\transactions.component.ts</context>
+          <context context-type="linenumber">106</context>
+        </context-group>
+        <note priority="1" from="description">Side nav panel description</note>
+        <note priority="1" from="meaning">counter</note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

@@ -3,6 +3,8 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
+    "locale": "ng xi18n --outputPath src/locale --outFile messages.xlf",
+    "start-aot-fr": "ng serve --aot --i18nFile=src/locale/messages.fr.xlf --i18nFormat=xlf --locale=fr",
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
