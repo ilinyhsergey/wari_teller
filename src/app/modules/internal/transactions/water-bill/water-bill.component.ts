@@ -13,6 +13,9 @@ import {AuthService} from '../../../../services/auth.service';
 import {TransactionApi} from '../../../../api/generated/api/TransactionApi';
 import {BillRequestBody} from '../../../../api/generated/model/BillRequestBody';
 import {BillRequest} from '../../../../api/generated/model/BillRequest';
+import {ParameterApi} from '../../../../api/generated/api/ParameterApi';
+import {MerchantForm} from '../../../../api/generated/model/MerchantForm';
+import {B2BPartnerInformation} from '../../../../api/generated/model/B2BPartnerInformation';
 
 @Component({
   selector: 'app-water-bill',
@@ -39,7 +42,8 @@ export class WaterBillComponent implements OnInit, CanComponentDeactivate {
 
   constructor(private route: ActivatedRoute,
               private authService: AuthService,
-              private transactionApi: TransactionApi) {
+              private transactionApi: TransactionApi,
+              private parameterApi: ParameterApi) {
   }
 
   ngOnInit() {
@@ -60,6 +64,17 @@ export class WaterBillComponent implements OnInit, CanComponentDeactivate {
 
   onPartnerNameSelected(partnerName: string) {
     this.partnerName = partnerName;
+
+    this.parameterApi.findMerchantFormByReferenceGet1(partnerName)
+      .subscribe((merchantForm: MerchantForm) => {
+        console.log('merchantForm', merchantForm); // todo
+      });
+
+    this.parameterApi.findMerchantInformationsByReferenceGet1(partnerName)
+      .subscribe((b2BPartnerInformations: B2BPartnerInformation[]) => {
+        console.log('findMerchantInformationsByReference', b2BPartnerInformations); // todo
+      });
+
   }
 
   canDeactivate(): Observable<boolean> | Promise<boolean> | boolean {
@@ -69,13 +84,10 @@ export class WaterBillComponent implements OnInit, CanComponentDeactivate {
   send() {
     const billRequestBody: BillRequestBody = this.createRequestBody();
 
-    const observable: Observable<BillResponse[]> = this.transactionApi.findCustomerBillPost1(billRequestBody);
-    observable.subscribe((billResponses: BillResponse[]) => {
-      console.log('billResponses', billResponses); // todo
-    }, (error) => {
-      console.log('error', error); // todo
-    });
-
+    this.transactionApi.findCustomerBillPost1(billRequestBody)
+      .subscribe((billResponses: BillResponse[]) => {
+        console.log('billResponses', billResponses); // todo
+      });
   }
 
   private createRequestBody(): BillRequestBody {
