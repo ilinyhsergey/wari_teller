@@ -35,10 +35,9 @@
             </div>
             <div class="f-row">
               <div class="f-col">
-                <app-select
-                  class="w-100"
-                  [(selectedItem)]="partnerCode"
-                  [items]="partnerCodes"></app-select>
+                <select [(ngModel)]="partnerCode" class="custom-select w-100" (change)="onPartnerCodeSelected(partnerCode)">
+                  <option *ngFor="let name of partnerCodes" value="{{name}}">{{name}}</option>
+                </select>
               </div>
             </div>
 
@@ -47,10 +46,9 @@
             </div>
             <div class="f-row">
               <div class="f-col">
-                <app-select
-                  class="w-100"
-                  [(selectedItem)]="partnerName"
-                  [items]="partnerNames"></app-select>
+                <select [(ngModel)]="partnerName" class="custom-select w-100" (change)="onPartnerNameSelected(partnerName)">
+                  <option *ngFor="let name of partnerNames" value="{{name}}">{{name}}</option>
+                </select>
               </div>
             </div>
 
