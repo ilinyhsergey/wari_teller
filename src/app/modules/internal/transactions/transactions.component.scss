@@ -7,7 +7,7 @@
 $na-bar-height: 50px;
 $na-top-icon: 32px;
 $na-logo-size: 80px;
-$na-left-button-circle-size: 120px;
+$na-l-button-circle-size: 120px;
 
 .na-top {
   height: $na-bar-height;
@@ -35,7 +35,7 @@ $na-left-button-circle-size: 120px;
   position: absolute;
   top: $na-bar-height - $na-logo-size / 2;
   left: calc(50% - 40px);
-  z-index: 1;
+  z-index: 10;
 
   border: solid 2px white;
   border-radius: 50%;
@@ -63,7 +63,35 @@ $na-left-button-circle-size: 120px;
   font-size: 9px;
 }
 
-.na-left-button {
+.na-l-button-circle {
+  border: solid 1px white;
+  border-radius: 50%;
+  background-size: cover;
+
+  height: $na-l-button-circle-size;
+  width: $na-l-button-circle-size;
+}
+
+.na-l-button-description {
+  text-align: center;
+}
+
+@media (max-height: 484px) {
+  .na-l-button-description {
+    //display: none;
+  }
+}
+
+@media (max-height: 412px) {
+  .na-l-button-circle {
+    display: none;
+  }
+  .na-l-button-description {
+    display: block;
+  }
+}
+
+.na-l-button {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-direction: column;
@@ -73,85 +101,126 @@ $na-left-button-circle-size: 120px;
   color: white;
 }
 
-.na-left-button-circle {
-  border: solid 1px white;
-  border-radius: 50%;
-  background-size: cover;
-
-  height: $na-left-button-circle-size;
-  width: $na-left-button-circle-size;
+.na-l-button-1 {
+  border-right-width: 1px;
+  border-bottom-width: 1px;
 }
 
-.na-left-button-description {
-  text-align: center;
+.na-l-button-2 {
+  border-bottom-width: 1px;
 }
 
-@media (max-height: 484px) {
-  .na-left-button-description {
-    //display: none;
-  }
+.na-l-button-3 {
+  border-right-width: 1px;
+  border-bottom-width: 1px;
 }
 
-@media (max-height: 412px) {
-  .na-left-button-circle {
-    display: none;
-  }
-  .na-left-button-description {
-    display: block;
-  }
+.na-l-button-4 {
+  border-bottom-width: 1px;
 }
 
-.na-left-button-1 {
+.na-l-button-5 {
+  border-right-width: 1px;
+}
+
+.na-l-button-6 {
+}
+
+.na-l-phone {
   background-color: $app-dark-blue;
-  border-right-width: 1px;
-  border-bottom-width: 1px;
+  .na-l-button-circle {
+    background-image: url('../../../../assets/images/tmp/sidenav/phone.png');
+  }
 }
 
-.na-left-button-circle-1 {
-  background-image: url('../../../../assets/images/tmp/sidenav/phone.png');
-}
-
-.na-left-button-2 {
+.na-l-transfer {
   background-color: $app-light-green;
-  border-bottom-width: 1px;
+  .na-l-button-circle {
+    background-image: url('../../../../assets/images/tmp/sidenav/transfer.png');
+  }
+}
+.na-l-transfer-send {
+  background-color: $app-light-green;
+  .na-l-button-circle {
+    background-image: url('../../../../assets/images/tmp/sidenav/transfer_send.png');
+  }
+}
+.na-l-transfer-refund {
+  background-color: $app-light-green;
+  .na-l-button-circle {
+    background-image: url('../../../../assets/images/tmp/sidenav/transfer_refund.png');
+  }
+}
+.na-l-transfer-withdrawal {
+  background-color: $app-light-green;
+  .na-l-button-circle {
+    background-image: url('../../../../assets/images/tmp/sidenav/transfer_withdrawal.png');
+  }
 }
 
-.na-left-button-circle-2 {
-  background-image: url('../../../../assets/images/tmp/sidenav/transfer.png');
-}
-
-.na-left-button-3 {
+.na-l-bill {
   background-color: $app-pink;
-  border-right-width: 1px;
-  border-bottom-width: 1px;
+  .na-l-button-circle {
+    background-image: url('../../../../assets/images/tmp/sidenav/bill.png');
+  }
+}
+.na-l-bill-water {
+  background-color: $app-pink;
+  .na-l-button-circle {
+    background-image: url('../../../../assets/images/tmp/sidenav/bill_water.png');
+  }
+}
+.na-l-bill-electricity {
+  background-color: $app-pink;
+  .na-l-button-circle {
+    background-image: url('../../../../assets/images/tmp/sidenav/bill_electricity.png');
+  }
+}
+.na-l-bill-tv {
+  background-color: $app-pink;
+  .na-l-button-circle {
+    background-image: url('../../../../assets/images/tmp/sidenav/bill_tv.png');
+  }
 }
 
-.na-left-button-circle-3 {
-  background-image: url('../../../../assets/images/tmp/sidenav/bill.png');
-}
-
-.na-left-button-4 {
+.na-l-mywari {
   background-color: $app-yellow;
-  border-bottom-width: 1px;
+  .na-l-button-circle {
+    background-image: url('../../../../assets/images/tmp/sidenav/mywari.png');
+  }
 }
 
-.na-left-button-circle-4 {
-  background-image: url('../../../../assets/images/tmp/sidenav/mywari.png');
-}
-
-.na-left-button-5 {
+.na-l-insurance {
   background-color: $app-orange;
-  border-right-width: 1px;
+  .na-l-button-circle {
+    background-image: url('../../../../assets/images/tmp/sidenav/insurance.png');
+  }
 }
 
-.na-left-button-circle-5 {
-  background-image: url('../../../../assets/images/tmp/sidenav/insurance.png');
-}
-
-.na-left-button-6 {
+.na-l-counter {
   background-color: $app-blue;
+  .na-l-button-circle {
+    background-image: url('../../../../assets/images/tmp/sidenav/counter.png');
+  }
 }
 
-.na-left-button-circle-6 {
-  background-image: url('../../../../assets/images/tmp/sidenav/counter.png');
+
+.na-submenu {
+  display: block;
+  position: absolute;
+  top: 0;
+
+  width: 50%;
+  height: 100%;
+  z-index: 1;
+
+  color: white;
+}
+
+.na-submenu-left {
+  left: 0;
+}
+
+.na-submenu-right {
+  right: 0;
 }

@@ -14,6 +14,8 @@ import {Actor} from '../../../api/generated/model/Actor';
 export class TransactionsComponent implements OnInit {
 
   currentUserName: string;
+  showSubmenuTransfer = false;
+  showSubmenuBill = false;
 
   constructor(private authService: AuthService,
               private router: Router,
