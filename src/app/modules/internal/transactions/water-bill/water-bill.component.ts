@@ -63,7 +63,7 @@ export class WaterBillComponent implements OnInit, CanComponentDeactivate {
   }
 
   onPartnerNameSelected(partnerName: string) {
-    this.partnerName = partnerName;
+    this.partnerName = partnerName = '1221000747900'; // 1221000748507
 
     this.parameterApi.findMerchantFormByReferenceGet1(partnerName)
       .subscribe((merchantForm: MerchantForm) => {
