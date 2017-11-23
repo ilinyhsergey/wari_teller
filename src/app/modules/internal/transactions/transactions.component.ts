@@ -27,6 +27,27 @@ export class TransactionsComponent implements OnInit {
     this.currentUserName = (user.firstName + ' ' + user.lastName);
   }
 
+  toggleSubmenuTransfer() {
+    this.showSubmenuTransfer = !this.showSubmenuTransfer;
+  }
+
+  closeSubmenuTransfer() {
+    this.showSubmenuTransfer = false;
+  }
+
+  toggleSubmenuBill() {
+    this.showSubmenuBill = !this.showSubmenuBill;
+  }
+
+  closeSubmenuBill() {
+    this.showSubmenuBill = false;
+  }
+
+  closeAllSubmenu() {
+    this.closeSubmenuBill();
+    this.closeSubmenuTransfer();
+  }
+
   test() {
     const observable = this.parameterApi.getInformationsGet1(this.authService.getSessionId());
     observable.subscribe((networkInformations: NetworkInformation[]) => {

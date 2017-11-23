@@ -1,12 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/debounceTime';
-import 'rxjs/add/operator/distinctUntilChanged';
 import * as _ from 'lodash';
+import {ActivatedRoute} from '@angular/router';
 
 import {CanComponentDeactivate} from '../../../../model/CanComponentDeactivate';
-import {ActivatedRoute} from '@angular/router';
 import {Collection} from '../../../../app.declaration';
 import {BillResponse} from '../../../../api/generated/model/BillResponse';
 import {AuthService} from '../../../../services/auth.service';
@@ -18,11 +15,11 @@ import {MerchantForm} from '../../../../api/generated/model/MerchantForm';
 import {B2BPartnerInformation} from '../../../../api/generated/model/B2BPartnerInformation';
 
 @Component({
-  selector: 'app-water-bill',
-  templateUrl: './water-bill.component.html',
-  styleUrls: ['./water-bill.component.scss']
+  selector: 'app-bill-water',
+  templateUrl: './bill-water.component.html',
+  styleUrls: ['./bill-water.component.scss']
 })
-export class WaterBillComponent implements OnInit, CanComponentDeactivate {
+export class BillWaterComponent implements OnInit, CanComponentDeactivate {
 
   partnerInfo: Collection<string[]>;
 

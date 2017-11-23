@@ -40,7 +40,8 @@
       </div>
 
       <div class="na-button na-username">
-        <ng-template i18n="user greeting|User greeting on dashboard">Hello</ng-template> {{currentUserName}}
+        <ng-template i18n="user greeting|User greeting on dashboard">Hello</ng-template>
+        {{currentUserName}}
       </div>
 
       <div class="na-button" (click)="logout()">
@@ -64,13 +65,16 @@
     <div class="col col-4 p-0 d-flex flex-column">
 
       <div class="col p-0 d-flex flex-row m-0">
-        <div class="col col-6 p-0 na-l-button na-l-button-1 na-l-phone">
+        <div class="col col-6 p-0 na-l-button na-l-button-1 na-l-phone"
+             routerLink="/transactions/phone"
+             (click)="closeAllSubmenu()">
           <div class="m-auto-0 w-100">
             <div class="m-0-auto na-l-button-circle"></div>
             <div class="na-l-button-description" i18n="phone credit|Side nav panel description">Phone credit</div>
           </div>
         </div>
-        <div class="col col-6 p-0 na-l-button na-l-button-2 na-l-transfer" (click)="showSubmenuTransfer = !showSubmenuTransfer">
+        <div class="col col-6 p-0 na-l-button na-l-button-2 na-l-transfer"
+             (click)="toggleSubmenuTransfer()">
           <div class="m-auto-0 w-100">
             <div class="m-0-auto na-l-button-circle"></div>
             <div class="na-l-button-description" i18n="transfer|Side nav panel description">Transfer</div>
@@ -79,13 +83,16 @@
       </div>
 
       <div class="col p-0 d-flex flex-row m-0">
-        <div class="col col-6 p-0 na-l-button na-l-button-3 na-l-bill" (click)="showSubmenuBill = !showSubmenuBill">
+        <div class="col col-6 p-0 na-l-button na-l-button-3 na-l-bill"
+             (click)="toggleSubmenuBill()">
           <div class="m-auto-0 w-100">
             <div class="m-0-auto na-l-button-circle"></div>
             <div class="na-l-button-description" i18n="bill|Side nav panel description">Bill</div>
           </div>
         </div>
-        <div class="col col-6 p-0 na-l-button na-l-button-4 na-l-mywari">
+        <div class="col col-6 p-0 na-l-button na-l-button-4 na-l-mywari"
+             routerLink="/mywari"
+             (click)="closeAllSubmenu()">
           <div class="m-auto-0 w-100">
             <div class="m-0-auto na-l-button-circle"></div>
             <div class="na-l-button-description" i18n="my wari|Side nav panel description">My Wari</div>
@@ -94,13 +101,17 @@
       </div>
 
       <div class="col p-0 d-flex flex-row m-0">
-        <div class="col col-6 p-0 na-l-button na-l-button-5 na-l-insurance">
+        <div class="col col-6 p-0 na-l-button na-l-button-5 na-l-insurance"
+             routerLink="/insurance"
+             (click)="closeAllSubmenu()">
           <div class="m-auto-0 w-100">
             <div class="m-0-auto na-l-button-circle"></div>
             <div class="na-l-button-description" i18n="insurance|Side nav panel description">Insurance</div>
           </div>
         </div>
-        <div class="col col-6 p-0 na-l-button na-l-button-6 na-l-counter">
+        <div class="col col-6 p-0 na-l-button na-l-button-6 na-l-counter"
+             routerLink="/counter"
+             (click)="closeAllSubmenu()">
           <div class="m-auto-0 w-100">
             <div class="m-0-auto na-l-button-circle"></div>
             <div class="na-l-button-description" i18n="counter|Side nav panel description">Counter</div>
@@ -109,19 +120,25 @@
       </div>
 
       <div class="na-submenu na-submenu-left d-flex flex-column" *ngIf="showSubmenuTransfer">
-        <div class="col p-0 d-flex na-l-button na-l-button-1 na-l-transfer-send">
+        <div class="col p-0 d-flex na-l-button na-l-button-1 na-l-transfer-send"
+             routerLink="/transactions/send"
+             (click)="closeAllSubmenu()">
           <div class="m-auto-0 w-100">
             <div class="m-0-auto na-l-button-circle"></div>
             <div class="na-l-button-description" i18n="transfer send|Side nav panel description">Send</div>
           </div>
         </div>
-        <div class="col p-0 d-flex na-l-button na-l-button-3 na-l-transfer-withdrawal">
+        <div class="col p-0 d-flex na-l-button na-l-button-3 na-l-transfer-withdrawal"
+             routerLink="/transactions/withdrawal"
+             (click)="closeAllSubmenu()">
           <div class="m-auto-0 w-100">
             <div class="m-0-auto na-l-button-circle"></div>
             <div class="na-l-button-description" i18n="transfer withdrawal|Side nav panel description">Withdrawal</div>
           </div>
         </div>
-        <div class="col p-0 d-flex na-l-button na-l-button-5 na-l-transfer-refund">
+        <div class="col p-0 d-flex na-l-button na-l-button-5 na-l-transfer-refund"
+             routerLink="/transactions/refund"
+             (click)="closeAllSubmenu()">
           <div class="m-auto-0 w-100">
             <div class="m-0-auto na-l-button-circle"></div>
             <div class="na-l-button-description" i18n="transfer refund|Side nav panel description">Refund</div>
@@ -130,19 +147,26 @@
       </div>
 
       <div class="na-submenu na-submenu-right d-flex flex-column" *ngIf="showSubmenuBill">
-        <div class="col p-0 d-flex na-l-button na-l-button-2 na-l-bill-water">
+        <div class="col p-0 d-flex na-l-button na-l-button-2 na-l-bill-water"
+             routerLink="/transactions/water"
+             (click)="closeAllSubmenu()">
           <div class="m-auto-0 w-100">
             <div class="m-0-auto na-l-button-circle"></div>
             <div class="na-l-button-description" i18n="bill water|Side nav panel description">Water bill</div>
           </div>
         </div>
-        <div class="col p-0 d-flex na-l-button na-l-button-4 na-l-bill-electricity">
+        <div class="col p-0 d-flex na-l-button na-l-button-4 na-l-bill-electricity"
+             routerLink="/transactions/electricity"
+             (click)="closeAllSubmenu()">
           <div class="m-auto-0 w-100">
             <div class="m-0-auto na-l-button-circle"></div>
-            <div class="na-l-button-description" i18n="bill electricity|Side nav panel description">Electricity bill</div>
+            <div class="na-l-button-description" i18n="bill electricity|Side nav panel description">Electricity bill
+            </div>
           </div>
         </div>
-        <div class="col p-0 d-flex na-l-button na-l-button-6 na-l-bill-tv">
+        <div class="col p-0 d-flex na-l-button na-l-button-6 na-l-bill-tv"
+             routerLink="/transactions/tv"
+             (click)="closeAllSubmenu()">
           <div class="m-auto-0 w-100">
             <div class="m-0-auto na-l-button-circle"></div>
             <div class="na-l-button-description" i18n="bill tv|Side nav panel description">TV subscription</div>
