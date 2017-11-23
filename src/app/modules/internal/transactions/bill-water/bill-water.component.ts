@@ -42,6 +42,15 @@ export class BillWaterComponent implements OnInit, CanComponentDeactivate {
   phone: string;
   address: string;
 
+  summary = {
+    paymentCompany: '__paymentCompany',
+    invoiceCompany: '__invoiceCompany',
+    company: '__company',
+    invoiceAmount: '__invoiceAmount',
+    transactionFees: '__transactionFees',
+    amount2paid: '__amount2paid'
+  };
+
 
   constructor(private route: ActivatedRoute,
               private authService: AuthService,
@@ -57,7 +66,8 @@ export class BillWaterComponent implements OnInit, CanComponentDeactivate {
       this.partnerCodes = _.keys(partnerInfo);
     });
 
-    this.steps = '1-2';
+    // this.steps = '1-2';
+    this.steps = '3-4';
   }
 
   onPartnerCodeSelected(partnerCode: string) {
@@ -82,11 +92,33 @@ export class BillWaterComponent implements OnInit, CanComponentDeactivate {
 
     console.log('/transaction/processTransaction <- transactionRequestBody', transactionRequestBody); // todo
 
-    this.transactionApi.processTransactionPost1(transactionRequestBody).subscribe((res: TransactionResponse) => {
-      console.log('/transaction/processTransaction -> TransactionResponse', res); // todo
-    }, (error) => {
-      console.log('/transaction/processTransaction -> error', error); // todo
-    });
+
+    this.handleTransactionResponse({
+      transactionId: 0,
+      principal: 0,
+      commissionTTC: 10,
+      timbre: 2,
+      taxeOperation: 4,
+      total: 100,
+      principalConversion: 5,
+      wariPassOTPRequired: true,
+      numeroTransaction: 'numeroTransaction',
+      wariPassTokenRequired: true,
+      message: 'message',
+    } as TransactionResponse);
+    // this.transactionApi.processTransactionPost1(transactionRequestBody).subscribe((res: TransactionResponse) => {
+    //   console.log('/transaction/processTransaction -> TransactionResponse', res); // todo
+    //   this.handleTransactionResponse(res);
+    // }, (error) => {
+    //   console.log('/transaction/processTransaction -> error', error); // todo
+    // });
+
+  }
+
+  private handleTransactionResponse(transactionResponse: TransactionResponse) {
+    this.steps = '3-4';
+
+
 
   }
 

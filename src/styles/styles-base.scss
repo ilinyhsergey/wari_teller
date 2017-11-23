@@ -137,4 +137,17 @@ body {
     border-color: $color-half-white;
   }
 
+  .bs-icon {
+    display: inline-block;
+    fill: none;
+    //margin: 0.2em;
+    //font-size: 1em;
+    width: 32px;
+    stroke: white;
+    stroke-width: inherit;
+    stroke-linecap: inherit;
+    stroke-linejoin: inherit;
+    overflow: visible;
+  }
+
 }
