@@ -1,4 +1,13 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {NgbTabChangeEvent} from '@ng-bootstrap/ng-bootstrap';
+
+export type PaymentMode = 'account' | 'cash' | 'waripass';
+
+export class PaymentModeModel {
+  wariPassToken: string;
+  paymentMode: PaymentMode;
+  amount: number;
+}
 
 @Component({
   selector: 'app-payment-mode',
@@ -8,15 +17,26 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 export class PaymentModeComponent implements OnInit {
 
   @Output()
-  complete: EventEmitter<any> = new EventEmitter<any>();
+  complete: EventEmitter<PaymentModeModel> = new EventEmitter<PaymentModeModel>();
+
+  model: PaymentModeModel;
 
   constructor() {
   }
 
   ngOnInit() {
+    this.model = {
+      wariPassToken: '',
+      paymentMode: 'account',
+      amount: null
+    };
+  }
+
+  beforeTabChange(event: NgbTabChangeEvent) {
+    this.model.paymentMode = event.nextId as PaymentMode;
   }
 
   onOkButton() {
-    this.complete.emit(true);
+    this.complete.emit(this.model);
   }
 }

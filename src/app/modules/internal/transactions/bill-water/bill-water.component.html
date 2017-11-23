@@ -2,7 +2,7 @@
 
   <div class="tr-header tr-title" i18n>Payment bill water</div>
 
-  <div class="app-scrollable flex-grow">
+  <div class="app-scrollable flex-grow" *ngIf="steps === '1-2'">
 
     <div class="row m-0 align-items-center tr-body-header">
       <div class="col col-6 p-0 row m-0 justify-content-center">
@@ -67,14 +67,14 @@
             </div>
             <div class="row tr-tbl-row">
               <div class="col col-3 tr-tbl-col" i18n>Amount</div>
-              <input class="col col-3 tr-tbl-col" type="text" [(ngModel)]="amount1">
+              <input class="col col-3 tr-tbl-col" type="number" [(ngModel)]="amount1">
               <div class="col col-2 tr-tbl-col">XOF</div>
-              <input class="col col-2 tr-tbl-col" type="text">
+              <input class="col col-2 tr-tbl-col" type="number" [(ngModel)]="amount2">
               <div class="col col-2 tr-tbl-col">EUR</div>
             </div>
             <div class="row tr-tbl-row">
               <div class="col col-3 tr-tbl-col" i18n>Name</div>
-              <input class="col col-9 tr-tbl-col" type="text" [(ngModel)]="amount2">
+              <input class="col col-9 tr-tbl-col" type="text" [(ngModel)]="billClient">
             </div>
             <div class="row tr-tbl-row">
               <div class="col col-3 tr-tbl-col" i18n>Cellular</div>
@@ -87,7 +87,50 @@
           </div>
 
           <div i18n>Payment method</div>
-          <app-payment-mode (complete)="send()"></app-payment-mode>
+          <app-payment-mode (complete)="processTransaction($event)"></app-payment-mode>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="app-scrollable flex-grow" *ngIf="steps === '3-4'">
+
+    <div class="row m-0 align-items-center tr-body-header">
+      <div class="col col-6 p-0 row m-0 justify-content-center">
+        <div class="tr-circle-text">3</div>
+      </div>
+      <div class="col col-6 p-0 row m-0 justify-content-center">
+        <div class="tr-circle-text">4</div>
+      </div>
+    </div>
+
+    <div class="row m-0 align-content-stretch">
+      <div class="col col-6 p-0 row m-0">
+        <div class="tr-content tr-content-left flex-grow">
+
+          <div class="f-container">
+            <div class="f-row">
+              <div class="f-col" i18n>Summary<!--récapitulatif--></div>
+            </div>
+            <!--<div class="f-row">-->
+              <!--<div class="f-col" i18n>Country of payment:</div>-->
+              <!--<div class="f-col" i18n>{{paymentCountry}}</div>-->
+            <!--</div>-->
+
+            <div class="f-row">
+              <div class="f-col" i18n>country of the invoice<!--pays de la facture--></div>
+              <div class="f-col" i18n>paymentCountry</div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+      <div class="col col-6 p-0 row m-0" *ngIf="partnerName">
+        <div class="tr-content tr-content-right  flex-grow">
+
 
         </div>
       </div>

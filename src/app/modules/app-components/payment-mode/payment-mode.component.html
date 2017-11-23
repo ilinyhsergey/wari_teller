@@ -1,5 +1,5 @@
-<ngb-tabset justify="justified">
-  <ngb-tab>
+<ngb-tabset justify="justified" (tabChange)="beforeTabChange($event)">
+  <ngb-tab id="account">
     <ng-template ngbTabTitle>
       <div class="tab tab-account"></div>
     </ng-template>
@@ -21,7 +21,7 @@
 
     </ng-template>
   </ngb-tab>
-  <ngb-tab>
+  <ngb-tab id="cash">
     <ng-template ngbTabTitle>
       <div class="tab tab-cash"></div>
     </ng-template>
@@ -42,7 +42,7 @@
         <div class="f-row">
           <div class="f-col col-5 f-text" i18n="amount to be paid">Amount to be paid</div>
           <div class="f-col col-5">
-            <input class="form-control" type="text" value="125,00">
+            <input class="form-control" type="number" [(ngModel)]="model.amount">
           </div>
           <div class="f-col col-2">
             <button type="button" class="btn btn-primary" (click)="onOkButton()" i18n="ok">OK</button>
@@ -52,7 +52,7 @@
 
     </ng-template>
   </ngb-tab>
-  <ngb-tab>
+  <ngb-tab id="waripass">
     <ng-template ngbTabTitle>
       <div class="tab tab-wari-pass"></div>
     </ng-template>
@@ -62,13 +62,13 @@
         <div class="f-row">
           <div class="f-col col-5 f-text" i18n>Wari secure</div>
           <div class="f-col col-5">
-            <input class="form-control" type="text" value="1234567">
+            <input class="form-control" type="text" [(ngModel)]="model.wariPassToken" placeholder="WariPass Token">
           </div>
         </div>
         <div class="f-row">
           <div class="f-col col-5 f-text" i18n="amount to be paid">Amount to be paid</div>
           <div class="f-col col-5">
-            <input class="form-control" type="text" value="125,00">
+            <input class="form-control" type="number" [(ngModel)]="model.amount">
           </div>
           <div class="f-col col-2">
             <button type="button" class="btn btn-primary" (click)="onOkButton()" i18n="ok">OK</button>

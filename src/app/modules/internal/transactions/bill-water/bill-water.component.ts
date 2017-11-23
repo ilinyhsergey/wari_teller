@@ -8,11 +8,14 @@ import {Collection} from '../../../../app.declaration';
 import {BillResponse} from '../../../../api/generated/model/BillResponse';
 import {AuthService} from '../../../../services/auth.service';
 import {TransactionApi} from '../../../../api/generated/api/TransactionApi';
-import {BillRequestBody} from '../../../../api/generated/model/BillRequestBody';
-import {BillRequest} from '../../../../api/generated/model/BillRequest';
 import {ParameterApi} from '../../../../api/generated/api/ParameterApi';
-import {MerchantForm} from '../../../../api/generated/model/MerchantForm';
-import {B2BPartnerInformation} from '../../../../api/generated/model/B2BPartnerInformation';
+import {TransactionResponse} from '../../../../api/generated/model/TransactionResponse';
+import {TransactionRequestBody} from '../../../../api/generated/model/TransactionRequestBody';
+import {FormSteps} from '../../../../model/FormSteps';
+import {TransactionRequest} from '../../../../api/generated/model/TransactionRequest';
+import {BillPaymentContext} from '../../../../api/generated/model/BillPaymentContext';
+import {ProcessTransactionContext} from '../../../../api/generated/model/ProcessTransactionContext';
+import {PaymentModeModel} from '../../../app-components/payment-mode/payment-mode.component';
 
 @Component({
   selector: 'app-bill-water',
@@ -20,6 +23,8 @@ import {B2BPartnerInformation} from '../../../../api/generated/model/B2BPartnerI
   styleUrls: ['./bill-water.component.scss']
 })
 export class BillWaterComponent implements OnInit, CanComponentDeactivate {
+
+  steps: FormSteps;
 
   partnerInfo: Collection<string[]>;
 
@@ -31,8 +36,9 @@ export class BillWaterComponent implements OnInit, CanComponentDeactivate {
 
   billReference: string;
 
-  amount1: string;
-  amount2: string;
+  amount1: number;
+  amount2: number;
+  billClient: string;
   phone: string;
   address: string;
 
@@ -49,9 +55,9 @@ export class BillWaterComponent implements OnInit, CanComponentDeactivate {
       this.partnerInfo = partnerInfo;
 
       this.partnerCodes = _.keys(partnerInfo);
-      console.log('____ this.partnerCodes', this.partnerCodes); // todo
     });
 
+    this.steps = '1-2';
   }
 
   onPartnerCodeSelected(partnerCode: string) {
@@ -60,42 +66,64 @@ export class BillWaterComponent implements OnInit, CanComponentDeactivate {
   }
 
   onPartnerNameSelected(partnerName: string) {
-    this.partnerName = partnerName = '1221000747900'; // 1221000748507
+    this.partnerName = partnerName; // = '1221000747900'; // 1221000748507
 
-    this.parameterApi.findMerchantFormByReferenceGet1(partnerName)
-      .subscribe((merchantForm: MerchantForm) => {
-        console.log('merchantForm', merchantForm); // todo
-      });
-
-    this.parameterApi.findMerchantInformationsByReferenceGet1(partnerName)
-      .subscribe((b2BPartnerInformations: B2BPartnerInformation[]) => {
-        console.log('findMerchantInformationsByReference', b2BPartnerInformations); // todo
-      });
-
+    this.billReference = partnerName; // todo need verify
   }
 
   canDeactivate(): Observable<boolean> | Promise<boolean> | boolean {
     return true; // todo check unsaved changes
   }
 
-  send() {
-    const billRequestBody: BillRequestBody = this.createRequestBody();
+  processTransaction(paymentModeModel: PaymentModeModel) {
+    // todo validate fiels of 1-2 steps
 
-    this.transactionApi.findCustomerBillPost1(billRequestBody)
-      .subscribe((billResponses: BillResponse[]) => {
-        console.log('billResponses', billResponses); // todo
-      });
+    const transactionRequestBody: TransactionRequestBody = this.createTransactionRequestBody(paymentModeModel);
+
+    console.log('/transaction/processTransaction <- transactionRequestBody', transactionRequestBody); // todo
+
+    this.transactionApi.processTransactionPost1(transactionRequestBody).subscribe((res: TransactionResponse) => {
+      console.log('/transaction/processTransaction -> TransactionResponse', res); // todo
+    }, (error) => {
+      console.log('/transaction/processTransaction -> error', error); // todo
+    });
+
   }
 
-  private createRequestBody(): BillRequestBody {
+  private createTransactionRequestBody(paymentModeModel: PaymentModeModel): TransactionRequestBody {
+    const bill: BillResponse = {
+      billReference: this.billReference,
+      billAmount: this.amount1,
+      billFees: 0, // todo
+      billTimbre: 0, // todo
+      billTaxeFixe: 0, // todo
+      billClient: this.billClient,
+      billInfos: {}
+    };
+    const context: BillPaymentContext = {
+      bill: bill
+    };
+    this.fillProcessTransactionContext(context, paymentModeModel);
+
+    const transactionRequest: TransactionRequest = {
+      context: context as ProcessTransactionContext,
+    };
+    this.fillProcessTransactionContext(transactionRequest, paymentModeModel);
+
     return {
       sessionID: this.authService.getSessionId(),
-      billRequest: {
-        merchantCode: this.partnerName,
-        billReference: this.billReference,
-        billCurrency: this.amount1,
-        billModeReglement: BillRequest.BillModeReglementEnum.TOTAL
-      }
+      objectType: 'BillPaymentContext',
+      transactionRequest: transactionRequest
     };
+  }
+
+  fillProcessTransactionContext<T extends ProcessTransactionContext>(context: T, paymentModeModel: PaymentModeModel): T {
+    _.assign(context, {
+      securityTokenTransaction: paymentModeModel.paymentMode === 'waripass',
+      tokenValidationDesc: '', // todo
+      wariPassOTP: '', // todo
+      wariPassToken: paymentModeModel.wariPassToken,
+    });
+    return context;
   }
 }
