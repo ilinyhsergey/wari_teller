@@ -12,17 +12,15 @@
 
 import * as models from './models';
 
-export interface PendingTransaction {
-    transactionId?: number;
+export interface BillPaymentContext {
+    securityTokenTransaction?: boolean;
 
-    date?: Date;
+    tokenValidationDesc?: string;
 
-    supervisor?: models.Actor;
+    wariPassOTP?: string;
 
-    autorisationMode?: string;
+    wariPassToken?: string;
 
-    transactionType?: models.TransactionType;
-
-    status?: string;
+    bill?: models.BillResponse;
 
 }

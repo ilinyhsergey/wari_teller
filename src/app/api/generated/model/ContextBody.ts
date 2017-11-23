@@ -12,17 +12,15 @@
 
 import * as models from './models';
 
-export interface PendingTransaction {
-    transactionId?: number;
+export interface ContextBody {
+    airtimeContext?: models.AirtimeContext;
 
-    date?: Date;
+    billPaymentContext?: models.BillPaymentContext;
 
-    supervisor?: models.Actor;
+    cashAdvanceContext?: models.CashAdvanceContext;
 
-    autorisationMode?: string;
+    receiveMoneyContext?: models.ReceiveMoneyContext;
 
-    transactionType?: models.TransactionType;
-
-    status?: string;
+    sendMoneyContext?: models.SendMoneyContext;
 
 }

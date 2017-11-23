@@ -94,9 +94,10 @@ export class UserApi {
     /**
      * logout user.
      * @summary logout user.
+     * @param sessionID 
      */
-    public userLogoutPost1(extraHttpRequestParams?: any): Observable<{}> {
-        return this.userLogoutPost1WithHttpInfo(extraHttpRequestParams)
+    public userLogoutPost1(sessionID: number, extraHttpRequestParams?: any): Observable<{}> {
+        return this.userLogoutPost1WithHttpInfo(sessionID, extraHttpRequestParams)
             .map((response: Response) => {
                 if (response.status === 204) {
                     return undefined;
@@ -233,12 +234,18 @@ export class UserApi {
     /**
      * logout user.
      * logout user.
+     * @param sessionID 
      */
-    public userLogoutPost1WithHttpInfo(extraHttpRequestParams?: any): Observable<Response> {
-        const path = this.basePath + '/user/logout';
+    public userLogoutPost1WithHttpInfo(sessionID: number, extraHttpRequestParams?: any): Observable<Response> {
+        const path = this.basePath + '/user/logout/${sessionID}'
+                    .replace('${' + 'sessionID' + '}', String(sessionID));
 
         let queryParameters = new URLSearchParams();
         let headers = new Headers(this.defaultHeaders.toJSON()); // https://github.com/angular/angular/issues/6845
+        // verify required parameter 'sessionID' is not null or undefined
+        if (sessionID === null || sessionID === undefined) {
+            throw new Error('Required parameter sessionID was null or undefined when calling userLogoutPost1.');
+        }
         // to determine the Content-Type header
         let consumes: string[] = [
         ];

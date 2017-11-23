@@ -61,6 +61,24 @@ export class ReportApi {
     }
 
     /**
+     * get the AgencesAutonomesReport between two date and report type
+     * @summary get the AgencesAutonomesReport between two date and report type
+     * @param sessionID 
+     * @param begin 
+     * @param end 
+     */
+    public getAgencesAutonomesReportSessionIDBeginEndGet1(sessionID: number, begin: string, end: string, extraHttpRequestParams?: any): Observable<models.AgencesAutonomesReport> {
+        return this.getAgencesAutonomesReportSessionIDBeginEndGet1WithHttpInfo(sessionID, begin, end, extraHttpRequestParams)
+            .map((response: Response) => {
+                if (response.status === 204) {
+                    return undefined;
+                } else {
+                    return response.json() || {};
+                }
+            });
+    }
+
+    /**
      * provides the status of an airtime transactions
      * @summary provides the status of an airtime transactions
      * @param sessionID 
@@ -78,16 +96,101 @@ export class ReportApi {
     }
 
     /**
-     * get all the reports between two date and report type
-     * @summary get all the reports between two date and report type
+     * provides available report types with subTypes
+     * @summary provides available report types with subTypes
      * @param sessionID 
-     * @param reportType 
+     */
+    public getAvailableReportTypes1(sessionID: number, extraHttpRequestParams?: any): Observable<Array<string>> {
+        return this.getAvailableReportTypes1WithHttpInfo(sessionID, extraHttpRequestParams)
+            .map((response: Response) => {
+                if (response.status === 204) {
+                    return undefined;
+                } else {
+                    return response.json() || {};
+                }
+            });
+    }
+
+    /**
+     * get the BordereauxReport between two date and report type
+     * @summary get the BordereauxReport between two date and report type
+     * @param sessionID 
      * @param reportSubType 
      * @param begin 
      * @param end 
      */
-    public getReportsSessionIDReportTypeReportSubTypeBeginEndGet1(sessionID: number, reportType: string, reportSubType: string, begin: string, end: string, extraHttpRequestParams?: any): Observable<Array<models.Report>> {
-        return this.getReportsSessionIDReportTypeReportSubTypeBeginEndGet1WithHttpInfo(sessionID, reportType, reportSubType, begin, end, extraHttpRequestParams)
+    public getBordereauxReportSessionIDReportSubTypeBeginEndGet1(sessionID: number, reportSubType: string, begin: string, end: string, extraHttpRequestParams?: any): Observable<models.BordereauxReport> {
+        return this.getBordereauxReportSessionIDReportSubTypeBeginEndGet1WithHttpInfo(sessionID, reportSubType, begin, end, extraHttpRequestParams)
+            .map((response: Response) => {
+                if (response.status === 204) {
+                    return undefined;
+                } else {
+                    return response.json() || {};
+                }
+            });
+    }
+
+    /**
+     * get the JournauxReport between two date and report type
+     * @summary get the JournauxReport between two date and report type
+     * @param sessionID 
+     * @param reportSubType 
+     * @param begin 
+     * @param end 
+     */
+    public getJournauxReportSessionIDReportSubTypeBeginEndGet1(sessionID: number, reportSubType: string, begin: string, end: string, extraHttpRequestParams?: any): Observable<models.JournauxReport> {
+        return this.getJournauxReportSessionIDReportSubTypeBeginEndGet1WithHttpInfo(sessionID, reportSubType, begin, end, extraHttpRequestParams)
+            .map((response: Response) => {
+                if (response.status === 204) {
+                    return undefined;
+                } else {
+                    return response.json() || {};
+                }
+            });
+    }
+
+    /**
+     * provides available pending transaction statuses
+     * @summary provides available pending transaction statuses
+     */
+    public getPendingTransactionStatuses1(extraHttpRequestParams?: any): Observable<Array<string>> {
+        return this.getPendingTransactionStatuses1WithHttpInfo(extraHttpRequestParams)
+            .map((response: Response) => {
+                if (response.status === 204) {
+                    return undefined;
+                } else {
+                    return response.json() || {};
+                }
+            });
+    }
+
+    /**
+     * get the ReleveCompteReport between two date and report type
+     * @summary get the ReleveCompteReport between two date and report type
+     * @param sessionID 
+     * @param begin 
+     * @param end 
+     */
+    public getReleveCompteReportSessionIDBeginEndGet1(sessionID: number, begin: string, end: string, extraHttpRequestParams?: any): Observable<models.ReleveCompteReport> {
+        return this.getReleveCompteReportSessionIDBeginEndGet1WithHttpInfo(sessionID, begin, end, extraHttpRequestParams)
+            .map((response: Response) => {
+                if (response.status === 204) {
+                    return undefined;
+                } else {
+                    return response.json() || {};
+                }
+            });
+    }
+
+    /**
+     * get the SituationReport between two date and report type
+     * @summary get the SituationReport between two date and report type
+     * @param sessionID 
+     * @param begin 
+     * @param end 
+     */
+    public getSituationReportSessionIDBeginEndGet1(sessionID: number, begin: string, end: string, extraHttpRequestParams?: any): Observable<models.SituationReport> {
+        return this.getSituationReportSessionIDBeginEndGet1WithHttpInfo(sessionID, begin, end, extraHttpRequestParams)
             .map((response: Response) => {
                 if (response.status === 204) {
                     return undefined;
@@ -106,6 +209,24 @@ export class ReportApi {
      */
     public getTransactionListSessionIDBeginEndGet1(sessionID: number, begin: string, end: string, extraHttpRequestParams?: any): Observable<Array<models.TransactionListResponse>> {
         return this.getTransactionListSessionIDBeginEndGet1WithHttpInfo(sessionID, begin, end, extraHttpRequestParams)
+            .map((response: Response) => {
+                if (response.status === 204) {
+                    return undefined;
+                } else {
+                    return response.json() || {};
+                }
+            });
+    }
+
+    /**
+     * get the VersementsDistributeursReport between two date and report type
+     * @summary get the VersementsDistributeursReport between two date and report type
+     * @param sessionID 
+     * @param begin 
+     * @param end 
+     */
+    public getVersementsDistributeursReportSessionIDBeginEndGet1(sessionID: number, begin: string, end: string, extraHttpRequestParams?: any): Observable<models.VersementsDistributeursReport> {
+        return this.getVersementsDistributeursReportSessionIDBeginEndGet1WithHttpInfo(sessionID, begin, end, extraHttpRequestParams)
             .map((response: Response) => {
                 if (response.status === 204) {
                     return undefined;
@@ -141,6 +262,60 @@ export class ReportApi {
             queryParameters.set('status', <any>status);
         }
 
+        // to determine the Content-Type header
+        let consumes: string[] = [
+        ];
+
+        // to determine the Accept header
+        let produces: string[] = [
+        ];
+
+        // authentication (bearer) required
+        if (this.configuration.apiKey) {
+            headers.set('Authorization', this.configuration.apiKey);
+        }
+
+        let requestOptions: RequestOptionsArgs = new RequestOptions({
+            method: RequestMethod.Get,
+            headers: headers,
+            search: queryParameters,
+            withCredentials:this.configuration.withCredentials
+        });
+        // https://github.com/swagger-api/swagger-codegen/issues/4037
+        if (extraHttpRequestParams) {
+            requestOptions = (<any>Object).assign(requestOptions, extraHttpRequestParams);
+        }
+
+        return this.http.request(path, requestOptions);
+    }
+
+    /**
+     * get the AgencesAutonomesReport between two date and report type
+     * get the AgencesAutonomesReport between two date and report type
+     * @param sessionID 
+     * @param begin 
+     * @param end 
+     */
+    public getAgencesAutonomesReportSessionIDBeginEndGet1WithHttpInfo(sessionID: number, begin: string, end: string, extraHttpRequestParams?: any): Observable<Response> {
+        const path = this.basePath + '/report/getAgencesAutonomesReport/${sessionID}/${begin}/${end}'
+                    .replace('${' + 'sessionID' + '}', String(sessionID))
+                    .replace('${' + 'begin' + '}', String(begin))
+                    .replace('${' + 'end' + '}', String(end));
+
+        let queryParameters = new URLSearchParams();
+        let headers = new Headers(this.defaultHeaders.toJSON()); // https://github.com/angular/angular/issues/6845
+        // verify required parameter 'sessionID' is not null or undefined
+        if (sessionID === null || sessionID === undefined) {
+            throw new Error('Required parameter sessionID was null or undefined when calling getAgencesAutonomesReportSessionIDBeginEndGet1.');
+        }
+        // verify required parameter 'begin' is not null or undefined
+        if (begin === null || begin === undefined) {
+            throw new Error('Required parameter begin was null or undefined when calling getAgencesAutonomesReportSessionIDBeginEndGet1.');
+        }
+        // verify required parameter 'end' is not null or undefined
+        if (end === null || end === undefined) {
+            throw new Error('Required parameter end was null or undefined when calling getAgencesAutonomesReportSessionIDBeginEndGet1.');
+        }
         // to determine the Content-Type header
         let consumes: string[] = [
         ];
@@ -217,18 +392,58 @@ export class ReportApi {
     }
 
     /**
-     * get all the reports between two date and report type
-     * get all the reports between two date and report type
+     * provides available report types with subTypes
+     * provides available report types with subTypes
      * @param sessionID 
-     * @param reportType 
+     */
+    public getAvailableReportTypes1WithHttpInfo(sessionID: number, extraHttpRequestParams?: any): Observable<Response> {
+        const path = this.basePath + '/report/getAvailableReportTypes/${sessionID}'
+                    .replace('${' + 'sessionID' + '}', String(sessionID));
+
+        let queryParameters = new URLSearchParams();
+        let headers = new Headers(this.defaultHeaders.toJSON()); // https://github.com/angular/angular/issues/6845
+        // verify required parameter 'sessionID' is not null or undefined
+        if (sessionID === null || sessionID === undefined) {
+            throw new Error('Required parameter sessionID was null or undefined when calling getAvailableReportTypes1.');
+        }
+        // to determine the Content-Type header
+        let consumes: string[] = [
+        ];
+
+        // to determine the Accept header
+        let produces: string[] = [
+        ];
+
+        // authentication (bearer) required
+        if (this.configuration.apiKey) {
+            headers.set('Authorization', this.configuration.apiKey);
+        }
+
+        let requestOptions: RequestOptionsArgs = new RequestOptions({
+            method: RequestMethod.Get,
+            headers: headers,
+            search: queryParameters,
+            withCredentials:this.configuration.withCredentials
+        });
+        // https://github.com/swagger-api/swagger-codegen/issues/4037
+        if (extraHttpRequestParams) {
+            requestOptions = (<any>Object).assign(requestOptions, extraHttpRequestParams);
+        }
+
+        return this.http.request(path, requestOptions);
+    }
+
+    /**
+     * get the BordereauxReport between two date and report type
+     * get the BordereauxReport between two date and report type
+     * @param sessionID 
      * @param reportSubType 
      * @param begin 
      * @param end 
      */
-    public getReportsSessionIDReportTypeReportSubTypeBeginEndGet1WithHttpInfo(sessionID: number, reportType: string, reportSubType: string, begin: string, end: string, extraHttpRequestParams?: any): Observable<Response> {
-        const path = this.basePath + '/report/getReports/${sessionID}/${reportType}/${reportSubType}/${begin}/${end}'
+    public getBordereauxReportSessionIDReportSubTypeBeginEndGet1WithHttpInfo(sessionID: number, reportSubType: string, begin: string, end: string, extraHttpRequestParams?: any): Observable<Response> {
+        const path = this.basePath + '/report/getBordereauxReport/${sessionID}/${reportSubType}/${begin}/${end}'
                     .replace('${' + 'sessionID' + '}', String(sessionID))
-                    .replace('${' + 'reportType' + '}', String(reportType))
                     .replace('${' + 'reportSubType' + '}', String(reportSubType))
                     .replace('${' + 'begin' + '}', String(begin))
                     .replace('${' + 'end' + '}', String(end));
@@ -237,23 +452,223 @@ export class ReportApi {
         let headers = new Headers(this.defaultHeaders.toJSON()); // https://github.com/angular/angular/issues/6845
         // verify required parameter 'sessionID' is not null or undefined
         if (sessionID === null || sessionID === undefined) {
-            throw new Error('Required parameter sessionID was null or undefined when calling getReportsSessionIDReportTypeReportSubTypeBeginEndGet1.');
-        }
-        // verify required parameter 'reportType' is not null or undefined
-        if (reportType === null || reportType === undefined) {
-            throw new Error('Required parameter reportType was null or undefined when calling getReportsSessionIDReportTypeReportSubTypeBeginEndGet1.');
+            throw new Error('Required parameter sessionID was null or undefined when calling getBordereauxReportSessionIDReportSubTypeBeginEndGet1.');
         }
         // verify required parameter 'reportSubType' is not null or undefined
         if (reportSubType === null || reportSubType === undefined) {
-            throw new Error('Required parameter reportSubType was null or undefined when calling getReportsSessionIDReportTypeReportSubTypeBeginEndGet1.');
+            throw new Error('Required parameter reportSubType was null or undefined when calling getBordereauxReportSessionIDReportSubTypeBeginEndGet1.');
         }
         // verify required parameter 'begin' is not null or undefined
         if (begin === null || begin === undefined) {
-            throw new Error('Required parameter begin was null or undefined when calling getReportsSessionIDReportTypeReportSubTypeBeginEndGet1.');
+            throw new Error('Required parameter begin was null or undefined when calling getBordereauxReportSessionIDReportSubTypeBeginEndGet1.');
         }
         // verify required parameter 'end' is not null or undefined
         if (end === null || end === undefined) {
-            throw new Error('Required parameter end was null or undefined when calling getReportsSessionIDReportTypeReportSubTypeBeginEndGet1.');
+            throw new Error('Required parameter end was null or undefined when calling getBordereauxReportSessionIDReportSubTypeBeginEndGet1.');
+        }
+        // to determine the Content-Type header
+        let consumes: string[] = [
+        ];
+
+        // to determine the Accept header
+        let produces: string[] = [
+        ];
+
+        // authentication (bearer) required
+        if (this.configuration.apiKey) {
+            headers.set('Authorization', this.configuration.apiKey);
+        }
+
+        let requestOptions: RequestOptionsArgs = new RequestOptions({
+            method: RequestMethod.Get,
+            headers: headers,
+            search: queryParameters,
+            withCredentials:this.configuration.withCredentials
+        });
+        // https://github.com/swagger-api/swagger-codegen/issues/4037
+        if (extraHttpRequestParams) {
+            requestOptions = (<any>Object).assign(requestOptions, extraHttpRequestParams);
+        }
+
+        return this.http.request(path, requestOptions);
+    }
+
+    /**
+     * get the JournauxReport between two date and report type
+     * get the JournauxReport between two date and report type
+     * @param sessionID 
+     * @param reportSubType 
+     * @param begin 
+     * @param end 
+     */
+    public getJournauxReportSessionIDReportSubTypeBeginEndGet1WithHttpInfo(sessionID: number, reportSubType: string, begin: string, end: string, extraHttpRequestParams?: any): Observable<Response> {
+        const path = this.basePath + '/report/getJournauxReport/${sessionID}/${reportSubType}/${begin}/${end}'
+                    .replace('${' + 'sessionID' + '}', String(sessionID))
+                    .replace('${' + 'reportSubType' + '}', String(reportSubType))
+                    .replace('${' + 'begin' + '}', String(begin))
+                    .replace('${' + 'end' + '}', String(end));
+
+        let queryParameters = new URLSearchParams();
+        let headers = new Headers(this.defaultHeaders.toJSON()); // https://github.com/angular/angular/issues/6845
+        // verify required parameter 'sessionID' is not null or undefined
+        if (sessionID === null || sessionID === undefined) {
+            throw new Error('Required parameter sessionID was null or undefined when calling getJournauxReportSessionIDReportSubTypeBeginEndGet1.');
+        }
+        // verify required parameter 'reportSubType' is not null or undefined
+        if (reportSubType === null || reportSubType === undefined) {
+            throw new Error('Required parameter reportSubType was null or undefined when calling getJournauxReportSessionIDReportSubTypeBeginEndGet1.');
+        }
+        // verify required parameter 'begin' is not null or undefined
+        if (begin === null || begin === undefined) {
+            throw new Error('Required parameter begin was null or undefined when calling getJournauxReportSessionIDReportSubTypeBeginEndGet1.');
+        }
+        // verify required parameter 'end' is not null or undefined
+        if (end === null || end === undefined) {
+            throw new Error('Required parameter end was null or undefined when calling getJournauxReportSessionIDReportSubTypeBeginEndGet1.');
+        }
+        // to determine the Content-Type header
+        let consumes: string[] = [
+        ];
+
+        // to determine the Accept header
+        let produces: string[] = [
+        ];
+
+        // authentication (bearer) required
+        if (this.configuration.apiKey) {
+            headers.set('Authorization', this.configuration.apiKey);
+        }
+
+        let requestOptions: RequestOptionsArgs = new RequestOptions({
+            method: RequestMethod.Get,
+            headers: headers,
+            search: queryParameters,
+            withCredentials:this.configuration.withCredentials
+        });
+        // https://github.com/swagger-api/swagger-codegen/issues/4037
+        if (extraHttpRequestParams) {
+            requestOptions = (<any>Object).assign(requestOptions, extraHttpRequestParams);
+        }
+
+        return this.http.request(path, requestOptions);
+    }
+
+    /**
+     * provides available pending transaction statuses
+     * provides available pending transaction statuses
+     */
+    public getPendingTransactionStatuses1WithHttpInfo(extraHttpRequestParams?: any): Observable<Response> {
+        const path = this.basePath + '/report/getPendingTransactionStatuses';
+
+        let queryParameters = new URLSearchParams();
+        let headers = new Headers(this.defaultHeaders.toJSON()); // https://github.com/angular/angular/issues/6845
+        // to determine the Content-Type header
+        let consumes: string[] = [
+        ];
+
+        // to determine the Accept header
+        let produces: string[] = [
+        ];
+
+        // authentication (bearer) required
+        if (this.configuration.apiKey) {
+            headers.set('Authorization', this.configuration.apiKey);
+        }
+
+        let requestOptions: RequestOptionsArgs = new RequestOptions({
+            method: RequestMethod.Get,
+            headers: headers,
+            search: queryParameters,
+            withCredentials:this.configuration.withCredentials
+        });
+        // https://github.com/swagger-api/swagger-codegen/issues/4037
+        if (extraHttpRequestParams) {
+            requestOptions = (<any>Object).assign(requestOptions, extraHttpRequestParams);
+        }
+
+        return this.http.request(path, requestOptions);
+    }
+
+    /**
+     * get the ReleveCompteReport between two date and report type
+     * get the ReleveCompteReport between two date and report type
+     * @param sessionID 
+     * @param begin 
+     * @param end 
+     */
+    public getReleveCompteReportSessionIDBeginEndGet1WithHttpInfo(sessionID: number, begin: string, end: string, extraHttpRequestParams?: any): Observable<Response> {
+        const path = this.basePath + '/report/getReleveCompteReport/${sessionID}/${begin}/${end}'
+                    .replace('${' + 'sessionID' + '}', String(sessionID))
+                    .replace('${' + 'begin' + '}', String(begin))
+                    .replace('${' + 'end' + '}', String(end));
+
+        let queryParameters = new URLSearchParams();
+        let headers = new Headers(this.defaultHeaders.toJSON()); // https://github.com/angular/angular/issues/6845
+        // verify required parameter 'sessionID' is not null or undefined
+        if (sessionID === null || sessionID === undefined) {
+            throw new Error('Required parameter sessionID was null or undefined when calling getReleveCompteReportSessionIDBeginEndGet1.');
+        }
+        // verify required parameter 'begin' is not null or undefined
+        if (begin === null || begin === undefined) {
+            throw new Error('Required parameter begin was null or undefined when calling getReleveCompteReportSessionIDBeginEndGet1.');
+        }
+        // verify required parameter 'end' is not null or undefined
+        if (end === null || end === undefined) {
+            throw new Error('Required parameter end was null or undefined when calling getReleveCompteReportSessionIDBeginEndGet1.');
+        }
+        // to determine the Content-Type header
+        let consumes: string[] = [
+        ];
+
+        // to determine the Accept header
+        let produces: string[] = [
+        ];
+
+        // authentication (bearer) required
+        if (this.configuration.apiKey) {
+            headers.set('Authorization', this.configuration.apiKey);
+        }
+
+        let requestOptions: RequestOptionsArgs = new RequestOptions({
+            method: RequestMethod.Get,
+            headers: headers,
+            search: queryParameters,
+            withCredentials:this.configuration.withCredentials
+        });
+        // https://github.com/swagger-api/swagger-codegen/issues/4037
+        if (extraHttpRequestParams) {
+            requestOptions = (<any>Object).assign(requestOptions, extraHttpRequestParams);
+        }
+
+        return this.http.request(path, requestOptions);
+    }
+
+    /**
+     * get the SituationReport between two date and report type
+     * get the SituationReport between two date and report type
+     * @param sessionID 
+     * @param begin 
+     * @param end 
+     */
+    public getSituationReportSessionIDBeginEndGet1WithHttpInfo(sessionID: number, begin: string, end: string, extraHttpRequestParams?: any): Observable<Response> {
+        const path = this.basePath + '/report/getSituationReport/${sessionID}/${begin}/${end}'
+                    .replace('${' + 'sessionID' + '}', String(sessionID))
+                    .replace('${' + 'begin' + '}', String(begin))
+                    .replace('${' + 'end' + '}', String(end));
+
+        let queryParameters = new URLSearchParams();
+        let headers = new Headers(this.defaultHeaders.toJSON()); // https://github.com/angular/angular/issues/6845
+        // verify required parameter 'sessionID' is not null or undefined
+        if (sessionID === null || sessionID === undefined) {
+            throw new Error('Required parameter sessionID was null or undefined when calling getSituationReportSessionIDBeginEndGet1.');
+        }
+        // verify required parameter 'begin' is not null or undefined
+        if (begin === null || begin === undefined) {
+            throw new Error('Required parameter begin was null or undefined when calling getSituationReportSessionIDBeginEndGet1.');
+        }
+        // verify required parameter 'end' is not null or undefined
+        if (end === null || end === undefined) {
+            throw new Error('Required parameter end was null or undefined when calling getSituationReportSessionIDBeginEndGet1.');
         }
         // to determine the Content-Type header
         let consumes: string[] = [
@@ -308,6 +723,60 @@ export class ReportApi {
         // verify required parameter 'end' is not null or undefined
         if (end === null || end === undefined) {
             throw new Error('Required parameter end was null or undefined when calling getTransactionListSessionIDBeginEndGet1.');
+        }
+        // to determine the Content-Type header
+        let consumes: string[] = [
+        ];
+
+        // to determine the Accept header
+        let produces: string[] = [
+        ];
+
+        // authentication (bearer) required
+        if (this.configuration.apiKey) {
+            headers.set('Authorization', this.configuration.apiKey);
+        }
+
+        let requestOptions: RequestOptionsArgs = new RequestOptions({
+            method: RequestMethod.Get,
+            headers: headers,
+            search: queryParameters,
+            withCredentials:this.configuration.withCredentials
+        });
+        // https://github.com/swagger-api/swagger-codegen/issues/4037
+        if (extraHttpRequestParams) {
+            requestOptions = (<any>Object).assign(requestOptions, extraHttpRequestParams);
+        }
+
+        return this.http.request(path, requestOptions);
+    }
+
+    /**
+     * get the VersementsDistributeursReport between two date and report type
+     * get the VersementsDistributeursReport between two date and report type
+     * @param sessionID 
+     * @param begin 
+     * @param end 
+     */
+    public getVersementsDistributeursReportSessionIDBeginEndGet1WithHttpInfo(sessionID: number, begin: string, end: string, extraHttpRequestParams?: any): Observable<Response> {
+        const path = this.basePath + '/report/getVersementsDistributeursReport/${sessionID}/${begin}/${end}'
+                    .replace('${' + 'sessionID' + '}', String(sessionID))
+                    .replace('${' + 'begin' + '}', String(begin))
+                    .replace('${' + 'end' + '}', String(end));
+
+        let queryParameters = new URLSearchParams();
+        let headers = new Headers(this.defaultHeaders.toJSON()); // https://github.com/angular/angular/issues/6845
+        // verify required parameter 'sessionID' is not null or undefined
+        if (sessionID === null || sessionID === undefined) {
+            throw new Error('Required parameter sessionID was null or undefined when calling getVersementsDistributeursReportSessionIDBeginEndGet1.');
+        }
+        // verify required parameter 'begin' is not null or undefined
+        if (begin === null || begin === undefined) {
+            throw new Error('Required parameter begin was null or undefined when calling getVersementsDistributeursReportSessionIDBeginEndGet1.');
+        }
+        // verify required parameter 'end' is not null or undefined
+        if (end === null || end === undefined) {
+            throw new Error('Required parameter end was null or undefined when calling getVersementsDistributeursReportSessionIDBeginEndGet1.');
         }
         // to determine the Content-Type header
         let consumes: string[] = [

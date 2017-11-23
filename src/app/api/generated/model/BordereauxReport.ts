@@ -12,7 +12,9 @@
 
 import * as models from './models';
 
-export interface Report {
+export interface BordereauxReport {
+    agencyId?: number;
+
     date?: string;
 
     transactionNumber?: string;
@@ -21,34 +23,24 @@ export interface Report {
 
     tellerOffice?: string;
 
+    tellerId?: number;
+
     callCenter?: string;
+
+    callCenterId?: number;
 
     supervisor?: string;
 
-    principal?: string;
+    sender?: string;
 
-    provision?: string;
+    recipient?: string;
 
-    commissionBank?: string;
+    codeRetrait?: string;
 
-    commissionWari?: string;
+    principal?: number;
 
-    commissionDistributor?: string;
+    commissionTTC?: number;
 
-    tvaTobCollected?: string;
-
-    tvaSupported?: string;
-
-    tobSupported?: string;
-
-    taxeOperation?: string;
-
-    taxeFixe?: string;
-
-    commissionASD?: string;
-
-    tvaASD?: string;
-
-    tobASD?: string;
+    details?: Array<models.BordereauxReport>;
 
 }

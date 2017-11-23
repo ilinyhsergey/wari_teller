@@ -13,11 +13,11 @@
 import * as models from './models';
 
 export interface TransactionListResponse {
-    number?: number;
+    transactionId?: number;
 
     date?: Date;
 
-    operator?: string;
+    operator?: models.Actor;
 
     status?: string;
 

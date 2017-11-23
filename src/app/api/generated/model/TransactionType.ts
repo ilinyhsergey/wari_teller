@@ -12,17 +12,9 @@
 
 import * as models from './models';
 
-export interface PendingTransaction {
-    transactionId?: number;
+export interface TransactionType {
+    code?: string;
 
-    date?: Date;
-
-    supervisor?: models.Actor;
-
-    autorisationMode?: string;
-
-    transactionType?: models.TransactionType;
-
-    status?: string;
+    description?: string;
 
 }

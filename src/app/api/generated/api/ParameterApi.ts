@@ -105,10 +105,10 @@ export class ParameterApi {
     }
 
     /**
-     * provides all merchants in a country by category(TV,bill,water etc...).
-     * @summary [Implemented] provides all merchants in a country by category(TV,bill,water etc...).
+     * Category can be WATER, ELECTRICITY, TV, OTHER and numeric like 0000031 - monetque merchant categories
+     * @summary Provides all merchants in a country by category(TV,bill,water etc...).
      * @param countryCode 
-     * @param category 
+     * @param category Merchant category
      */
     public getAllMerchantInCountryByCategoryCountryCodeCategoryGet1(countryCode: number, category: string, extraHttpRequestParams?: any): Observable<Array<models.B2BPartnerInformation>> {
         return this.getAllMerchantInCountryByCategoryCountryCodeCategoryGet1WithHttpInfo(countryCode, category, extraHttpRequestParams)
@@ -202,10 +202,9 @@ export class ParameterApi {
     /**
      * get informations(name, mobile number, addresses etc...) of all pos services of the network.
      * @summary get informations(name, mobile number, addresses etc...) of all pos services of the network.
-     * @param sessionID 
      */
-    public getInformationsSessionIDGet1(sessionID: number, extraHttpRequestParams?: any): Observable<Array<models.NetworkInformation>> {
-        return this.getInformationsSessionIDGet1WithHttpInfo(sessionID, extraHttpRequestParams)
+    public getInformationsGet1(extraHttpRequestParams?: any): Observable<Array<models.NetworkInformation>> {
+        return this.getInformationsGet1WithHttpInfo(extraHttpRequestParams)
             .map((response: Response) => {
                 if (response.status === 204) {
                     return undefined;
@@ -373,10 +372,10 @@ export class ParameterApi {
     }
 
     /**
-     * [Implemented] provides all merchants in a country by category(TV,bill,water etc...).
-     * provides all merchants in a country by category(TV,bill,water etc...).
+     * Provides all merchants in a country by category(TV,bill,water etc...).
+     * Category can be WATER, ELECTRICITY, TV, OTHER and numeric like 0000031 - monetque merchant categories
      * @param countryCode 
-     * @param category 
+     * @param category Merchant category
      */
     public getAllMerchantInCountryByCategoryCountryCodeCategoryGet1WithHttpInfo(countryCode: number, category: string, extraHttpRequestParams?: any): Observable<Response> {
         const path = this.basePath + '/parameter/getAllMerchantInCountryByCategory/${countryCode}/${category}'
@@ -606,18 +605,12 @@ export class ParameterApi {
     /**
      * get informations(name, mobile number, addresses etc...) of all pos services of the network.
      * get informations(name, mobile number, addresses etc...) of all pos services of the network.
-     * @param sessionID 
      */
-    public getInformationsSessionIDGet1WithHttpInfo(sessionID: number, extraHttpRequestParams?: any): Observable<Response> {
-        const path = this.basePath + '/parameter/getInformations/${sessionID}'
-                    .replace('${' + 'sessionID' + '}', String(sessionID));
+    public getInformationsGet1WithHttpInfo(extraHttpRequestParams?: any): Observable<Response> {
+        const path = this.basePath + '/parameter/getInformations';
 
         let queryParameters = new URLSearchParams();
         let headers = new Headers(this.defaultHeaders.toJSON()); // https://github.com/angular/angular/issues/6845
-        // verify required parameter 'sessionID' is not null or undefined
-        if (sessionID === null || sessionID === undefined) {
-            throw new Error('Required parameter sessionID was null or undefined when calling getInformationsSessionIDGet1.');
-        }
         // to determine the Content-Type header
         let consumes: string[] = [
         ];

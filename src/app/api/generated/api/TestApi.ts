@@ -44,6 +44,22 @@ export class TestApi {
 
     /**
      * 
+     * @summary To bind contexts
+     * @param body 
+     */
+    public contexts1(body?: models.ContextBody, extraHttpRequestParams?: any): Observable<{}> {
+        return this.contexts1WithHttpInfo(body, extraHttpRequestParams)
+            .map((response: Response) => {
+                if (response.status === 204) {
+                    return undefined;
+                } else {
+                    return response.json() || {};
+                }
+            });
+    }
+
+    /**
+     * 
      * @summary get token
      */
     public getToken1(extraHttpRequestParams?: any): Observable<{}> {
@@ -87,6 +103,41 @@ export class TestApi {
             });
     }
 
+
+    /**
+     * To bind contexts
+     * 
+     * @param body 
+     */
+    public contexts1WithHttpInfo(body?: models.ContextBody, extraHttpRequestParams?: any): Observable<Response> {
+        const path = this.basePath + '/test/contexts';
+
+        let queryParameters = new URLSearchParams();
+        let headers = new Headers(this.defaultHeaders.toJSON()); // https://github.com/angular/angular/issues/6845
+        // to determine the Content-Type header
+        let consumes: string[] = [
+        ];
+
+        // to determine the Accept header
+        let produces: string[] = [
+        ];
+
+        headers.set('Content-Type', 'application/json');
+
+        let requestOptions: RequestOptionsArgs = new RequestOptions({
+            method: RequestMethod.Get,
+            headers: headers,
+            body: body == null ? '' : JSON.stringify(body), // https://github.com/angular/angular/issues/10612
+            search: queryParameters,
+            withCredentials:this.configuration.withCredentials
+        });
+        // https://github.com/swagger-api/swagger-codegen/issues/4037
+        if (extraHttpRequestParams) {
+            requestOptions = (<any>Object).assign(requestOptions, extraHttpRequestParams);
+        }
+
+        return this.http.request(path, requestOptions);
+    }
 
     /**
      * get token

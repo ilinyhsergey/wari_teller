@@ -12,17 +12,29 @@
 
 import * as models from './models';
 
-export interface PendingTransaction {
-    transactionId?: number;
+export interface AgencesAutonomesReport {
+    distributeur?: string;
 
-    date?: Date;
+    asdId?: number;
 
-    supervisor?: models.Actor;
+    asd?: string;
 
-    autorisationMode?: string;
+    teller?: string;
 
-    transactionType?: models.TransactionType;
+    date?: string;
 
-    status?: string;
+    transactionaId?: number;
+
+    tellerId?: number;
+
+    versementDate?: string;
+
+    versementReference?: string;
+
+    bank?: string;
+
+    principal?: number;
+
+    details?: Array<models.AgencesAutonomesReport>;
 
 }

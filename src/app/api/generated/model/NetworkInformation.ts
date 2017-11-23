@@ -13,6 +13,10 @@
 import * as models from './models';
 
 export interface NetworkInformation {
+    id?: number;
+
+    network?: string;
+
     country?: string;
 
     level1?: string;
