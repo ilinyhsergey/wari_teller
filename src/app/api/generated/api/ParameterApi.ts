@@ -107,8 +107,24 @@ export class ParameterApi {
     /**
      * Category can be WATER, ELECTRICITY, TV, OTHER and numeric like 0000031 - monetque merchant categories
      * @summary Provides all merchants in a country by category(TV,bill,water etc...).
+     * @param category MerchantsByCountry category
+     */
+    public getAllMerchantByCategory1(category: string, extraHttpRequestParams?: any): Observable<Array<models.MerchantsByCountry>> {
+        return this.getAllMerchantByCategory1WithHttpInfo(category, extraHttpRequestParams)
+            .map((response: Response) => {
+                if (response.status === 204) {
+                    return undefined;
+                } else {
+                    return response.json() || {};
+                }
+            });
+    }
+
+    /**
+     * Category can be WATER, ELECTRICITY, TV, OTHER and numeric like 0000031 - monetque merchant categories
+     * @summary Provides all merchants in a country by category(TV,bill,water etc...).
      * @param countryCode 
-     * @param category Merchant category
+     * @param category MerchantsByCountry category
      */
     public getAllMerchantInCountryByCategoryCountryCodeCategoryGet1(countryCode: number, category: string, extraHttpRequestParams?: any): Observable<Array<models.B2BPartnerInformation>> {
         return this.getAllMerchantInCountryByCategoryCountryCodeCategoryGet1WithHttpInfo(countryCode, category, extraHttpRequestParams)
@@ -374,8 +390,45 @@ export class ParameterApi {
     /**
      * Provides all merchants in a country by category(TV,bill,water etc...).
      * Category can be WATER, ELECTRICITY, TV, OTHER and numeric like 0000031 - monetque merchant categories
+     * @param category MerchantsByCountry category
+     */
+    public getAllMerchantByCategory1WithHttpInfo(category: string, extraHttpRequestParams?: any): Observable<Response> {
+        const path = this.basePath + '/parameter/merchantByCategory/${category}'
+                    .replace('${' + 'category' + '}', String(category));
+
+        let queryParameters = new URLSearchParams();
+        let headers = new Headers(this.defaultHeaders.toJSON()); // https://github.com/angular/angular/issues/6845
+        // verify required parameter 'category' is not null or undefined
+        if (category === null || category === undefined) {
+            throw new Error('Required parameter category was null or undefined when calling getAllMerchantByCategory1.');
+        }
+        // to determine the Content-Type header
+        let consumes: string[] = [
+        ];
+
+        // to determine the Accept header
+        let produces: string[] = [
+        ];
+
+        let requestOptions: RequestOptionsArgs = new RequestOptions({
+            method: RequestMethod.Get,
+            headers: headers,
+            search: queryParameters,
+            withCredentials:this.configuration.withCredentials
+        });
+        // https://github.com/swagger-api/swagger-codegen/issues/4037
+        if (extraHttpRequestParams) {
+            requestOptions = (<any>Object).assign(requestOptions, extraHttpRequestParams);
+        }
+
+        return this.http.request(path, requestOptions);
+    }
+
+    /**
+     * Provides all merchants in a country by category(TV,bill,water etc...).
+     * Category can be WATER, ELECTRICITY, TV, OTHER and numeric like 0000031 - monetque merchant categories
      * @param countryCode 
-     * @param category Merchant category
+     * @param category MerchantsByCountry category
      */
     public getAllMerchantInCountryByCategoryCountryCodeCategoryGet1WithHttpInfo(countryCode: number, category: string, extraHttpRequestParams?: any): Observable<Response> {
         const path = this.basePath + '/parameter/getAllMerchantInCountryByCategory/${countryCode}/${category}'
