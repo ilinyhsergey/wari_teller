@@ -111,8 +111,93 @@ export class TransactionApi {
     }
 
     /**
-     * [Implemented] process any kind of transaction
-     * @summary [Implemented] process any kind of transaction
+     * [NOT Implemented yet!] process Airtime transaction
+     * @summary [NOT Implemented yet!] process Airtime transaction
+     * @param sessionID 
+     * @param body 
+     */
+    public processAirtime1(sessionID: number, body?: models.ProcessAirtimeRequest, extraHttpRequestParams?: any): Observable<models.TransactionResponse> {
+        return this.processAirtime1WithHttpInfo(sessionID, body, extraHttpRequestParams)
+            .map((response: Response) => {
+                if (response.status === 204) {
+                    return undefined;
+                } else {
+                    return response.json() || {};
+                }
+            });
+    }
+
+    /**
+     * [NOT Implemented yet!] process BillPayment transaction
+     * @summary [NOT Implemented yet!] process BillPayment transaction
+     * @param sessionID 
+     * @param body 
+     */
+    public processBillPayment1(sessionID: number, body?: models.ProcessBillPaymentRequest, extraHttpRequestParams?: any): Observable<models.TransactionResponse> {
+        return this.processBillPayment1WithHttpInfo(sessionID, body, extraHttpRequestParams)
+            .map((response: Response) => {
+                if (response.status === 204) {
+                    return undefined;
+                } else {
+                    return response.json() || {};
+                }
+            });
+    }
+
+    /**
+     * [NOT Implemented yet!] process CashAdvance transaction
+     * @summary [NOT Implemented yet!] process CashAdvance transaction
+     * @param sessionID 
+     * @param body 
+     */
+    public processCashAdvance1(sessionID: number, body?: models.ProcessCashAdvanceRequest, extraHttpRequestParams?: any): Observable<models.TransactionResponse> {
+        return this.processCashAdvance1WithHttpInfo(sessionID, body, extraHttpRequestParams)
+            .map((response: Response) => {
+                if (response.status === 204) {
+                    return undefined;
+                } else {
+                    return response.json() || {};
+                }
+            });
+    }
+
+    /**
+     * [Implemented] process ReceiveMoney transaction
+     * @summary [Implemented] process ReceiveMoney transaction
+     * @param sessionID 
+     * @param body 
+     */
+    public processReceiveMoney1(sessionID: number, body?: models.ProcessReceiveMoneyRequest, extraHttpRequestParams?: any): Observable<models.TransactionResponse> {
+        return this.processReceiveMoney1WithHttpInfo(sessionID, body, extraHttpRequestParams)
+            .map((response: Response) => {
+                if (response.status === 204) {
+                    return undefined;
+                } else {
+                    return response.json() || {};
+                }
+            });
+    }
+
+    /**
+     * [Implemented] process SendMoney transaction
+     * @summary [Implemented] process SendMoney transaction
+     * @param sessionID 
+     * @param body 
+     */
+    public processSendMoney1(sessionID: number, body?: models.ProcessSendMoneyRequest, extraHttpRequestParams?: any): Observable<models.TransactionResponse> {
+        return this.processSendMoney1WithHttpInfo(sessionID, body, extraHttpRequestParams)
+            .map((response: Response) => {
+                if (response.status === 204) {
+                    return undefined;
+                } else {
+                    return response.json() || {};
+                }
+            });
+    }
+
+    /**
+     * [Deprecated!] process any kind of transaction
+     * @summary [Deprecated!] process any kind of transaction
      * @param body 
      */
     public processTransactionPost1(body?: models.TransactionRequestBody, extraHttpRequestParams?: any): Observable<models.TransactionResponse> {
@@ -330,8 +415,238 @@ export class TransactionApi {
     }
 
     /**
-     * [Implemented] process any kind of transaction
-     * [Implemented] process any kind of transaction
+     * [NOT Implemented yet!] process Airtime transaction
+     * [NOT Implemented yet!] process Airtime transaction
+     * @param sessionID 
+     * @param body 
+     */
+    public processAirtime1WithHttpInfo(sessionID: number, body?: models.ProcessAirtimeRequest, extraHttpRequestParams?: any): Observable<Response> {
+        const path = this.basePath + '/transaction/processAirtime/${sessionID}'
+                    .replace('${' + 'sessionID' + '}', String(sessionID));
+
+        let queryParameters = new URLSearchParams();
+        let headers = new Headers(this.defaultHeaders.toJSON()); // https://github.com/angular/angular/issues/6845
+        // verify required parameter 'sessionID' is not null or undefined
+        if (sessionID === null || sessionID === undefined) {
+            throw new Error('Required parameter sessionID was null or undefined when calling processAirtime1.');
+        }
+        // to determine the Content-Type header
+        let consumes: string[] = [
+        ];
+
+        // to determine the Accept header
+        let produces: string[] = [
+        ];
+
+        // authentication (bearer) required
+        if (this.configuration.apiKey) {
+            headers.set('Authorization', this.configuration.apiKey);
+        }
+
+        headers.set('Content-Type', 'application/json');
+
+        let requestOptions: RequestOptionsArgs = new RequestOptions({
+            method: RequestMethod.Post,
+            headers: headers,
+            body: body == null ? '' : JSON.stringify(body), // https://github.com/angular/angular/issues/10612
+            search: queryParameters,
+            withCredentials:this.configuration.withCredentials
+        });
+        // https://github.com/swagger-api/swagger-codegen/issues/4037
+        if (extraHttpRequestParams) {
+            requestOptions = (<any>Object).assign(requestOptions, extraHttpRequestParams);
+        }
+
+        return this.http.request(path, requestOptions);
+    }
+
+    /**
+     * [NOT Implemented yet!] process BillPayment transaction
+     * [NOT Implemented yet!] process BillPayment transaction
+     * @param sessionID 
+     * @param body 
+     */
+    public processBillPayment1WithHttpInfo(sessionID: number, body?: models.ProcessBillPaymentRequest, extraHttpRequestParams?: any): Observable<Response> {
+        const path = this.basePath + '/transaction/processBillPayment/${sessionID}'
+                    .replace('${' + 'sessionID' + '}', String(sessionID));
+
+        let queryParameters = new URLSearchParams();
+        let headers = new Headers(this.defaultHeaders.toJSON()); // https://github.com/angular/angular/issues/6845
+        // verify required parameter 'sessionID' is not null or undefined
+        if (sessionID === null || sessionID === undefined) {
+            throw new Error('Required parameter sessionID was null or undefined when calling processBillPayment1.');
+        }
+        // to determine the Content-Type header
+        let consumes: string[] = [
+        ];
+
+        // to determine the Accept header
+        let produces: string[] = [
+        ];
+
+        // authentication (bearer) required
+        if (this.configuration.apiKey) {
+            headers.set('Authorization', this.configuration.apiKey);
+        }
+
+        headers.set('Content-Type', 'application/json');
+
+        let requestOptions: RequestOptionsArgs = new RequestOptions({
+            method: RequestMethod.Post,
+            headers: headers,
+            body: body == null ? '' : JSON.stringify(body), // https://github.com/angular/angular/issues/10612
+            search: queryParameters,
+            withCredentials:this.configuration.withCredentials
+        });
+        // https://github.com/swagger-api/swagger-codegen/issues/4037
+        if (extraHttpRequestParams) {
+            requestOptions = (<any>Object).assign(requestOptions, extraHttpRequestParams);
+        }
+
+        return this.http.request(path, requestOptions);
+    }
+
+    /**
+     * [NOT Implemented yet!] process CashAdvance transaction
+     * [NOT Implemented yet!] process CashAdvance transaction
+     * @param sessionID 
+     * @param body 
+     */
+    public processCashAdvance1WithHttpInfo(sessionID: number, body?: models.ProcessCashAdvanceRequest, extraHttpRequestParams?: any): Observable<Response> {
+        const path = this.basePath + '/transaction/processCashAdvance/${sessionID}'
+                    .replace('${' + 'sessionID' + '}', String(sessionID));
+
+        let queryParameters = new URLSearchParams();
+        let headers = new Headers(this.defaultHeaders.toJSON()); // https://github.com/angular/angular/issues/6845
+        // verify required parameter 'sessionID' is not null or undefined
+        if (sessionID === null || sessionID === undefined) {
+            throw new Error('Required parameter sessionID was null or undefined when calling processCashAdvance1.');
+        }
+        // to determine the Content-Type header
+        let consumes: string[] = [
+        ];
+
+        // to determine the Accept header
+        let produces: string[] = [
+        ];
+
+        // authentication (bearer) required
+        if (this.configuration.apiKey) {
+            headers.set('Authorization', this.configuration.apiKey);
+        }
+
+        headers.set('Content-Type', 'application/json');
+
+        let requestOptions: RequestOptionsArgs = new RequestOptions({
+            method: RequestMethod.Post,
+            headers: headers,
+            body: body == null ? '' : JSON.stringify(body), // https://github.com/angular/angular/issues/10612
+            search: queryParameters,
+            withCredentials:this.configuration.withCredentials
+        });
+        // https://github.com/swagger-api/swagger-codegen/issues/4037
+        if (extraHttpRequestParams) {
+            requestOptions = (<any>Object).assign(requestOptions, extraHttpRequestParams);
+        }
+
+        return this.http.request(path, requestOptions);
+    }
+
+    /**
+     * [Implemented] process ReceiveMoney transaction
+     * [Implemented] process ReceiveMoney transaction
+     * @param sessionID 
+     * @param body 
+     */
+    public processReceiveMoney1WithHttpInfo(sessionID: number, body?: models.ProcessReceiveMoneyRequest, extraHttpRequestParams?: any): Observable<Response> {
+        const path = this.basePath + '/transaction/processReceiveMoney/${sessionID}'
+                    .replace('${' + 'sessionID' + '}', String(sessionID));
+
+        let queryParameters = new URLSearchParams();
+        let headers = new Headers(this.defaultHeaders.toJSON()); // https://github.com/angular/angular/issues/6845
+        // verify required parameter 'sessionID' is not null or undefined
+        if (sessionID === null || sessionID === undefined) {
+            throw new Error('Required parameter sessionID was null or undefined when calling processReceiveMoney1.');
+        }
+        // to determine the Content-Type header
+        let consumes: string[] = [
+        ];
+
+        // to determine the Accept header
+        let produces: string[] = [
+        ];
+
+        // authentication (bearer) required
+        if (this.configuration.apiKey) {
+            headers.set('Authorization', this.configuration.apiKey);
+        }
+
+        headers.set('Content-Type', 'application/json');
+
+        let requestOptions: RequestOptionsArgs = new RequestOptions({
+            method: RequestMethod.Post,
+            headers: headers,
+            body: body == null ? '' : JSON.stringify(body), // https://github.com/angular/angular/issues/10612
+            search: queryParameters,
+            withCredentials:this.configuration.withCredentials
+        });
+        // https://github.com/swagger-api/swagger-codegen/issues/4037
+        if (extraHttpRequestParams) {
+            requestOptions = (<any>Object).assign(requestOptions, extraHttpRequestParams);
+        }
+
+        return this.http.request(path, requestOptions);
+    }
+
+    /**
+     * [Implemented] process SendMoney transaction
+     * [Implemented] process SendMoney transaction
+     * @param sessionID 
+     * @param body 
+     */
+    public processSendMoney1WithHttpInfo(sessionID: number, body?: models.ProcessSendMoneyRequest, extraHttpRequestParams?: any): Observable<Response> {
+        const path = this.basePath + '/transaction/processSendMoney/${sessionID}'
+                    .replace('${' + 'sessionID' + '}', String(sessionID));
+
+        let queryParameters = new URLSearchParams();
+        let headers = new Headers(this.defaultHeaders.toJSON()); // https://github.com/angular/angular/issues/6845
+        // verify required parameter 'sessionID' is not null or undefined
+        if (sessionID === null || sessionID === undefined) {
+            throw new Error('Required parameter sessionID was null or undefined when calling processSendMoney1.');
+        }
+        // to determine the Content-Type header
+        let consumes: string[] = [
+        ];
+
+        // to determine the Accept header
+        let produces: string[] = [
+        ];
+
+        // authentication (bearer) required
+        if (this.configuration.apiKey) {
+            headers.set('Authorization', this.configuration.apiKey);
+        }
+
+        headers.set('Content-Type', 'application/json');
+
+        let requestOptions: RequestOptionsArgs = new RequestOptions({
+            method: RequestMethod.Post,
+            headers: headers,
+            body: body == null ? '' : JSON.stringify(body), // https://github.com/angular/angular/issues/10612
+            search: queryParameters,
+            withCredentials:this.configuration.withCredentials
+        });
+        // https://github.com/swagger-api/swagger-codegen/issues/4037
+        if (extraHttpRequestParams) {
+            requestOptions = (<any>Object).assign(requestOptions, extraHttpRequestParams);
+        }
+
+        return this.http.request(path, requestOptions);
+    }
+
+    /**
+     * [Deprecated!] process any kind of transaction
+     * [Deprecated!] process any kind of transaction
      * @param body 
      */
     public processTransactionPost1WithHttpInfo(body?: models.TransactionRequestBody, extraHttpRequestParams?: any): Observable<Response> {
