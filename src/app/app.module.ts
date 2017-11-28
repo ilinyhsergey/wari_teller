@@ -1,5 +1,5 @@
 import {BrowserModule} from '@angular/platform-browser';
-import {LOCALE_ID, NgModule} from '@angular/core';
+import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {FormsModule} from '@angular/forms';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
@@ -17,7 +17,6 @@ import {ApiModule} from './api/api.module';
 import {StorageService} from './services/storage.service';
 import {AuthGuard} from './services/guards/auth-guard.service';
 import {UnsavedChangesGuard} from './services/guards/unsaved-changes-guard.service';
-import {AuthlessGuard} from './services/guards/authless-guard.service';
 import {RedirectService} from './services/redirect.service';
 import {UtilsService} from './services/utils.service';
 import {ParametersCacheService} from './services/parameters-cache.service';
@@ -49,7 +48,6 @@ const SERVER_URL = environment.serverUrl;
     UtilsService,
     AuthGuard,
     UnsavedChangesGuard,
-    AuthlessGuard,
     {provide: BASE_PATH, useValue: SERVER_URL}
     // ,{provide: LOCALE_ID, useValue: 'fr'} // uncomment for JIT localization
   ],

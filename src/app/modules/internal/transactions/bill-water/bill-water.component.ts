@@ -66,8 +66,7 @@ export class BillWaterComponent implements OnInit, CanComponentDeactivate {
       this.partnerCodes = _.keys(partnerInfo);
     });
 
-    // this.steps = '1-2';
-    this.steps = '3-4';
+    this.steps = '1-2';
   }
 
   onPartnerCodeSelected(partnerCode: string) {
