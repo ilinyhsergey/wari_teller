@@ -12,6 +12,11 @@ import {BillTvComponent} from './bill-tv/bill-tv.component';
 import {TransferSendComponent} from './transfer-send/transfer-send.component';
 import {TransferWithdrawalComponent} from './transfer-withdrawal/transfer-withdrawal.component';
 import {TransferRefundComponent} from './transfer-refund/transfer-refund.component';
+import {TransferSendStep1Component} from './transfer-send-step1/transfer-send-step1.component';
+import {TransferSendStep2Component} from './transfer-send-step2/transfer-send-step2.component';
+import {TransferSendStep3Component} from './transfer-send-step3/transfer-send-step3.component';
+import {TransferSendStep4Component} from './transfer-send-step4/transfer-send-step4.component';
+import {AllCountriesResolverService} from './services/all-countries-resolver.service';
 
 const routes: Routes = [
   {
@@ -30,7 +35,20 @@ const routes: Routes = [
       },
       {path: 'electricity', component: BillElectricityComponent},
       {path: 'tv', component: BillTvComponent},
-      {path: 'send', component: TransferSendComponent},
+      {
+        path: 'send',
+        component: TransferSendComponent,
+        children: [
+          {path: 'step1', component: TransferSendStep1Component,
+            resolve: {
+              allCountries: AllCountriesResolverService
+            }},
+          {path: 'step2', component: TransferSendStep2Component},
+          {path: 'step3', component: TransferSendStep3Component},
+          {path: 'step4', component: TransferSendStep4Component},
+          {path: '', redirectTo: '/transactions/send/step1', pathMatch: 'full'},
+        ]
+      },
       {path: 'withdrawal', component: TransferWithdrawalComponent},
       {path: 'refund', component: TransferRefundComponent},
       {
@@ -54,7 +72,8 @@ const routes: Routes = [
     RouterModule
   ],
   providers: [
-    PartnerInfoResolverService
+    PartnerInfoResolverService,
+    AllCountriesResolverService
   ]
 })
 export class TransactionsRoutingModule {

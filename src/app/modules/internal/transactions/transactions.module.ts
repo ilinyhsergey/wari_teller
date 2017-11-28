@@ -13,6 +13,10 @@ import { TransferWithdrawalComponent } from './transfer-withdrawal/transfer-with
 import { TransferRefundComponent } from './transfer-refund/transfer-refund.component';
 import { BillElectricityComponent } from './bill-electricity/bill-electricity.component';
 import { BillTvComponent } from './bill-tv/bill-tv.component';
+import { TransferSendStep1Component } from './transfer-send-step1/transfer-send-step1.component';
+import { TransferSendStep2Component } from './transfer-send-step2/transfer-send-step2.component';
+import { TransferSendStep3Component } from './transfer-send-step3/transfer-send-step3.component';
+import { TransferSendStep4Component } from './transfer-send-step4/transfer-send-step4.component';
 
 @NgModule({
   imports: [
@@ -28,6 +32,10 @@ import { BillTvComponent } from './bill-tv/bill-tv.component';
     BillWaterComponent,
     PhoneCreditComponent,
     TransferSendComponent,
+    TransferSendStep1Component,
+    TransferSendStep2Component,
+    TransferSendStep3Component,
+    TransferSendStep4Component,
     TransferWithdrawalComponent,
     TransferRefundComponent,
     BillElectricityComponent,

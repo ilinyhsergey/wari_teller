@@ -65,6 +65,14 @@ $tr-circle-size: 70px;
   text-align: center;
   font-weight: bold;
   font-size: 42px;
+  margin: 0 15px;
+}
+.tr-circle-text-title {
+  height: $tr-circle-size;
+  text-transform: uppercase;
+  line-height: $tr-circle-size;
+  font-size: 23px;
+  font-weight: bold;
 }
 
 .tr-body-header {
