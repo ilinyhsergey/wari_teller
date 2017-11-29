@@ -8,5 +8,5 @@
   "npmVersion": "0.0.1",
   "snapshot": false,
   "withInterfaces": false,
-  "ngVersion": "4.2"
+  "ngVersion": "5"
 }

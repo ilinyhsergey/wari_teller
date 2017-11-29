@@ -5,6 +5,7 @@ import {AuthService} from '../../../services/auth.service';
 import {ParameterApi} from '../../../api/generated/api/ParameterApi';
 import {NetworkInformation} from '../../../api/generated/model/NetworkInformation';
 import {Actor} from '../../../api/generated/model/Actor';
+import {TestApi} from '../../../api/generated/api/TestApi';
 
 @Component({
   selector: 'app-internal',
@@ -19,7 +20,8 @@ export class TransactionsComponent implements OnInit {
 
   constructor(private authService: AuthService,
               private router: Router,
-              private parameterApi: ParameterApi) {
+              private parameterApi: ParameterApi,
+              private testApi: TestApi) {
   }
 
   ngOnInit() {
@@ -54,6 +56,15 @@ export class TransactionsComponent implements OnInit {
       console.log('networkInformations', networkInformations);
     }, (error) => {
       console.log('TransactionsComponent error', error);
+    });
+  }
+
+  test2() {
+    const observable = this.testApi.getToken1();
+    observable.subscribe((token: any) => {
+      console.log('getToken', token);
+    }, (error) => {
+      console.log('TransactionsComponent error 2', error);
     });
   }
 

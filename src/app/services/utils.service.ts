@@ -1,14 +1,12 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
-import 'rxjs/add/observable/of';
-// import 'rxjs/add/observable/zip';
-import 'rxjs/add/operator/switchMap';
-import 'rxjs/add/operator/zip';
+import {zip, map} from 'rxjs/operators';
 
 @Injectable()
 export class UtilsService {
 
-  constructor() { }
+  constructor() {
+  }
 
   collectArrOfOb2ObOfArr<T>(arrOfOb: Observable<T>[]): Observable<T[]> {
     return arrOfOb.reduce(
@@ -18,10 +16,13 @@ export class UtilsService {
   }
 
   zipObservableIntoArr<T>(obOfArr: Observable<T[]>, ob: Observable<T>): Observable<T[]> {
-    return obOfArr.zip(ob).map((zipResult: [T[], T]): T[] => {
-      const [arr, item] = zipResult;
-      return arr.concat(item);
-    });
+    return obOfArr.pipe(
+      zip(ob),
+      map((zipResult: [T[], T]): T[] => {
+        const [arr, item] = zipResult;
+        return arr.concat(item);
+      })
+    );
   }
 
 }
