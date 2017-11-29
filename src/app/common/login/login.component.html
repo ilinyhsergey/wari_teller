@@ -5,31 +5,58 @@
 
     <div class="tagline">Simplify your life!<!--Simplifiez votre vie!--></div>
 
-    <div class="white-card" *ngIf="!showSpecialPassword">
+    <form class="white-card" [formGroup]="login1Form" *ngIf="!showSpecialPassword">
       <div class="label">Login</div>
-      <input type="text" name="f-login" placeholder="login"
+      <input type="text" placeholder="login"
+             name="fLogin" formControlName="fLogin" required
              [(ngModel)]="loginCredentials.login">
-      <div class="label">Password</div>
-      <input type="password" name="f-password" placeholder="password"
-             [(ngModel)]="loginCredentials.password">
-      <div class="actions d-flex justify-content-center">
-        <button class="btn btn-primary" (click)="login1()">Validate</button>
-      </div>
-    </div>
 
-    <div class="white-card" *ngIf="showSpecialPassword">
-      <div class="label">Your special password</div>
-      <input type="password" name="f-password" placeholder="special sassword"
-             [(ngModel)]="loginCredentials.specialPassword">
+      <div *ngIf="fLogin.invalid && (fLogin.dirty || fLogin.touched)"
+           class="alert alert-danger">
+        <div *ngIf="fLogin.errors.required">Login is required.</div>
+      </div>
+
+      <div class="label">Password</div>
+      <input type="password" placeholder="password"
+             name="fPassword" formControlName="fPassword" required
+             [(ngModel)]="loginCredentials.password">
+
+      <div *ngIf="fPassword.invalid && (fPassword.dirty || fPassword.touched)"
+           class="alert alert-danger">
+        <div *ngIf="fPassword.errors.required">Login is required.</div>
+      </div>
+
       <div class="actions d-flex justify-content-center">
-        <button class="btn btn-primary" (click)="login2()">Validate</button>
+        <button class="btn btn-primary"
+                (click)="login1()"
+                [disabled]="login1Form.invalid"
+        >Validate</button>
+      </div>
+    </form>
+
+    <form class="white-card" [formGroup]="login2Form" *ngIf="showSpecialPassword">
+      <div class="label">Your special password</div>
+      <input type="password" placeholder="special sassword"
+             name="fSpecialPassword" formControlName="fSpecialPassword" required
+             [(ngModel)]="loginCredentials.specialPassword">
+
+      <div *ngIf="fSpecialPassword.invalid && (fSpecialPassword.dirty || fSpecialPassword.touched)"
+           class="alert alert-danger">
+        <div *ngIf="fSpecialPassword.errors.required">Login is required.</div>
+      </div>
+
+      <div class="actions d-flex justify-content-center">
+        <button class="btn btn-primary"
+                (click)="login2()"
+                [disabled]="login2Form.invalid"
+        >Validate</button>
       </div>
 
       <div class="note">
         Attention, vous n'avez droit qu'a 3 tentatives a l'issue desquelles votre compte sera desactive.
         Il faudra alors vous rapprocher de votre superviseur pour une reactivation
       </div>
-    </div>
+    </form>
 
     <div>Vous avez perdu votre <a>mot de passe</a>?</div>
     <div>Vous souhaitez contacter votre <a routerLink="" class="link">Administrateur</a> ou

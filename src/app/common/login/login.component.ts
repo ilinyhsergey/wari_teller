@@ -6,6 +6,7 @@ import {LoginCredentials} from '../../api/generated/model/LoginCredentials';
 import {ActorSession} from '../../model/ActorSession';
 import {UserApi} from '../../api/generated/api/UserApi';
 import {RedirectService} from '../../services/redirect.service';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -17,6 +18,9 @@ export class LoginComponent implements OnInit {
   loginCredentials: LoginCredentials;
   showSpecialPassword = false;
 
+  login1Form: FormGroup;
+  login2Form: FormGroup;
+
   constructor(private authService: AuthService,
               private userApi: UserApi,
               private router: Router,
@@ -24,11 +28,28 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.loginCredentials = {
-      login: 'ZizaShopG', // todo
-      password: 'Abdoulaziz',
-      specialPassword: 'Abdoulaziz'
-    };
+    this.loginCredentials = {login: 'ZizaShopG', password: 'Abdoulaziz', specialPassword: 'Abdoulaziz'};// todo
+    // this.loginCredentials = {login: '', password: '', specialPassword: ''};
+
+    this.login1Form = new FormGroup({
+      'fLogin': new FormControl(this.loginCredentials.login, Validators.required),
+      'fPassword': new FormControl(this.loginCredentials.password, Validators.required),
+    });
+    this.login2Form = new FormGroup({
+      'fSpecialPassword': new FormControl(this.loginCredentials.specialPassword, Validators.required)
+    });
+  }
+
+  get fLogin() {
+    return this.login1Form.get('fLogin');
+  }
+
+  get fPassword() {
+    return this.login1Form.get('fPassword');
+  }
+
+  get fSpecialPassword() {
+    return this.login2Form.get('fSpecialPassword');
   }
 
   login1() {
