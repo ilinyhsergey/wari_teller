@@ -26,12 +26,12 @@ export class TransferSendStep1Component implements OnInit {
       this.allCountries = data.allCountries || [];
     });
 
-    let model = this.storage.get('processSendMoneyRequest');
+    let model: ProcessSendMoneyRequest = this.storage.get('processSendMoneyRequest') as ProcessSendMoneyRequest;
     if (!model) {
       model = {
         sender: {},
         receiver: {}
-      } as ProcessSendMoneyRequest;
+      };
     }
 
     this.sendMoneyRequest = model;
