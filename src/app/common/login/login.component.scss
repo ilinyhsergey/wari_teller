@@ -1,0 +1,70 @@
+@import "../../../styles/styles-variables";
+
+.login-component {
+  color: white;
+  height: 100vh;
+  background-color: $app-green2;
+
+  overflow-y: scroll;
+}
+
+.central-column {
+  margin: auto;
+}
+
+.logo {
+  margin: 20px auto 20px;
+
+  background-size: cover;
+  background-image: url('../../../assets/images/tmp/logo.png');
+  height: 176px;
+  width: 176px;
+}
+
+.tagline {
+  font-size: 35px;
+  font-style: italic;
+  font-weight: 500;
+}
+
+.white-card {
+  padding: 10px 15px;
+  margin: 30px 0 20px;
+  width: 300px;
+
+  background-color: white;
+  color: $app-green2;
+  border-radius: 5px;
+
+  font-weight: 500;
+  font-size: 14px;
+
+  input {
+    width: 100%;
+    padding: 7px;
+  }
+}
+
+.label {
+  line-height: 40px;
+}
+
+.actions {
+  margin: 26px auto 10px;
+  width: 300px;
+
+  button {
+    font: inherit;
+    text-transform: uppercase;
+  }
+}
+
+a.link {
+  color: inherit;
+  text-decoration: underline;
+}
+
+.note {
+  color: #95989a;
+  font-size: 10px;
+}

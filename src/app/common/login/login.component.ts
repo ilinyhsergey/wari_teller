@@ -15,6 +15,7 @@ import {RedirectService} from '../../services/redirect.service';
 export class LoginComponent implements OnInit {
 
   loginCredentials: LoginCredentials;
+  showSpecialPassword = false;
 
   constructor(private authService: AuthService,
               private userApi: UserApi,
@@ -30,25 +31,21 @@ export class LoginComponent implements OnInit {
     };
   }
 
-  login() {
+  login1() {
+    this.showSpecialPassword = true;
+  }
+
+  login2() {
     this.userApi.userLoginPost1(this.loginCredentials)
       .subscribe((actorSession: ActorSession) => {
 
         this.authService.handleLogin(actorSession);
-        const redirectUrl =  this.redirectService.getAndClearRedirectUrl() || '/transactions/water';
+        const redirectUrl = this.redirectService.getAndClearRedirectUrl() || '/transactions/water';
         this.router.navigate([redirectUrl]);
 
       }, (err) => {
         console.log('err', err);
       });
-  }
-
-  clear() {
-    this.loginCredentials = {
-      login: '',
-      password: '',
-      specialPassword: ''
-    };
   }
 
 }

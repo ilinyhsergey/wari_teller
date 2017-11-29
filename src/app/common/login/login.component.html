@@ -1,20 +1,41 @@
-<div>
-  <h4>Login</h4>
+<div class="login-component d-flex flex-row justify-content-center">
+  <div class="central-column d-flex flex-column align-items-center">
 
-  <div>
-    <label>Login: </label>
-    <input type="text" [(ngModel)]="loginCredentials.login" placeholder="Login">
-  </div>
-  <div>
-    <label>Password: </label>
-    <input type="password" [(ngModel)]="loginCredentials.password" placeholder="Password">
-  </div>
-  <div>
-    <label>Special Password: </label>
-    <input type="password" [(ngModel)]="loginCredentials.specialPassword" placeholder="Special Password">
-  </div>
+    <div class="logo"></div>
 
-  <button (click)="login()">Login</button>
-  <button (click)="clear()">Clear</button>
+    <div class="tagline">Simplify your life!<!--Simplifiez votre vie!--></div>
 
+    <div class="white-card" *ngIf="!showSpecialPassword">
+      <div class="label">Login</div>
+      <input type="text" name="f-login" placeholder="login"
+             [(ngModel)]="loginCredentials.login">
+      <div class="label">Password</div>
+      <input type="password" name="f-password" placeholder="password"
+             [(ngModel)]="loginCredentials.password">
+      <div class="actions d-flex justify-content-center">
+        <button class="btn btn-primary" (click)="login1()">Validate</button>
+      </div>
+    </div>
+
+    <div class="white-card" *ngIf="showSpecialPassword">
+      <div class="label">Your special password</div>
+      <input type="password" name="f-password" placeholder="special sassword"
+             [(ngModel)]="loginCredentials.specialPassword">
+      <div class="actions d-flex justify-content-center">
+        <button class="btn btn-primary" (click)="login2()">Validate</button>
+      </div>
+
+      <div class="note">
+        Attention, vous n'avez droit qu'a 3 tentatives a l'issue desquelles votre compte sera desactive.
+        Il faudra alors vous rapprocher de votre superviseur pour une reactivation
+      </div>
+    </div>
+
+    <div>Vous avez perdu votre <a>mot de passe</a>?</div>
+    <div>Vous souhaitez contacter votre <a routerLink="" class="link">Administrateur</a> ou
+      <a routerLink="" class="link">Superviseur</a>
+    </div>
+    <div>Telephonez au <strong>+231 123 456 789</strong> ou cliquez sur les lines pour envoyer un mot de passe</div>
+
+  </div>
 </div>
