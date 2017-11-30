@@ -26,6 +26,10 @@ export class TransferSendStep1Component implements OnInit {
       this.allCountries = data.allCountries || [];
     });
 
+    this.initModel();
+  }
+
+  initModel() {
     let model: ProcessSendMoneyRequest = this.storage.get('processSendMoneyRequest') as ProcessSendMoneyRequest;
     if (!model) {
       model = {
@@ -33,7 +37,6 @@ export class TransferSendStep1Component implements OnInit {
         receiver: {}
       };
     }
-
     this.sendMoneyRequest = model;
   }
 

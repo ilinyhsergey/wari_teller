@@ -43,7 +43,10 @@ const routes: Routes = [
             resolve: {
               allCountries: AllCountriesResolverService
             }},
-          {path: 'step2', component: TransferSendStep2Component},
+          {path: 'step2', component: TransferSendStep2Component,
+            resolve: {
+              allCountries: AllCountriesResolverService
+            }},
           {path: 'step3', component: TransferSendStep3Component},
           {path: 'step4', component: TransferSendStep4Component},
           {path: '', redirectTo: '/transactions/send/step1', pathMatch: 'full'},

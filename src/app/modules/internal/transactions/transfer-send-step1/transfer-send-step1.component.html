@@ -2,7 +2,7 @@
   <div class="col col-12 p-0 row m-0 justify-content-center">
     <!--<div>-->
     <div class="tr-circle-text">1</div>
-    <div class="tr-circle-text-title">Sender</div>
+    <div class="tr-circle-text-title" i18n>Sender</div>
     <!--</div>-->
   </div>
 </div>
@@ -17,8 +17,8 @@
   <div class="f-row">
     <div class="f-col col-1">@</div>
     <div class="f-col col-11">
-      <select class="custom-select w-100">
-        <option value="" disabled selected hidden i18n>Sending country</option>
+      <select class="custom-select w-100" [(ngModel)]="sendMoneyRequest.sender.identityCountry">
+        <option value="undefined" disabled selected hidden i18n>Sending country</option>
         <option *ngFor="let country of allCountries" value="{{country.id}}">{{country.name}}</option>
       </select>
     </div>
@@ -39,7 +39,7 @@
   </div>
   <div class="f-row">
     <div class="f-col col-10">
-      <input type="text" class="form-control" placeholder="Amount to send" i18n-placeholder/>
+      <input type="text" class="form-control" placeholder="# account / portable" i18n-placeholder/>
     </div>
     <div class="f-col col-1">
       <button type="button" class="btn btn-primary" i18n="ok">OK</button>
@@ -53,17 +53,20 @@
 
   <div class="f-row">
     <div class="f-col col-6">
-      <input type="text" class="form-control" placeholder="Last name" i18n-placeholder/>
+      <input type="text" class="form-control" placeholder="Last name" i18n-placeholder
+             [(ngModel)]="sendMoneyRequest.sender.lastName"/>
     </div>
     <div class="f-col col-6">
-      <input type="text" class="form-control" placeholder="First name" i18n-placeholder/>
+      <input type="text" class="form-control" placeholder="First name" i18n-placeholder
+             [(ngModel)]="sendMoneyRequest.sender.firstName"/>
     </div>
   </div>
 
   <div class="f-row">
     <div class="f-col col-1 f-text">+</div>
     <div class="f-col col-11">
-      <input type="text" class="form-control" placeholder="Phone number" i18n-placeholder/>
+      <input type="text" class="form-control" placeholder="Phone number" i18n-placeholder
+             [(ngModel)]="sendMoneyRequest.sender.phoneNumber"/>
     </div>
   </div>
 
