@@ -17,6 +17,7 @@ import {TransferSendStep2Component} from './transfer-send-step2/transfer-send-st
 import {TransferSendStep3Component} from './transfer-send-step3/transfer-send-step3.component';
 import {TransferSendStep4Component} from './transfer-send-step4/transfer-send-step4.component';
 import {AllCountriesResolverService} from './services/all-countries-resolver.service';
+import {AllPieceTypesResolverService} from './services/all-piece-types-resolver.service';
 
 const routes: Routes = [
   {
@@ -41,7 +42,8 @@ const routes: Routes = [
         children: [
           {path: 'step1', component: TransferSendStep1Component,
             resolve: {
-              allCountries: AllCountriesResolverService
+              allCountries: AllCountriesResolverService,
+              allPieceTypes: AllPieceTypesResolverService
             }},
           {path: 'step2', component: TransferSendStep2Component,
             resolve: {
@@ -76,7 +78,8 @@ const routes: Routes = [
   ],
   providers: [
     PartnerInfoResolverService,
-    AllCountriesResolverService
+    AllCountriesResolverService,
+    AllPieceTypesResolverService,
   ]
 })
 export class TransactionsRoutingModule {

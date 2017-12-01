@@ -21,6 +21,10 @@ export class ParametersCacheService extends BaseCacheService {
     return this.getExpiredCacheValue('allCountries', () => this.parameterApi.getAllCountriesGet1());
   }
 
+  getAllPieceTypes() {
+    return this.getExpiredCacheValue('allPieceTypes', () => this.parameterApi.getAllPieceTypesGet1());
+  }
+
   /**
    * @returns {Observable<Collection<string>>} - a map code -> name
    */

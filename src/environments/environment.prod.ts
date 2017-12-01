@@ -4,5 +4,6 @@ export const environment = {
   cacheExpirationMinutesMap: {
     'partnerCode2PartnerName': 60 * 24, // 24 h
     'allCountries': 60 * 24, // 24 h
+    'allPieceTypes': 60 * 24, // 24 h
   }
 };
