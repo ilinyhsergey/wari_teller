@@ -29,8 +29,9 @@
   </div>
 
   <div class="f-row">
-    <div class="f-col col-11"><input type="text" class="form-control" placeholder="Amount to send"
-                                     i18n-placeholder/></div>
+    <div class="f-col col-11">
+      <input type="text" class="form-control" placeholder="Amount to send" i18n-placeholder
+             [(ngModel)]="sendMoneyRequest.principal"/></div>
     <div class="f-col col-1 f-text">XOF</div>
   </div>
 
@@ -72,29 +73,40 @@
 
   <div class="f-row">
     <div class="f-col col-8">
-      <input type="text" class="form-control" placeholder="identification piece" i18n-placeholder/>
+      <select class="custom-select w-100" [(ngModel)]="sendMoneyRequest.sender.identityType">
+        <option value="undefined" disabled selected hidden i18n>Type of identity document</option>
+        <option *ngFor="let pieceType of allPieceTypes" value="{{pieceType.code}}">{{pieceType.name}}</option>
+      </select>
     </div>
     <div class="f-col col-4">
-      <input type="text" class="form-control" placeholder="#" i18n-placeholder/>
+      <input type="text" class="form-control" placeholder="identity number" i18n-placeholder
+             [(ngModel)]="sendMoneyRequest.sender.identityNumber"/>
     </div>
   </div>
 
   <div class="f-row">
     <div class="f-col col-4">
-      <select class="custom-select w-100" [(ngModel)]="sendMoneyRequest.destinationCountryId">
-        <option value="undefined" disabled selected hidden i18n>Country</option>
+      <select class="custom-select w-100" [(ngModel)]="sendMoneyRequest.sender.identityCountry">
+        <option value="undefined" disabled selected hidden i18n>identity country</option>
         <option *ngFor="let country of allCountries" value="{{country.id}}">{{country.name}}</option>
       </select>
     </div>
     <div class="f-col col-4">
-      <input type="text" class="form-control" placeholder="Deliverance" i18n-placeholder/>
+      <input type="text" class="form-control" placeholder="Deliverance" i18n-placeholder
+             [(ngModel)]="sendMoneyRequest.sender.identityEmissionDate"/>
     </div>
     <div class="f-col col-4">
-      <input type="text" class="form-control" placeholder="Validate" i18n-placeholder/>
+      <input type="text" class="form-control" placeholder="Validate" i18n-placeholder
+             [(ngModel)]="sendMoneyRequest.sender.identityExpirationDate"/>
     </div>
   </div>
 
 </div>
+
+<app-mode-selector
+  [(mode)]="sendMoneyRequest.paymentMean"
+  [modes]="paymentMeans"
+></app-mode-selector>
 
 <button class="btn btn-primary" (click)="goStep2()">next</button>
 

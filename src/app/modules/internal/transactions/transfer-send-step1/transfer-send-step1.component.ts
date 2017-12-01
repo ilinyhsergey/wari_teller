@@ -1,9 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 
 import {StorageService} from '../../../../services/storage.service';
 import {ProcessSendMoneyRequest} from '../../../../api/generated/model/ProcessSendMoneyRequest';
 import {GeoZone} from '../../../../api/generated/model/GeoZone';
+import {SendMoneyContext} from '../../../../api/generated/model/SendMoneyContext';
+import PaymentMeanEnum = SendMoneyContext.PaymentMeanEnum;
+import {PieceType} from '../../../../api/generated/model/PieceType';
 
 @Component({
   selector: 'app-transfer-send-step1',
@@ -12,21 +15,30 @@ import {GeoZone} from '../../../../api/generated/model/GeoZone';
 })
 export class TransferSendStep1Component implements OnInit {
 
-  private sendMoneyRequest: ProcessSendMoneyRequest;
-
-  private allCountries: GeoZone[];
+  sendMoneyRequest: ProcessSendMoneyRequest;
+  allCountries: GeoZone[];
+  allPieceTypes: PieceType[];
+  paymentMeans: string[];
 
   constructor(private router: Router,
               private route: ActivatedRoute,
-              private storage: StorageService) { }
+              private storage: StorageService) {
+  }
 
   ngOnInit() {
 
     this.route.data.subscribe(data => {
       this.allCountries = data.allCountries || [];
+      this.allPieceTypes = data.allPieceTypes || [];
     });
 
+    this.initPaymentMean();
+
     this.initModel();
+  }
+
+  initPaymentMean() {
+    this.paymentMeans = Object.keys(PaymentMeanEnum);
   }
 
   initModel() {

@@ -47,5 +47,11 @@
 
 </div>
 
+<app-mode-selector
+  [(mode)]="sendMoneyRequest.receptionMode"
+  [modes]="receptionModes"
+></app-mode-selector>
+
+
 <button class="btn btn-primary" (click)="goStep3()">next</button>
 

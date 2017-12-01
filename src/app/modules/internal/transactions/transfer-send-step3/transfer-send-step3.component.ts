@@ -12,7 +12,7 @@ import {AuthService} from '../../../../services/auth.service';
 })
 export class TransferSendStep3Component implements OnInit {
 
-  private sendMoneyRequest: ProcessSendMoneyRequest;
+  sendMoneyRequest: ProcessSendMoneyRequest;
 
   constructor(private router: Router,
               private authService: AuthService,
@@ -39,7 +39,7 @@ export class TransferSendStep3Component implements OnInit {
   validateTransaction() {
 
     const sessionId = this.authService.getSessionId();
-    this.transactionApi.processSendMoney1(sessionId, this.sendMoneyRequest)
+    this.transactionApi.processSendMoney1(sessionId, this.sendMoneyRequest);
 
     // this.storage.set('processSendMoneyRequest', this.sendMoneyRequest);
     this.router.navigate(['/transactions/send/step4']);
