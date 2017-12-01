@@ -1,0 +1,15 @@
+<!--
+<div class="mode-selector">
+  <div *ngFor="let m of modes"
+       class="mode {{ cssByMode[mode] }}"
+       [class.active]="mode === m"
+       ></div>
+</div>
+-->
+
+<div class="btn-group" ngbRadioGroup name="radioBasic" [(ngModel)]="mode">
+  <label *ngFor="let m of modes"
+         ngbButtonLabel class="btn-primary">
+    <input ngbButton type="radio" [value]="m" (change)="onModeChange(m)"> {{ m }}
+  </label>
+</div>
