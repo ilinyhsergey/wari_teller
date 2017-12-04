@@ -48,37 +48,81 @@
 </div>
 
 <app-mode-selector
-  [(mode)]="sendMoneyRequest.receptionMode"
+  [mode]="sendMoneyRequest.receptionMode"
+  (modeChange)="onReceptionModeChange($event)"
   [modes]="receptionModes"
 ></app-mode-selector>
 
-<div *ngIf="isReceptionModeAccount()">
+<div [ngSwitch]="sendMoneyRequest.receptionMode">
 
-  <div class="f-row">
-    <div class="f-col col-5 f-text" i18n>Are you have Wari account?</div>
-    <div class="f-col col-5 f-text" i18n>On an external account</div>
+  <div *ngSwitchCase="ACCOUNT">
+
+    <div class="f-row">
+      <div class="f-col col-5 f-text" i18n>Are you have Wari account?</div>
+      <div class="f-col col-5 f-text" i18n>On an external account</div>
+    </div>
+
+    <div class="f-row">
+      <div class="f-col col-5">
+        <input type="text" class="form-control" placeholder="№ account / portable" i18n-placeholder
+               [(ngModel)]="sendMoneyRequest.receiver.accountNumber"/>
+      </div>
+      <div class="f-col col-5">
+        <input type="text" class="form-control" placeholder="IBAN" i18n-placeholder
+               [(ngModel)]="sendMoneyRequest.receiver.accountProvider"/>
+      </div>
+    </div>
+
+    <div class="f-row">
+      <div class="f-col col-5"></div>
+      <div class="f-col col-5">
+        <input type="text" class="form-control" placeholder="SWIFT" i18n-placeholder
+               [(ngModel)]="sendMoneyRequest.receiver.accountType"/>
+      </div>
+      <div class="f-col col-2">
+        <button class="btn btn-primary" (click)="goStep3()">Validate</button>
+      </div>
+    </div>
+
   </div>
 
-  <div class="f-row">
-    <div class="f-col col-5">
-      <input type="text" class="form-control" placeholder="№ account / portable" i18n-placeholder
-             [(ngModel)]="sendMoneyRequest.receiver.accountNumber"/>
+  <div *ngSwitchCase="WALLET">
+
+
+    <div class="f-row">
+      <div class="f-col col-4">
+        <select class="custom-select w-100" [(ngModel)]="partnerCode"
+                (change)="onPartnerCodeSelected(partnerCode)">
+          <option value="undefined" disabled selected hidden i18n>Partner code ...</option>
+          <option *ngFor="let code of partnerCodes" value="{{code}}">{{code}}</option>
+        </select>
+      </div>
+      <div class="f-col col-4">
+        <select class="custom-select w-100" [(ngModel)]="sendMoneyRequest.receiver.walletProvider">
+          <option value="undefined" disabled selected hidden i18n>Partner name ...</option>
+          <option *ngFor="let name of partnerNames" value="{{name}}">{{name}}</option>
+        </select>
+      </div>
     </div>
-    <div class="f-col col-5">
-      <input type="text" class="form-control" placeholder="IBAN" i18n-placeholder
-             [(ngModel)]="sendMoneyRequest.receiver.accountProvider"/>
+
+    <div class="f-row">
+      <div class="f-col col-8">
+        <input type="text" class="form-control" placeholder="Portable" i18n-placeholder
+               [(ngModel)]="sendMoneyRequest.receiver.wallet"/>
+      </div>
+      <div class="f-col col-4">
+        <button class="btn btn-primary" (click)="goStep3()">Validate</button>
+      </div>
     </div>
+
   </div>
 
-  <div class="f-row">
-    <div class="f-col col-5"></div>
-    <div class="f-col col-5">
-      <input type="text" class="form-control" placeholder="SWIFT" i18n-placeholder
-             [(ngModel)]="sendMoneyRequest.receiver.accountType"/>
-    </div>
-    <div class="f-col col-2">
-      <button class="btn btn-primary" (click)="goStep3()">Validate</button>
-    </div>
+  <div *ngSwitchCase="CARD">
+    CARD
+  </div>
+
+  <div *ngSwitchDefault>
+    default
   </div>
 
 </div>

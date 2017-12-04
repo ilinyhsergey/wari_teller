@@ -49,7 +49,8 @@ const routes: Routes = [
             }},
           {path: 'step2', component: TransferSendStep2Component,
             resolve: {
-              allCountries: AllCountriesResolverService
+              allCountries: AllCountriesResolverService,
+              partnerInfo: PartnerInfoResolverService
             }},
           {path: 'step3', component: TransferSendStep3Component},
           {path: 'step4', component: TransferSendStep4Component},
