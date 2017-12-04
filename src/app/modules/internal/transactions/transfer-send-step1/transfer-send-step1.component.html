@@ -27,9 +27,9 @@
   <div class="f-row">
     <div class="f-col col-6 f-text" i18n>Transfer reasons (motif)</div>
     <div class="f-col col-6">
-      <select class="custom-select w-100" [(ngModel)]="sendMoneyRequest.motif">
+      <select class="custom-select w-100" [(ngModel)]="motifCode">
         <option value="undefined" disabled selected hidden i18n>select transfer motif ...</option>
-        <option *ngFor="let motif of allTransferMotifs" value="{{motif}}">{{motif.name}}</option>
+        <option *ngFor="let motif of allTransferMotifs" value="{{motif.code}}">{{motif.name}}</option>
       </select>
     </div>
   </div>

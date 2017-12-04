@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
+import * as _ from 'lodash';
 
 import {StorageService} from '../../../../services/storage.service';
 import {ProcessSendMoneyRequest} from '../../../../api/generated/model/ProcessSendMoneyRequest';
@@ -24,6 +25,7 @@ export class TransferSendStep1Component implements OnInit {
   allCountries: GeoZone[];
   allPieceTypes: PieceType[];
   allTransferMotifs: Motif[];
+  motifCode: string;
   paymentMeans: PaymentMeanEnum[];
   identityEmissionDate: NgbDateStruct;
   identityExpirationDate: NgbDateStruct;
@@ -82,6 +84,7 @@ export class TransferSendStep1Component implements OnInit {
     const sender: Customer = sendMoneyRequest.sender;
     sender.identityEmissionDate = this.ngbDateStructToDatePipe.transform(this.identityEmissionDate);
     sender.identityExpirationDate = this.ngbDateStructToDatePipe.transform(this.identityExpirationDate);
+    sendMoneyRequest.motif = _.find(this.allTransferMotifs, m => m.code === this.motifCode);
     sendMoneyRequest.securityTokenTransaction = this.isReceptionModeWaripass();
     return sendMoneyRequest;
   }
