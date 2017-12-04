@@ -15,7 +15,7 @@ export class TransferSendStep2Component implements OnInit {
 
   sendMoneyRequest: ProcessSendMoneyRequest;
   allCountries: GeoZone[];
-  receptionModes: string[];
+  receptionModes: ReceptionModeEnum[];
 
   constructor(private router: Router,
               private route: ActivatedRoute,
@@ -27,14 +27,33 @@ export class TransferSendStep2Component implements OnInit {
       this.allCountries = data.allCountries || [];
     });
 
-    this.initReceptionModes();
-
     this.initModel();
+
+    this.initReceptionModes();
   }
 
   initReceptionModes() {
-    this.receptionModes = Object.keys(ReceptionModeEnum);
+    this.receptionModes = [
+      ReceptionModeEnum.ACCOUNT,
+      ReceptionModeEnum.CASH,
+      ReceptionModeEnum.WALLET,
+      ReceptionModeEnum.CARD
+    ];
+    this.sendMoneyRequest.receptionMode = null; // deselect if it is
   }
+
+  isReceptionModeAccount() {
+    return this.sendMoneyRequest.receptionMode === ReceptionModeEnum.ACCOUNT;
+  }
+
+  isReceptionModeWallet() {
+    return this.sendMoneyRequest.receptionMode === ReceptionModeEnum.WALLET;
+  }
+
+  isReceptionModeCard() {
+    return this.sendMoneyRequest.receptionMode === ReceptionModeEnum.CARD;
+  }
+
 
   initModel() {
     let model: ProcessSendMoneyRequest = this.storage.get('processSendMoneyRequest') as ProcessSendMoneyRequest;

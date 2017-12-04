@@ -11,6 +11,7 @@ import {DateToNgbDateStructPipe} from '../../../app-components/date-to-ngb-date-
 import {NgbDateStructToDatePipe} from '../../../app-components/ngb-date-struct-to-date.pipe';
 import {NgbDateStruct} from '@ng-bootstrap/ng-bootstrap';
 import {Customer} from '../../../../api/generated/model/Customer';
+import {Motif} from '../../../../api/generated';
 
 @Component({
   selector: 'app-transfer-send-step1',
@@ -22,7 +23,8 @@ export class TransferSendStep1Component implements OnInit {
   sendMoneyRequest: ProcessSendMoneyRequest;
   allCountries: GeoZone[];
   allPieceTypes: PieceType[];
-  paymentMeans: string[];
+  allTransferMotifs: Motif[];
+  paymentMeans: PaymentMeanEnum[];
   identityEmissionDate: NgbDateStruct;
   identityExpirationDate: NgbDateStruct;
 
@@ -37,14 +39,24 @@ export class TransferSendStep1Component implements OnInit {
     this.route.data.subscribe(data => {
       this.allCountries = data.allCountries || [];
       this.allPieceTypes = data.allPieceTypes || [];
+      this.allTransferMotifs = data.allTransferMotifs || [];
     });
 
-    this.initPaymentMean();
     this.initModel();
+    this.initPaymentMean();
   }
 
   private initPaymentMean() {
-    this.paymentMeans = Object.keys(PaymentMeanEnum);
+    this.paymentMeans = [
+      PaymentMeanEnum.ACCOUNT,
+      PaymentMeanEnum.CASH,
+      PaymentMeanEnum.WARIPASS
+    ];
+    this.sendMoneyRequest.paymentMean = null; // deselect if it is
+  }
+
+  isReceptionModeWaripass() {
+    return this.sendMoneyRequest.paymentMean === PaymentMeanEnum.WARIPASS;
   }
 
   private initModel() {
@@ -70,6 +82,7 @@ export class TransferSendStep1Component implements OnInit {
     const sender: Customer = sendMoneyRequest.sender;
     sender.identityEmissionDate = this.ngbDateStructToDatePipe.transform(this.identityEmissionDate);
     sender.identityExpirationDate = this.ngbDateStructToDatePipe.transform(this.identityExpirationDate);
+    sendMoneyRequest.securityTokenTransaction = this.isReceptionModeWaripass();
     return sendMoneyRequest;
   }
 
@@ -80,7 +93,18 @@ export class TransferSendStep1Component implements OnInit {
   }
 
   onPaymentModeChange(mode: string) {
-    this.sendMoneyRequest.paymentMean = PaymentMeanEnum[mode];
+    const paymentMean: PaymentMeanEnum = PaymentMeanEnum[mode];
+    this.sendMoneyRequest.paymentMean = paymentMean;
+
+    switch (paymentMean) {
+      case PaymentMeanEnum.CASH:
+      case PaymentMeanEnum.ACCOUNT:
+        this.goStep2();
+        break;
+      case PaymentMeanEnum.WARIPASS:
+      default:
+        break;
+    }
   }
 
 }

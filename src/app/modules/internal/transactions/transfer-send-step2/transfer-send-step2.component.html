@@ -52,6 +52,33 @@
   [modes]="receptionModes"
 ></app-mode-selector>
 
+<div *ngIf="isReceptionModeAccount()">
 
-<button class="btn btn-primary" (click)="goStep3()">next</button>
+  <div class="f-row">
+    <div class="f-col col-5 f-text" i18n>Are you have Wari account?</div>
+    <div class="f-col col-5 f-text" i18n>On an external account</div>
+  </div>
 
+  <div class="f-row">
+    <div class="f-col col-5">
+      <input type="text" class="form-control" placeholder="№ account / portable" i18n-placeholder
+             [(ngModel)]="sendMoneyRequest.receiver.accountNumber"/>
+    </div>
+    <div class="f-col col-5">
+      <input type="text" class="form-control" placeholder="IBAN" i18n-placeholder
+             [(ngModel)]="sendMoneyRequest.receiver.accountProvider"/>
+    </div>
+  </div>
+
+  <div class="f-row">
+    <div class="f-col col-5"></div>
+    <div class="f-col col-5">
+      <input type="text" class="form-control" placeholder="SWIFT" i18n-placeholder
+             [(ngModel)]="sendMoneyRequest.receiver.accountType"/>
+    </div>
+    <div class="f-col col-2">
+      <button class="btn btn-primary" (click)="goStep3()">Validate</button>
+    </div>
+  </div>
+
+</div>

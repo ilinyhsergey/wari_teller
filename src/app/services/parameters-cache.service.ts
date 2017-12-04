@@ -8,6 +8,7 @@ import {GeoZone} from '../api/generated/model/GeoZone';
 import {StorageService} from './storage.service';
 import {map} from 'rxjs/operators';
 import {BaseCacheService} from './base-cache.service';
+import {Motif} from '../api/generated';
 
 @Injectable()
 export class ParametersCacheService extends BaseCacheService {
@@ -15,6 +16,10 @@ export class ParametersCacheService extends BaseCacheService {
   constructor(private parameterApi: ParameterApi,
               storageService: StorageService) {
     super(storageService);
+  }
+
+  getAllTransferMotifs(): Observable<Motif[]> {
+    return this.getExpiredCacheValue('allTransferMotifs', () => this.parameterApi.getAllTransferMotifsGet1());
   }
 
   getAllCountries(): Observable<GeoZone[]> {
