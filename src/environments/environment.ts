@@ -4,11 +4,13 @@
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
 export const environment = {
+  lang: 'fr',
   production: false,
   serverUrl: 'http://stage.i.wari.com/teller_api/v1',
   cacheExpirationMinutesMap: {
-    'partnerCode2PartnerName': 60 * 24, // 24 h
-    'allCountries': 60 * 24, // 24 h
-    'allPieceTypes': 60 * 24, // 24 h
+    'translation.json': 1440, // 24 * 60 minutes
+    'partnerCode2PartnerName': 1440,
+    'allCountries': 1440,
+    'allPieceTypes': 1440,
   }
 };

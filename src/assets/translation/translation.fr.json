@@ -1,0 +1,16 @@
+{
+  "parameter.transferMotifs.AIDE_SCOLAIRE": "School Help",
+  "parameter.transferMotifs.ASSISTANCE_FAMILIALE": "Family Assistance",
+  "parameter.transferMotifs.CONSTRUCTION_IMMOBILIERE": "Building construction",
+  "parameter.transferMotifs.REGLEMENT_BIEN": "Regulations goods",
+  "parameter.transferMotifs.REGLEMENT_SERVICE": "Service Regulations",
+  "parameter.transferMotifs.AUTRES": "Other",
+  "parameter.pieceTypes.PP": "PP Passport?",
+  "parameter.pieceTypes.CC": "CC ...?",
+  "parameter.pieceTypes.CE": "CE ...?",
+  "parameter.pieceTypes.PC": "PC ...?",
+  "parameter.pieceTypes.CI": "CI ...?",
+  "parameter.pieceTypes.AI": "AI ...?",
+  "parameter.pieceTypes.CA": "CA ...?",
+  "": ""
+}

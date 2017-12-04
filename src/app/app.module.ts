@@ -20,6 +20,8 @@ import {UnsavedChangesGuard} from './services/guards/unsaved-changes-guard.servi
 import {RedirectService} from './services/redirect.service';
 import {UtilsService} from './services/utils.service';
 import {ParametersCacheService} from './services/parameters-cache.service';
+import {TranslationService} from './services/translation.service';
+import {HttpClientModule} from '@angular/common/http';
 
 const SERVER_URL = environment.serverUrl;
 
@@ -32,6 +34,7 @@ const SERVER_URL = environment.serverUrl;
   imports: [
     CommonModule,
     BrowserModule,
+    HttpClientModule, // Include it under 'imports' in your application module after BrowserModule.
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
@@ -49,6 +52,7 @@ const SERVER_URL = environment.serverUrl;
     UtilsService,
     AuthGuard,
     UnsavedChangesGuard,
+    TranslationService,
     {provide: BASE_PATH, useValue: SERVER_URL}
     // ,{provide: LOCALE_ID, useValue: 'fr'} // uncomment for JIT localization
   ],

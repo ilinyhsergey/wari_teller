@@ -13,6 +13,7 @@ import {NgbDateStructToDatePipe} from '../../../app-components/ngb-date-struct-t
 import {NgbDateStruct} from '@ng-bootstrap/ng-bootstrap';
 import {Customer} from '../../../../api/generated/model/Customer';
 import {Motif} from '../../../../api/generated';
+import {TranslationService} from '../../../../services/translation.service';
 
 @Component({
   selector: 'app-transfer-send-step1',
@@ -33,11 +34,17 @@ export class TransferSendStep1Component implements OnInit {
   constructor(private router: Router,
               private route: ActivatedRoute,
               private storage: StorageService,
+              private translationService: TranslationService,
               private dateToNgbDateStructPipe: DateToNgbDateStructPipe,
               private ngbDateStructToDatePipe: NgbDateStructToDatePipe) {
   }
 
   ngOnInit() {
+
+    const translation = this.translationService.getTranslation();
+    console.log('translation', translation); // todo
+
+
     this.route.data.subscribe(data => {
       this.allCountries = data.allCountries || [];
       this.allPieceTypes = data.allPieceTypes || [];
