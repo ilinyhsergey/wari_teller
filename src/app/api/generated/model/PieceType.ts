@@ -17,4 +17,8 @@ export interface PieceType {
 
     name?: string;
 
+    equivalent?: string;
+
+    label?: string;
+
 }

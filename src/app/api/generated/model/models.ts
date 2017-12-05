@@ -17,6 +17,7 @@ export * from './GeoZoneType';
 export * from './JournauxReport';
 export * from './LoginCredentials';
 export * from './MerchantForm';
+export * from './MerchantFormElement';
 export * from './MerchantsByCountry';
 export * from './MobileOperator';
 export * from './MobileOperatorFacialValue';

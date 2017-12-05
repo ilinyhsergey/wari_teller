@@ -62,7 +62,7 @@ export class ParameterApi {
      * @summary [Implemented] find merchant form
      * @param reference 
      */
-    public findMerchantFormByReferenceGet1(reference: string, extraHttpRequestParams?: any): Observable<models.MerchantForm> {
+    public findMerchantFormByReferenceGet1(reference: string, extraHttpRequestParams?: any): Observable<Array<models.MerchantForm>> {
         return this.findMerchantFormByReferenceGet1WithHttpInfo(reference, extraHttpRequestParams)
             .map((response: Response) => {
                 if (response.status === 204) {
@@ -273,7 +273,7 @@ export class ParameterApi {
      * @param reference 
      */
     public findMerchantFormByReferenceGet1WithHttpInfo(reference: string, extraHttpRequestParams?: any): Observable<Response> {
-        const path = this.basePath + '/parameter/findMerchantFormByReference/${reference}'
+        const path = this.basePath + '/parameter/formByMerchant/${reference}'
                     .replace('${' + 'reference' + '}', String(reference));
 
         let queryParameters = new URLSearchParams();

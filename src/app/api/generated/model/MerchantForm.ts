@@ -13,16 +13,16 @@
 import * as models from './models';
 
 export interface MerchantForm {
-    code?: string;
+    modeReglement?: MerchantForm.ModeReglementEnum;
 
-    currency?: string;
+    elements?: Array<models.MerchantFormElement>;
 
-    name?: string;
-
-    categories?: Array<string>;
-
-    type?: string;
-
-    countries?: Array<models.GeoZone>;
-
+}
+export namespace MerchantForm {
+    export enum ModeReglementEnum {
+        TOTAL = <any> 'TOTAL',
+        PARTIEL = <any> 'PARTIEL',
+        ANTICIPE = <any> 'ANTICIPE',
+        VOUCHER = <any> 'VOUCHER'
+    }
 }

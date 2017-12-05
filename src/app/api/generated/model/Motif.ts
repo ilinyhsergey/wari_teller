@@ -17,4 +17,6 @@ export interface Motif {
 
     name?: string;
 
+    label?: string;
+
 }
