@@ -1,12 +1,13 @@
 import {Injectable} from '@angular/core';
 import {Router} from '@angular/router';
-import {Observable} from 'rxjs/Observable';
-import {map} from 'rxjs/operators';
 import {
   Http, RequestOptions, Headers,
   RequestOptionsArgs,
   Response
 } from '@angular/http';
+import {Observable} from 'rxjs/Observable';
+import {TeardownLogic} from 'rxjs/src/Subscription';
+import {Subscriber} from 'rxjs/src/Subscriber';
 
 import {AuthService} from '../services/auth.service';
 
@@ -19,25 +20,22 @@ export class HttpService {
   }
 
   request(url: string, options?: RequestOptionsArgs): Observable<Response> {
-    const options1 = this.addAuthorization(options);
-    const observable: Observable<Response> = this.http.request(url, options1);
+    return Observable.create((subscriber: Subscriber<Response>): TeardownLogic => {
 
-    observable.subscribe(null, (response: Response) => {
-      if (response.status === 401) {
-        this.authService.logout();
-        this.router.navigate(['/login']);
-      }
+      const options1 = this.addAuthorization(options);
+      const observable = this.http.request(url, options1);
+
+      observable.subscribe((response: Response) => {
+        this.saveAuthorization(response);
+
+        subscriber.next(response);
+        subscriber.complete();
+      }, (response: Response) => {
+        this.handleErrors(response);
+
+        subscriber.error(response);
+      });
     });
-
-    return observable.pipe(
-      map((response: Response): Response => {
-        const responseAuthorization = response.headers.get('Authorization');
-        if (responseAuthorization) {
-          this.authService.setAuthorization(responseAuthorization);
-        }
-        return response;
-      })
-    );
   }
 
   private addAuthorization(options?: RequestOptionsArgs): RequestOptionsArgs {
@@ -52,6 +50,20 @@ export class HttpService {
       options.headers.set('Authorization', authHeader);
     }
     return options;
+  }
+
+  private saveAuthorization(response: Response): void {
+    const responseAuthorization = response.headers.get('Authorization');
+    if (responseAuthorization) {
+      this.authService.setAuthorization(responseAuthorization);
+    }
+  }
+
+  private handleErrors(response: Response): void {
+    if (response.status === 401) {
+      this.authService.logout();
+      this.router.navigate(['/login']);
+    }
   }
 
 }
