@@ -1,19 +1,18 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
+import {NgbDateStruct} from '@ng-bootstrap/ng-bootstrap';
 import * as _ from 'lodash';
 
 import {StorageService} from '../../../../services/storage.service';
 import {ProcessSendMoneyRequest} from '../../../../api/generated/model/ProcessSendMoneyRequest';
 import {GeoZone} from '../../../../api/generated/model/GeoZone';
 import {SendMoneyContext} from '../../../../api/generated/model/SendMoneyContext';
-import PaymentMeanEnum = SendMoneyContext.PaymentMeanEnum;
 import {PieceType} from '../../../../api/generated/model/PieceType';
 import {DateToNgbDateStructPipe} from '../../../app-components/date-to-ngb-date-struct.pipe';
 import {NgbDateStructToDatePipe} from '../../../app-components/ngb-date-struct-to-date.pipe';
-import {NgbDateStruct} from '@ng-bootstrap/ng-bootstrap';
 import {Customer} from '../../../../api/generated/model/Customer';
 import {Motif} from '../../../../api/generated';
-import {TranslationService} from '../../../../services/translation.service';
+import PaymentMeanEnum = SendMoneyContext.PaymentMeanEnum;
 
 @Component({
   selector: 'app-transfer-send-step1',
@@ -34,17 +33,11 @@ export class TransferSendStep1Component implements OnInit {
   constructor(private router: Router,
               private route: ActivatedRoute,
               private storage: StorageService,
-              private translationService: TranslationService,
               private dateToNgbDateStructPipe: DateToNgbDateStructPipe,
               private ngbDateStructToDatePipe: NgbDateStructToDatePipe) {
   }
 
   ngOnInit() {
-
-    const translation = this.translationService.getTranslation();
-    console.log('translation', translation); // todo
-
-
     this.route.data.subscribe(data => {
       this.allCountries = data.allCountries || [];
       this.allPieceTypes = data.allPieceTypes || [];

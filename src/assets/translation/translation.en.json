@@ -1,0 +1,16 @@
+{
+  "motif.AIDE_SCOLAIRE": "School help",
+  "motif.ASSISTANCE_FAMILIALE": "Family assistance",
+  "motif.CONSTRUCTION_IMMOBILIERE": "Real estate construction",
+  "motif.REGLEMENT_BIEN": "Property Regulations",
+  "motif.REGLEMENT_SERVICE": "Regulations of services",
+  "motif.AUTRES": "Other",
+  "identity.CI": "ID card",
+  "identity.PC": "DRIVER LICENSE",
+  "identity.PP": "Passport",
+  "identity.CE": "Voter's card",
+  "identity.CC": "Consular card",
+  "identity.AT": "ID card",
+  "identity.CA": "Insurance card",
+  "": ""
+}

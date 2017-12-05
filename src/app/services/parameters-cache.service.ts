@@ -9,17 +9,20 @@ import {StorageService} from './storage.service';
 import {map} from 'rxjs/operators';
 import {BaseCacheService} from './base-cache.service';
 import {Motif} from '../api/generated';
+import {TranslationService} from './translation.service';
 
 @Injectable()
 export class ParametersCacheService extends BaseCacheService {
 
   constructor(private parameterApi: ParameterApi,
+              private translationService: TranslationService,
               storageService: StorageService) {
     super(storageService);
   }
 
   getAllTransferMotifs(): Observable<Motif[]> {
-    return this.getExpiredCacheValue('allTransferMotifs', () => this.parameterApi.getAllTransferMotifsGet1());
+    const observable = this.getExpiredCacheValue('allTransferMotifs', () => this.parameterApi.getAllTransferMotifsGet1());
+    return this.translationService.translateList(observable);
   }
 
   getAllCountries(): Observable<GeoZone[]> {
@@ -27,7 +30,8 @@ export class ParametersCacheService extends BaseCacheService {
   }
 
   getAllPieceTypes() {
-    return this.getExpiredCacheValue('allPieceTypes', () => this.parameterApi.getAllPieceTypesGet1());
+    const observable = this.getExpiredCacheValue('allPieceTypes', () => this.parameterApi.getAllPieceTypesGet1());
+    return this.translationService.translateList(observable);
   }
 
   /**
