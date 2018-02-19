@@ -72,6 +72,12 @@ To run compiled version with localization run:
 
 Where `messages.fr.xlf` is file with translation.
 
+## PWA: Service Worker
+To test service worker:
+1) Build the app: `ng build --prod`
+2) Go to dist: `cd dist/`
+3) Run server: `../node_modules/http-server/bin/http-server -p 8080` (service worker does not work with `ng serve`)  
+
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).

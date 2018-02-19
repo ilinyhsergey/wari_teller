@@ -1,5 +1,4 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {Collection} from '../../../app.declaration';
 
 @Component({
   selector: 'app-mode-selector',
@@ -17,8 +16,6 @@ export class ModeSelectorComponent implements OnInit {
   @Output()
   modeChange: EventEmitter<string> = new EventEmitter<string>();
 
-  cssByMode: Collection<string> = {};
-
   constructor() {
   }
 
@@ -26,7 +23,8 @@ export class ModeSelectorComponent implements OnInit {
   }
 
   onModeChange(mode: string) {
-    this.modeChange.emit(mode);
+    this.mode = mode;
+    this.modeChange.emit(this.mode);
   }
 
 }

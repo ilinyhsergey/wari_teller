@@ -29,7 +29,7 @@ export interface ProcessSendMoneyRequest {
 
     principal?: number;
 
-    motif?: models.Motif;
+    motifCode?: string;
 
     receptionMode?: ProcessSendMoneyRequest.ReceptionModeEnum;
 

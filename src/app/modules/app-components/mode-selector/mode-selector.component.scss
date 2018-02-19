@@ -1,23 +1,41 @@
-.mode-selector{
+.mode-selector {
 
-}
+  .mode-container {
+    margin: 10px;
 
-.mode {
-  margin: 0 auto 10px;
+    .mode {
+      margin: 0 7px;
+      opacity: 0.5;
 
-  background-size: cover;
-  height: 100px;
-  width: 100px;
-}
+      height: 100px;
+      width: 100px;
+      &.active {
+        opacity: 1;
+      }
+    }
 
-.mode-account {
-  background-image: url('../../../../assets/images/tmp/account.png');
-}
+    .ACCOUNT {
+      background: url("../../../../assets/images/new/mode-account.svg") no-repeat center center;
+      height: 117px;
+      width: 117px;
+    }
 
-.mode-cash {
-  background-image: url('../../../../assets/images/tmp/cash.png');
-}
+    .CASH {
+      background: url("../../../../assets/images/new/mode-cash.svg") no-repeat center center;
+    }
 
-.mode-wari-pass {
-  background-image: url('../../../../assets/images/tmp/wari-pass.png');
+    .WARI_PASS,
+    .WARIPASS {
+      background: url("../../../../assets/images/new/mode-wari-pass.svg") no-repeat center center;
+    }
+
+    .CARD {
+      background: url("../../../../assets/images/new/mode-cb.svg") no-repeat center center;
+    }
+
+    .WALLET {
+      background: url("../../../../assets/images/new/mode-e-wallet.svg") no-repeat center center;
+    }
+
+  }
 }

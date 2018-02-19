@@ -173,7 +173,7 @@
         <source>Everybody wins!</source>
         <target>Tout le monde gagne!</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">app\modules\internal\transactions\transactions.component.ts</context>
+          <context context-type="sourcefile">app\modules\internal\transactions\main.component.ts</context>
           <context context-type="linenumber">10</context>
         </context-group>
         <note priority="1" from="description">Title on head of dashboard</note>
@@ -183,7 +183,7 @@
         <source>Hello</source>
         <target>Bonjour</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">app\modules\internal\transactions\transactions.component.ts</context>
+          <context context-type="sourcefile">app\modules\internal\transactions\main.component.ts</context>
           <context context-type="linenumber">43</context>
         </context-group>
         <note priority="1" from="description">User greeting on dashboard</note>
@@ -193,7 +193,7 @@
         <source>Exit</source>
         <target>Deconnexion</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">app\modules\internal\transactions\transactions.component.ts</context>
+          <context context-type="sourcefile">app\modules\internal\transactions\main.component.ts</context>
           <context context-type="linenumber">55</context>
         </context-group>
         <note priority="1" from="description">Logout from app</note>
@@ -203,7 +203,7 @@
         <source>Phone credit</source>
         <target>Credit telephonique</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">app\modules\internal\transactions\transactions.component.ts</context>
+          <context context-type="sourcefile">app\modules\internal\transactions\main.component.ts</context>
           <context context-type="linenumber">70</context>
         </context-group>
         <note priority="1" from="description">Side nav panel description</note>
@@ -213,7 +213,7 @@
         <source>Transfer</source>
         <target>Transfert</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">app\modules\internal\transactions\transactions.component.ts</context>
+          <context context-type="sourcefile">app\modules\internal\transactions\main.component.ts</context>
           <context context-type="linenumber">76</context>
         </context-group>
         <note priority="1" from="description">Side nav panel description</note>
@@ -223,7 +223,7 @@
         <source>Bill</source>
         <target>Facture</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">app\modules\internal\transactions\transactions.component.ts</context>
+          <context context-type="sourcefile">app\modules\internal\transactions\main.component.ts</context>
           <context context-type="linenumber">85</context>
         </context-group>
         <note priority="1" from="description">Side nav panel description</note>
@@ -233,7 +233,7 @@
         <source>My Wari</source>
         <target>My Wari</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">app\modules\internal\transactions\transactions.component.ts</context>
+          <context context-type="sourcefile">app\modules\internal\transactions\main.component.ts</context>
           <context context-type="linenumber">91</context>
         </context-group>
         <note priority="1" from="description">Side nav panel description</note>
@@ -243,7 +243,7 @@
         <source>Insurance</source>
         <target>Assurance</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">app\modules\internal\transactions\transactions.component.ts</context>
+          <context context-type="sourcefile">app\modules\internal\transactions\main.component.ts</context>
           <context context-type="linenumber">100</context>
         </context-group>
         <note priority="1" from="description">Side nav panel description</note>
@@ -253,7 +253,7 @@
         <source>Counter</source>
         <target>Guichet</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">app\modules\internal\transactions\transactions.component.ts</context>
+          <context context-type="sourcefile">app\modules\internal\transactions\main.component.ts</context>
           <context context-type="linenumber">106</context>
         </context-group>
         <note priority="1" from="description">Side nav panel description</note>

@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 import {zip, map} from 'rxjs/operators';
+import {ErrorResponse} from '../api/generated';
 
 @Injectable()
 export class UtilsService {
@@ -25,4 +26,11 @@ export class UtilsService {
     );
   }
 
+  fillErrorResponseMessage(errorResponse: ErrorResponse): string {
+    const params: string[] = errorResponse.params || [];
+    const message: string = errorResponse.message || '';
+    return params.reduce((res: string, param: string, id: number): string => {
+      return res.replace(`{${id}}`, param);
+    }, message);
+  }
 }

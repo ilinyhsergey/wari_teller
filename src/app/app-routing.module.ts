@@ -1,12 +1,12 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {NotFoundComponent} from './common/not-found/not-found.component';
+import {NotFoundComponent} from './common-components/not-found/not-found.component';
 
 const routes: Routes = [
-  {
-    path: 'transactions',
-    loadChildren: 'app/modules/internal/transactions/transactions.module#TransactionsModule'
-  },
+  // { // for lazy loading
+  //   path: 'transactions',
+  //   loadChildren: 'app/modules/main/main.module#MainModule'
+  // },
   {path: '', redirectTo: '/transactions/water', pathMatch: 'full'},
   {path: '**', component: NotFoundComponent}
 ];

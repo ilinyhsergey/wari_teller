@@ -7,6 +7,7 @@ export const environment = {
   lang: 'en',
   production: false,
   serverUrl: 'http://stage.i.wari.com/teller_api/v1',
+  baseHref: '/',
   cacheExpirationMinutesMap: {
     'translation.json': 1440, // 24 * 60 minutes
     'partnerCode2PartnerName': 1440,

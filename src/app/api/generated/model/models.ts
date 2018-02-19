@@ -12,6 +12,7 @@ export * from './CalculatorResponse';
 export * from './CashAdvanceContext';
 export * from './ContextBody';
 export * from './Customer';
+export * from './ErrorResponse';
 export * from './GeoZone';
 export * from './GeoZoneType';
 export * from './JournauxReport';

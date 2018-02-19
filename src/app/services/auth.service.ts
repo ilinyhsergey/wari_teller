@@ -4,7 +4,7 @@ import 'rxjs/add/observable/throw';
 
 import {ActorSession} from '../model/ActorSession';
 import {StorageService} from './storage.service';
-import {Actor} from '../api/generated/model/Actor';
+import {Actor} from '../api/generated';
 
 @Injectable()
 export class AuthService {

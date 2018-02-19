@@ -18,11 +18,13 @@
       "tsconfig": "tsconfig.app.json",
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
+      "serviceWorker": false,
       "styles": [
-        "styles/styles-base.scss",
-        "styles/styles-override.scss",
-        "styles/styles-layout.scss",
-        "styles/styles-utility.scss"
+        "styles/styles.scss",
+        "styles/styles.responsive.scss",
+        "styles/old/styles-base.scss",
+        "styles/old/styles-layout.scss",
+        "styles/old/styles-utility.scss"
       ],
       "scripts": [],
       "environmentSource": "environments/environment.ts",
@@ -58,6 +60,7 @@
   },
   "defaults": {
     "styleExt": "css",
-    "component": {}
+    "component": {
+    }
   }
 }

@@ -1,15 +1,12 @@
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 
-import {ParameterApi} from '../api/generated/api/ParameterApi';
-import {B2BPartnerInformation} from '../api/generated/model/B2BPartnerInformation';
+import {B2BPartnerInformation, GeoZone, Motif, ParameterApi} from '../api/generated';
 import {Collection} from '../app.declaration';
-import {GeoZone} from '../api/generated/model/GeoZone';
 import {StorageService} from './storage.service';
-import {map} from 'rxjs/operators';
 import {BaseCacheService} from './base-cache.service';
-import {Motif} from '../api/generated';
 import {TranslationService} from './translation.service';
+import {PieceType} from '../api/generated/model/PieceType';
 
 @Injectable()
 export class ParametersCacheService extends BaseCacheService {
@@ -21,8 +18,9 @@ export class ParametersCacheService extends BaseCacheService {
   }
 
   getAllTransferMotifs(): Observable<Motif[]> {
-    const observable = this.getExpiredCacheValue('allTransferMotifs', () => this.parameterApi.getAllTransferMotifsGet1());
-    return this.translationService.translateList(observable);
+    const observable: Observable<Motif[]> = this.getExpiredCacheValue('allTransferMotifs',
+      () => this.parameterApi.getAllTransferMotifsGet1());
+    return this.translationService.translateObservableOfArr(observable);
   }
 
   getAllCountries(): Observable<GeoZone[]> {
@@ -30,8 +28,9 @@ export class ParametersCacheService extends BaseCacheService {
   }
 
   getAllPieceTypes() {
-    const observable = this.getExpiredCacheValue('allPieceTypes', () => this.parameterApi.getAllPieceTypesGet1());
-    return this.translationService.translateList(observable);
+    const observable: Observable<PieceType[]> = this.getExpiredCacheValue('allPieceTypes',
+      () => this.parameterApi.getAllPieceTypesGet1());
+    return this.translationService.translateObservableOfArr(observable);
   }
 
   /**
@@ -39,9 +38,7 @@ export class ParametersCacheService extends BaseCacheService {
    */
   findB2BPartnerInformations(): Observable<Collection<string[]>> {
     return this.getExpiredCacheValue('partnerCode2PartnerName', () => {
-      return this.parameterApi.findB2BPartnerInformationsGet1().pipe(
-        map(infos => this.mapPartnerInfo2Map(infos))
-      );
+      return this.parameterApi.findB2BPartnerInformationsGet1().map(infos => this.mapPartnerInfo2Map(infos));
     });
   }
 

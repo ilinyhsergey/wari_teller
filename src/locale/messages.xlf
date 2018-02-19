@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
-  <file source-language="en" datatype="plaintext" original="ng2.template">
+  <file source-language="fr" datatype="plaintext" original="ng2.template">
     <body>
-      <trans-unit id="b58bba8d02f50e75b024b61e614c29f2466b5009" datatype="html">
-        <source>Phone number ...</source>
+      <trans-unit id="7bfa7cb14e7bc3a789c85020a5a418e677e85614" datatype="html">
+        <source>Numéro de téléphone ...</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app\modules\app-components\payment-mode\payment-mode.component.ts</context>
           <context context-type="linenumber">13</context>
@@ -23,17 +23,25 @@
           <context context-type="sourcefile">app\modules\app-components\payment-mode\payment-mode.component.ts</context>
           <context context-type="linenumber">74</context>
         </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\modules\internal\transactions\transfer-send-step1\transfer-send-step1.component.ts</context>
+          <context context-type="linenumber">56</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\modules\internal\transactions\transfer-send-step1\transfer-send-step1.component.ts</context>
+          <context context-type="linenumber">151</context>
+        </context-group>
         <note priority="1" from="description">ok</note>
       </trans-unit>
-      <trans-unit id="d3d9ae0cd3c4ab9f90f59bd2efa1e1a9fda35dc0" datatype="html">
-        <source>Payment type:</source>
+      <trans-unit id="687ddca2be9ab2dc199a5550813da26a6aaf086a" datatype="html">
+        <source>Type de paiement:</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app\modules\app-components\payment-mode\payment-mode.component.ts</context>
           <context context-type="linenumber">32</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="73c487a26a0a7d606737c442e8e30a5e62d0c422" datatype="html">
-        <source>species</source>
+      <trans-unit id="d7fe404387e35be6456d7d723b26f177fd20150d" datatype="html">
+        <source>espèces</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app\modules\app-components\payment-mode\payment-mode.component.ts</context>
           <context context-type="linenumber">35</context>
@@ -46,8 +54,8 @@
           <context context-type="linenumber">39</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="26835785975d15d2585d1a29c546305bfe272c29" datatype="html">
-        <source>Amount to be paid</source>
+      <trans-unit id="cd2df75d8b0ed413ddba01a23701ccf5b89d474a" datatype="html">
+        <source>Montant à payer</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app\modules\app-components\payment-mode\payment-mode.component.ts</context>
           <context context-type="linenumber">43</context>
@@ -55,6 +63,14 @@
         <context-group purpose="location">
           <context context-type="sourcefile">app\modules\app-components\payment-mode\payment-mode.component.ts</context>
           <context context-type="linenumber">69</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\modules\internal\transactions\transfer-send-step1\transfer-send-step1.component.ts</context>
+          <context context-type="linenumber">145</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\modules\internal\transactions\transfer-send-step1\transfer-send-step1.component.ts</context>
+          <context context-type="linenumber">147</context>
         </context-group>
         <note priority="1" from="description">amount to be paid</note>
       </trans-unit>
@@ -64,98 +80,168 @@
           <context context-type="sourcefile">app\modules\app-components\payment-mode\payment-mode.component.ts</context>
           <context context-type="linenumber">63</context>
         </context-group>
-      </trans-unit>
-      <trans-unit id="559129457192927874af13ad4ff9f00222561ac6" datatype="html">
-        <source>
-    Payment bill water
-  </source>
         <context-group purpose="location">
-          <context context-type="sourcefile">app\modules\internal\transactions\water-bill\water-bill.component.ts</context>
+          <context context-type="sourcefile">app\modules\internal\transactions\transfer-send-step1\transfer-send-step1.component.ts</context>
+          <context context-type="linenumber">137</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\modules\internal\transactions\transfer-send-step1\transfer-send-step1.component.ts</context>
+          <context context-type="linenumber">139</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5ff0f41b766a03c2b2e02de133f9cc451c0ae6e8" datatype="html">
+        <source>Paiement facture d&apos;eau</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\modules\internal\transactions\bill-water\bill-water.component.ts</context>
           <context context-type="linenumber">3</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="b4419345222d513c370e79b3964ada4afb814b46" datatype="html">
-        <source>I am in the country:</source>
+      <trans-unit id="9c14234c50060f4dbd591475f1234d7de4a7ac6d" datatype="html">
+        <source>Je suis dans le pays:</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">app\modules\internal\transactions\water-bill\water-bill.component.ts</context>
-          <context context-type="linenumber">24</context>
+          <context context-type="sourcefile">app\modules\internal\transactions\bill-water\bill-water.component.ts</context>
+          <context context-type="linenumber">22</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="7592cb8a09e0fdfd5c9c00628b5ef4af1eedcd32" datatype="html">
-        <source>Start typing ...</source>
+      <trans-unit id="09f8f9e40e3df6da7e47582ee336c8e80508543e" datatype="html">
+        <source>Commencer à écrire ...</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">app\modules\internal\transactions\water-bill\water-bill.component.ts</context>
-          <context context-type="linenumber">31</context>
+          <context context-type="sourcefile">app\modules\internal\transactions\bill-water\bill-water.component.ts</context>
+          <context context-type="linenumber">28</context>
         </context-group>
         <note priority="1" from="description">common typeahead placeholder</note>
       </trans-unit>
-      <trans-unit id="4931a5c6dfc3be907e8ab256647c2ffcf4e93e44" datatype="html">
-        <source>Country of the bill to settle:</source>
+      <trans-unit id="3d1be8ca94d028deefa7673c3bb417d0d4f5dff9" datatype="html">
+        <source>Pays de la facture à régler:</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">app\modules\internal\transactions\water-bill\water-bill.component.ts</context>
-          <context context-type="linenumber">37</context>
+          <context context-type="sourcefile">app\modules\internal\transactions\bill-water\bill-water.component.ts</context>
+          <context context-type="linenumber">35</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="e666af79d2f2f37eba1df782ab26674b73fa7d1a" datatype="html">
-        <source>Select a company</source>
+      <trans-unit id="6f440bd7abb7fea4f003e73e7766a53de10dba7a" datatype="html">
+        <source>Sélectionnez une entreprise</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">app\modules\internal\transactions\water-bill\water-bill.component.ts</context>
-          <context context-type="linenumber">49</context>
+          <context context-type="sourcefile">app\modules\internal\transactions\bill-water\bill-water.component.ts</context>
+          <context context-type="linenumber">47</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="9bbd6b6f923260d088774c26c6510f91ceb2eb71" datatype="html">
-        <source>Fill in the request fields</source>
+      <trans-unit id="1cd49e2815c28a883ddd648fc38c32b34c71a5f7" datatype="html">
+        <source>Remplissez les champs de requête</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">app\modules\internal\transactions\water-bill\water-bill.component.ts</context>
-          <context context-type="linenumber">66</context>
+          <context context-type="sourcefile">app\modules\internal\transactions\bill-water\bill-water.component.ts</context>
+          <context context-type="linenumber">65</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="7529307ff5a8475ecd0755abb1b8a91ae24c1d52" datatype="html">
-        <source>Reference</source>
+      <trans-unit id="cf078741fb47a7bd94c62109caab08abbe43ce2e" datatype="html">
+        <source>Référence</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">app\modules\internal\transactions\water-bill\water-bill.component.ts</context>
-          <context context-type="linenumber">69</context>
+          <context context-type="sourcefile">app\modules\internal\transactions\bill-water\bill-water.component.ts</context>
+          <context context-type="linenumber">68</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="dfc2fb58e2a04ed944a4bd80f0a2087775134068" datatype="html">
-        <source>Amount</source>
+      <trans-unit id="9bf76ef012909b8620e807d014554d3bb97c4824" datatype="html">
+        <source>Montant</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">app\modules\internal\transactions\water-bill\water-bill.component.ts</context>
-          <context context-type="linenumber">73</context>
+          <context context-type="sourcefile">app\modules\internal\transactions\bill-water\bill-water.component.ts</context>
+          <context context-type="linenumber">72</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="cff1428d10d59d14e45edec3c735a27b5482db59" datatype="html">
-        <source>Name</source>
+      <trans-unit id="01afa66a69c6cf5671972200a4e4e2720815b344" datatype="html">
+        <source>Nom</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">app\modules\internal\transactions\water-bill\water-bill.component.ts</context>
-          <context context-type="linenumber">80</context>
+          <context context-type="sourcefile">app\modules\internal\transactions\bill-water\bill-water.component.ts</context>
+          <context context-type="linenumber">79</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\modules\internal\transactions\transfer-send-step1\transfer-send-step1.component.ts</context>
+          <context context-type="linenumber">67</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\modules\internal\transactions\transfer-send-step2\transfer-send-step2.component.ts</context>
+          <context context-type="linenumber">27</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="fa8ca7777e778809b2265a1c5189badcef2a8434" datatype="html">
-        <source>Cellular</source>
+      <trans-unit id="ce4edcaccdb7fc26fb4af39d9cee10d8b590f625" datatype="html">
+        <source>Cellulaire</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">app\modules\internal\transactions\water-bill\water-bill.component.ts</context>
-          <context context-type="linenumber">84</context>
+          <context context-type="sourcefile">app\modules\internal\transactions\bill-water\bill-water.component.ts</context>
+          <context context-type="linenumber">83</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="729754dd19eb9ce0670b0aeb5a6ae60574c2c563" datatype="html">
-        <source>Address</source>
+      <trans-unit id="71134e1f8e386768460814d4d54b826ea9e1790a" datatype="html">
+        <source>Adresse</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">app\modules\internal\transactions\water-bill\water-bill.component.ts</context>
-          <context context-type="linenumber">88</context>
+          <context context-type="sourcefile">app\modules\internal\transactions\bill-water\bill-water.component.ts</context>
+          <context context-type="linenumber">87</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="f618cebebc08b6a12af1f9034bddf157ac3ef5e4" datatype="html">
-        <source>Payment method</source>
+      <trans-unit id="4ccbf73547c0deabf465f2246c5ad59ce64e058c" datatype="html">
+        <source>Mode de paiement</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">app\modules\internal\transactions\water-bill\water-bill.component.ts</context>
-          <context context-type="linenumber">93</context>
+          <context context-type="sourcefile">app\modules\internal\transactions\bill-water\bill-water.component.ts</context>
+          <context context-type="linenumber">92</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="a8233de047500bf0f0d9f9f1712ddb071501a283" datatype="html">
+        <source>Summary</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\modules\internal\transactions\bill-water\bill-water.component.ts</context>
+          <context context-type="linenumber">118</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="68d2cd40050006885598d83f88967f32f4a8e153" datatype="html">
+        <source>Country of payment:</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\modules\internal\transactions\bill-water\bill-water.component.ts</context>
+          <context context-type="linenumber">121</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8ad91bff34468f240a8d999d163fb54e526b14f4" datatype="html">
+        <source>Country of the invoice</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\modules\internal\transactions\bill-water\bill-water.component.ts</context>
+          <context context-type="linenumber">125</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6ef0619a37140118b9e640c6cc36ee4e9fb4372a" datatype="html">
+        <source>Company</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\modules\internal\transactions\bill-water\bill-water.component.ts</context>
+          <context context-type="linenumber">129</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="e47fcbca50587d85d4f062ca7a3255003a880a5f" datatype="html">
+        <source>Invoice amount</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\modules\internal\transactions\bill-water\bill-water.component.ts</context>
+          <context context-type="linenumber">133</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1776f384777d1fb4b3e163c19479c8fff0c1199e" datatype="html">
+        <source>transaction fees</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\modules\internal\transactions\bill-water\bill-water.component.ts</context>
+          <context context-type="linenumber">137</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3d8f9e3f03daecd2f1019ca7fba6eeab04e358b2" datatype="html">
+        <source>amount to be paid</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\modules\internal\transactions\bill-water\bill-water.component.ts</context>
+          <context context-type="linenumber">141</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="d162870772da441c06fb6f2f2c4513afc7b05609" datatype="html">
+        <source>VALIDER L&apos;OPERATION</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\modules\internal\transactions\bill-water\bill-water.component.ts</context>
+          <context context-type="linenumber">161</context>
         </context-group>
       </trans-unit>
       <trans-unit id="appTitleId" datatype="html">
         <source>Everybody wins!</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">app\modules\internal\transactions\transactions.component.ts</context>
+          <context context-type="sourcefile">app\modules\internal\transactions\main.component.ts</context>
           <context context-type="linenumber">10</context>
         </context-group>
         <note priority="1" from="description">Title on head of dashboard</note>
@@ -164,7 +250,7 @@
       <trans-unit id="9c0bb87fe09b1f49ab260e1ea90a07499c380c4c" datatype="html">
         <source>Hello</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">app\modules\internal\transactions\transactions.component.ts</context>
+          <context context-type="sourcefile">app\modules\internal\transactions\main.component.ts</context>
           <context context-type="linenumber">43</context>
         </context-group>
         <note priority="1" from="description">User greeting on dashboard</note>
@@ -173,8 +259,8 @@
       <trans-unit id="f8044c18a96ed5c84bbc4ae06acbbde311c9df28" datatype="html">
         <source>Exit</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">app\modules\internal\transactions\transactions.component.ts</context>
-          <context context-type="linenumber">55</context>
+          <context context-type="sourcefile">app\modules\internal\transactions\main.component.ts</context>
+          <context context-type="linenumber">56</context>
         </context-group>
         <note priority="1" from="description">Logout from app</note>
         <note priority="1" from="meaning">exit</note>
@@ -182,8 +268,8 @@
       <trans-unit id="7276e76d720eef9217e971ba37abcb341738ebba" datatype="html">
         <source>Phone credit</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">app\modules\internal\transactions\transactions.component.ts</context>
-          <context context-type="linenumber">70</context>
+          <context context-type="sourcefile">app\modules\internal\transactions\main.component.ts</context>
+          <context context-type="linenumber">73</context>
         </context-group>
         <note priority="1" from="description">Side nav panel description</note>
         <note priority="1" from="meaning">phone credit</note>
@@ -191,8 +277,8 @@
       <trans-unit id="2736a9844f96ab11ea24ee010c48389803787a9b" datatype="html">
         <source>Transfer</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">app\modules\internal\transactions\transactions.component.ts</context>
-          <context context-type="linenumber">76</context>
+          <context context-type="sourcefile">app\modules\internal\transactions\main.component.ts</context>
+          <context context-type="linenumber">80</context>
         </context-group>
         <note priority="1" from="description">Side nav panel description</note>
         <note priority="1" from="meaning">transfer</note>
@@ -200,8 +286,8 @@
       <trans-unit id="588ca710ccc482aeb0822b41912b2b718f6e41ea" datatype="html">
         <source>Bill</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">app\modules\internal\transactions\transactions.component.ts</context>
-          <context context-type="linenumber">85</context>
+          <context context-type="sourcefile">app\modules\internal\transactions\main.component.ts</context>
+          <context context-type="linenumber">90</context>
         </context-group>
         <note priority="1" from="description">Side nav panel description</note>
         <note priority="1" from="meaning">bill</note>
@@ -209,8 +295,8 @@
       <trans-unit id="9fda2f980ff0965003301385bcb15252e0bb6409" datatype="html">
         <source>My Wari</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">app\modules\internal\transactions\transactions.component.ts</context>
-          <context context-type="linenumber">91</context>
+          <context context-type="sourcefile">app\modules\internal\transactions\main.component.ts</context>
+          <context context-type="linenumber">98</context>
         </context-group>
         <note priority="1" from="description">Side nav panel description</note>
         <note priority="1" from="meaning">my wari</note>
@@ -218,8 +304,8 @@
       <trans-unit id="78ab18f92c7739e5d622465226a212e1ac7d0fdd" datatype="html">
         <source>Insurance</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">app\modules\internal\transactions\transactions.component.ts</context>
-          <context context-type="linenumber">100</context>
+          <context context-type="sourcefile">app\modules\internal\transactions\main.component.ts</context>
+          <context context-type="linenumber">109</context>
         </context-group>
         <note priority="1" from="description">Side nav panel description</note>
         <note priority="1" from="meaning">insurance</note>
@@ -227,11 +313,385 @@
       <trans-unit id="c19f1b4112a72c1c55cdddb22f1d372b1cb0da27" datatype="html">
         <source>Counter</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">app\modules\internal\transactions\transactions.component.ts</context>
-          <context context-type="linenumber">106</context>
+          <context context-type="sourcefile">app\modules\internal\transactions\main.component.ts</context>
+          <context context-type="linenumber">117</context>
         </context-group>
         <note priority="1" from="description">Side nav panel description</note>
         <note priority="1" from="meaning">counter</note>
+      </trans-unit>
+      <trans-unit id="39358d0ab861b487689b42059b301006d913f4cc" datatype="html">
+        <source>Send</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\modules\internal\transactions\main.component.ts</context>
+          <context context-type="linenumber">128</context>
+        </context-group>
+        <note priority="1" from="description">Side nav panel description</note>
+        <note priority="1" from="meaning">transfer send</note>
+      </trans-unit>
+      <trans-unit id="b82f31cff2d9e5e700757b5d6bdf0d99eafd2805" datatype="html">
+        <source>Withdrawal</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\modules\internal\transactions\main.component.ts</context>
+          <context context-type="linenumber">136</context>
+        </context-group>
+        <note priority="1" from="description">Side nav panel description</note>
+        <note priority="1" from="meaning">transfer withdrawal</note>
+      </trans-unit>
+      <trans-unit id="d1cb7581e383e3c8e0c2d7d69cd1d9b739c5ff56" datatype="html">
+        <source>Refund</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\modules\internal\transactions\main.component.ts</context>
+          <context context-type="linenumber">144</context>
+        </context-group>
+        <note priority="1" from="description">Side nav panel description</note>
+        <note priority="1" from="meaning">transfer refund</note>
+      </trans-unit>
+      <trans-unit id="6f59bcfe6f2992aeff2426aa04a14dc64cdff19e" datatype="html">
+        <source>Water bill</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\modules\internal\transactions\main.component.ts</context>
+          <context context-type="linenumber">155</context>
+        </context-group>
+        <note priority="1" from="description">Side nav panel description</note>
+        <note priority="1" from="meaning">bill water</note>
+      </trans-unit>
+      <trans-unit id="25647b8fa44566d2186165239eb56b622a4e3299" datatype="html">
+        <source>Electricity bill
+            </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\modules\internal\transactions\main.component.ts</context>
+          <context context-type="linenumber">163</context>
+        </context-group>
+        <note priority="1" from="description">Side nav panel description</note>
+        <note priority="1" from="meaning">bill electricity</note>
+      </trans-unit>
+      <trans-unit id="7fe00a556a742542726e5c3be1df9e17af6a8fc3" datatype="html">
+        <source>TV subscription</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\modules\internal\transactions\main.component.ts</context>
+          <context context-type="linenumber">172</context>
+        </context-group>
+        <note priority="1" from="description">Side nav panel description</note>
+        <note priority="1" from="meaning">bill tv</note>
+      </trans-unit>
+      <trans-unit id="eb7acc5c22636f48e4c13f79b07414de69fb7aa5" datatype="html">
+        <source>Payment bill water</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\modules\internal\transactions\phone-credit\phone-credit.component.ts</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="b4419345222d513c370e79b3964ada4afb814b46" datatype="html">
+        <source>I am in the country:</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\modules\internal\transactions\phone-credit\phone-credit.component.ts</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7592cb8a09e0fdfd5c9c00628b5ef4af1eedcd32" datatype="html">
+        <source>Start typing ...</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\modules\internal\transactions\phone-credit\phone-credit.component.ts</context>
+          <context context-type="linenumber">28</context>
+        </context-group>
+        <note priority="1" from="description">common typeahead placeholder</note>
+      </trans-unit>
+      <trans-unit id="4931a5c6dfc3be907e8ab256647c2ffcf4e93e44" datatype="html">
+        <source>Country of the bill to settle:</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\modules\internal\transactions\phone-credit\phone-credit.component.ts</context>
+          <context context-type="linenumber">34</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="e666af79d2f2f37eba1df782ab26674b73fa7d1a" datatype="html">
+        <source>Select a company</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\modules\internal\transactions\phone-credit\phone-credit.component.ts</context>
+          <context context-type="linenumber">45</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="9bbd6b6f923260d088774c26c6510f91ceb2eb71" datatype="html">
+        <source>Fill in the request fields</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\modules\internal\transactions\phone-credit\phone-credit.component.ts</context>
+          <context context-type="linenumber">62</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7529307ff5a8475ecd0755abb1b8a91ae24c1d52" datatype="html">
+        <source>Reference</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\modules\internal\transactions\phone-credit\phone-credit.component.ts</context>
+          <context context-type="linenumber">65</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dfc2fb58e2a04ed944a4bd80f0a2087775134068" datatype="html">
+        <source>Amount</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\modules\internal\transactions\phone-credit\phone-credit.component.ts</context>
+          <context context-type="linenumber">69</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="cff1428d10d59d14e45edec3c735a27b5482db59" datatype="html">
+        <source>Name</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\modules\internal\transactions\phone-credit\phone-credit.component.ts</context>
+          <context context-type="linenumber">76</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="fa8ca7777e778809b2265a1c5189badcef2a8434" datatype="html">
+        <source>Cellular</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\modules\internal\transactions\phone-credit\phone-credit.component.ts</context>
+          <context context-type="linenumber">80</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="729754dd19eb9ce0670b0aeb5a6ae60574c2c563" datatype="html">
+        <source>Address</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\modules\internal\transactions\phone-credit\phone-credit.component.ts</context>
+          <context context-type="linenumber">84</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="f618cebebc08b6a12af1f9034bddf157ac3ef5e4" datatype="html">
+        <source>Payment method</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\modules\internal\transactions\phone-credit\phone-credit.component.ts</context>
+          <context context-type="linenumber">89</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8b0c6b5b25ca35619cb3479de1cc32d979f360c1" datatype="html">
+        <source>Envoi d&apos;argent</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\modules\internal\transactions\transfer-send\transfer-send.component.ts</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="63ed8b7ced98be6a9989b85ac4a9f6d99aefaf22" datatype="html">
+        <source>Expéditeur</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\modules\internal\transactions\transfer-send-step1\transfer-send-step1.component.ts</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="a8f52dd8ec2e70001d9e055f32b68d15b340cabc" datatype="html">
+        <source>Pays d&apos;envoi</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\modules\internal\transactions\transfer-send-step1\transfer-send-step1.component.ts</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\modules\internal\transactions\transfer-send-step2\transfer-send-step2.component.ts</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="299b3855ba8b35282d0a466f64647c2e216f6f13" datatype="html">
+        <source>sélectionnez le pays d&apos;envoi ...</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\modules\internal\transactions\transfer-send-step1\transfer-send-step1.component.ts</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1d538ebc4cff4508061e36aab234d3813a0c8fc0" datatype="html">
+        <source>Transfert motif</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\modules\internal\transactions\transfer-send-step1\transfer-send-step1.component.ts</context>
+          <context context-type="linenumber">28</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="fc999fd1622a6bdc6e83e12d9f63cac1d00278a1" datatype="html">
+        <source>sélectionnez transfert motif...</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\modules\internal\transactions\transfer-send-step1\transfer-send-step1.component.ts</context>
+          <context context-type="linenumber">31</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="0591f6316235190c2fc5eda9a44bd570f3641612" datatype="html">
+        <source>Montant à envoyer</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\modules\internal\transactions\transfer-send-step1\transfer-send-step1.component.ts</context>
+          <context context-type="linenumber">38</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\modules\internal\transactions\transfer-send-step1\transfer-send-step1.component.ts</context>
+          <context context-type="linenumber">43</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="560761fd130ed174e3beda00158ae17533fadb4c" datatype="html">
+        <source>Vous avez un compte Wari?</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\modules\internal\transactions\transfer-send-step1\transfer-send-step1.component.ts</context>
+          <context context-type="linenumber">49</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\modules\internal\transactions\transfer-send-step2\transfer-send-step2.component.ts</context>
+          <context context-type="linenumber">61</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="d0705d07e27d83e714a9dd2ad4ab5784560792a5" datatype="html">
+        <source>№ compte / portable</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\modules\internal\transactions\transfer-send-step1\transfer-send-step1.component.ts</context>
+          <context context-type="linenumber">53</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\modules\internal\transactions\transfer-send-step2\transfer-send-step2.component.ts</context>
+          <context context-type="linenumber">67</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="be2bc63e2cd1274d4e43b10423d6b8f6cd829584" datatype="html">
+        <source>Prénom</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\modules\internal\transactions\transfer-send-step1\transfer-send-step1.component.ts</context>
+          <context context-type="linenumber">71</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\modules\internal\transactions\transfer-send-step2\transfer-send-step2.component.ts</context>
+          <context context-type="linenumber">31</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="c34e20a0eb6652aedd651c9cfe3fc0c26b6fdc6c" datatype="html">
+        <source>Téléphone</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\modules\internal\transactions\transfer-send-step1\transfer-send-step1.component.ts</context>
+          <context context-type="linenumber">79</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\modules\internal\transactions\transfer-send-step2\transfer-send-step2.component.ts</context>
+          <context context-type="linenumber">42</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="cd6debff1ecb1783da71a1917e1e3820f149a667" datatype="html">
+        <source>Pièce d&apos;identification ...</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\modules\internal\transactions\transfer-send-step1\transfer-send-step1.component.ts</context>
+          <context context-type="linenumber">87</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="b2003ae3f7ea9df2175e0077d4143d357d4e8cac" datatype="html">
+        <source>№ d&apos;identité</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\modules\internal\transactions\transfer-send-step1\transfer-send-step1.component.ts</context>
+          <context context-type="linenumber">92</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="0d9107bbfe79cb182149a73102a8b6c21f3d5603" datatype="html">
+        <source>pays d&apos;identité ...</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\modules\internal\transactions\transfer-send-step1\transfer-send-step1.component.ts</context>
+          <context context-type="linenumber">100</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="02652e84381118f18156c8e842a183cfa77b7d38" datatype="html">
+        <source>Délivrance</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\modules\internal\transactions\transfer-send-step1\transfer-send-step1.component.ts</context>
+          <context context-type="linenumber">106</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="fd648447fc678f15aa0ce1661eeb3bdd0bebfa5c" datatype="html">
+        <source>Validité</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\modules\internal\transactions\transfer-send-step1\transfer-send-step1.component.ts</context>
+          <context context-type="linenumber">116</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3c4fd42a6d8915a0dcc2f3569226cef261d80570" datatype="html">
+        <source>Bénéficiaire</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\modules\internal\transactions\transfer-send-step2\transfer-send-step2.component.ts</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6fb5def22155bb8517c1b9b65f7417bb73f0d1aa" datatype="html">
+        <source>Pays de réception</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\modules\internal\transactions\transfer-send-step2\transfer-send-step2.component.ts</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3caea3e0f168aa03cc2fd13b636abcac0e280731" datatype="html">
+        <source>ind.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\modules\internal\transactions\transfer-send-step2\transfer-send-step2.component.ts</context>
+          <context context-type="linenumber">39</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="f617e417f63958c2e6dbded68966a7978fa0f894" datatype="html">
+        <source>Sur un compte externe</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\modules\internal\transactions\transfer-send-step2\transfer-send-step2.component.ts</context>
+          <context context-type="linenumber">62</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="306cb1e18241c9b0a4e120228afa67ca1877909b" datatype="html">
+        <source>IBAN</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\modules\internal\transactions\transfer-send-step2\transfer-send-step2.component.ts</context>
+          <context context-type="linenumber">71</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="9dd8aaed73d436f6ac471e22805660bbf08c1d35" datatype="html">
+        <source>SWIFT</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\modules\internal\transactions\transfer-send-step2\transfer-send-step2.component.ts</context>
+          <context context-type="linenumber">79</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4a157c08dbf23a880300660898813f7461d945a2" datatype="html">
+        <source>Partenaire ...</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\modules\internal\transactions\transfer-send-step2\transfer-send-step2.component.ts</context>
+          <context context-type="linenumber">96</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="cfde34620cc15fd9fac6ec0401b95ec02b3454c9" datatype="html">
+        <source>Nom du partenaire ...</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\modules\internal\transactions\transfer-send-step2\transfer-send-step2.component.ts</context>
+          <context context-type="linenumber">102</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="560152a94cf11cc4b784a0919c86eb4c435b78cc" datatype="html">
+        <source>Portable</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\modules\internal\transactions\transfer-send-step2\transfer-send-step2.component.ts</context>
+          <context context-type="linenumber">110</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5388c191d8299452f25f28d898c5f7aa6549efb9" datatype="html">
+        <source>Récapitulatif</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\modules\internal\transactions\transfer-send-step3\transfer-send-step3.component.ts</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7f85b09dff7332df8f4963d3e9e76aa8902d7e02" datatype="html">
+        <source>Valider la transaction</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\modules\internal\transactions\transfer-send-step3\transfer-send-step3.component.ts</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="e5897b675fbcdcc05564fac02e3beb85e99e6d21" datatype="html">
+        <source>Terminé</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\modules\internal\transactions\transfer-send-step4\transfer-send-step4.component.ts</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="e5126fc98be60d6183978cc98f1f9bb72096b335" datatype="html">
+        <source>AUTRE TRANSFERT</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\modules\internal\transactions\transfer-send-step4\transfer-send-step4.component.ts</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="b537491c0a7dbbbf710235ec04f79efbc7508c54" datatype="html">
+        <source>RETOUR ACCUEIL</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\modules\internal\transactions\transfer-send-step4\transfer-send-step4.component.ts</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
       </trans-unit>
     </body>
   </file>

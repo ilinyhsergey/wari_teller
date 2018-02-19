@@ -1,4 +1,4 @@
-import * as models from '../api/generated/model/models';
+import * as models from '../api/generated';
 
 export interface ActorSession {
   id: number; // sessionId
